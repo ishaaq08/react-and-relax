@@ -6,19 +6,19 @@ const logRoutes = require("./middleware/logger")
 
 const userRouter = require("./routers/users")
 
-const api = express()
+const app = express()
 
-api.use(cors())
-api.use(express.json())
-api.use(logRoutes)
+app.use(cors())
+app.use(express.json())
+app.use(logRoutes)
 
-api.get("/", (req, res) => {
+app.get("/", (req, res) => {
 	res.json({
 		name: "React and relax API",
 		description: "RAR to the world! and back",
 	})
 })
 
-api.use("/users", userRouter)
+app.use("/users", userRouter)
 
-module.exports = api
+module.exports = app
