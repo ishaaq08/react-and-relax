@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon -L index.js",
     "start": "node index.js",
-    "setup-db": "node ./database/setup.js"
+    "setup-db": "node ./database/setup.js",
+    "test": ""
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
