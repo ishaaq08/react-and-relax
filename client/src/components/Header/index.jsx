@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { NavLink, Outlet } from 'react-router-dom';
-import { Hamburger, Logo } from '../Icons';
+import { Hamburger, Logo } from '../../assets/Icons';
 import { useState } from 'react';
 
 const index = () => {
@@ -39,7 +39,7 @@ const index = () => {
       },
     },
     open: {
-      y: 0,
+      y: '0vh',
       transition: {
         ease: [0, 0.55, 0.45, 1],
         duration: 0.7,
@@ -50,104 +50,127 @@ const index = () => {
   const containerVariants = {
     initial: {
       transition: {
-        staggerChildren: '0.9s',
+        staggerChildren: 0.9,
         staggerDirection: -1,
       },
     },
     open: {
       transition: {
-        delayChildren: '0.3s',
-        staggerChildren: '0.09s',
+        delayChildren: 0.3,
+        staggerChildren: 0.09,
         staggerDirection: 1,
       },
     },
   };
 
   return (
-    <header className="bg-black text-white p-8">
-      <nav className="flex items-center justify-between flex-row">
-        <div onClick={toggleMenu} className="cursor-pointer">
-          <Hamburger />
-        </div>
-        <div className="flex w-1/5 justify-around">
-          <h1>React + Relax</h1>
-          <Logo />
-        </div>
-      </nav>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            variants={menuVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className="fixed left-0 top-0 h-screen w-full bg-slate-500 origin-top text-black p-10"
-          >
-            <div className="flex h-full flex-col">
-              <div className="flex justify-between">
-                <h2 className="text-lg text-black">React + Relax</h2>
-                <p
-                  className="
+    <>
+      <header className="bg-black text-white p-8">
+        <nav className="flex items-center justify-between flex-row">
+          <div onClick={toggleMenu} className="cursor-pointer">
+            <Hamburger />
+          </div>
+          <div className="flex w-1/5 justify-around">
+            <h1>React + Relax</h1>
+            <Logo />
+          </div>
+        </nav>
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              variants={menuVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="fixed left-0 top-0 h-screen w-full bg-slate-500 origin-top text-black p-10"
+            >
+              <div className="flex h-full flex-col">
+                <div className="flex justify-between">
+                  <h2 className="text-lg text-black">React + Relax</h2>
+                  <p
+                    className="
             cursor-pointer text-md text-black"
-                  onClick={toggleMenu}
-                >
-                  Close
-                </p>
-              </div>
+                    onClick={toggleMenu}
+                  >
+                    Close
+                  </p>
+                </div>
 
-              <motion.div
-                variants={containerVariants}
-                initial="initial"
-                animate="open"
-                exit="initial"
-                className="flex flex-col h-full justify-center font-serif items-center gap-4 bg-slate-500 text-5xl uppercase text-black"
-              >
-                <div className="overflow-hidden">
-                  <motion.div
-                    variants={navVariants}
-                    initial="initial"
-                    animate="open"
-                    exit="initial"
-                  >
-                    <NavLink to="/">Home</NavLink>
-                  </motion.div>
-                </div>
-                <div className="overflow-hidden">
-                  <motion.div
-                    variants={navVariants}
-                    initial="initial"
-                    animate="open"
-                    exit="initial"
-                  >
-                    <NavLink to="/games">Games</NavLink>
-                  </motion.div>
-                </div>
-                <div className="overflow-hidden">
-                  <motion.div
-                    variants={navVariants}
-                    initial="initial"
-                    animate="open"
-                    exit="initial"
-                  >
-                    <NavLink to="/login">Login</NavLink>
-                  </motion.div>
-                </div>
-                <div className="overflow-hidden">
-                  <motion.div
-                    variants={navVariants}
-                    initial="initial"
-                    animate="open"
-                    exit="initial"
-                  >
-                    <NavLink to="/signup">Signup</NavLink>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+                <motion.div
+                  variants={containerVariants}
+                  initial="initial"
+                  animate="open"
+                  exit="initial"
+                  className="flex flex-col h-full justify-center font-serif items-center gap-4 bg-slate-500 text-5xl uppercase text-black"
+                >
+                  <div className="overflow-hidden">
+                    <motion.div
+                      variants={navVariants}
+                      initial="initial"
+                      animate="open"
+                      exit="initial"
+                    >
+                      <NavLink
+                        className="hover:text-white hover:scale-110 cursor-pointer transition-all"
+                        to="/"
+                      >
+                        Home
+                      </NavLink>
+                    </motion.div>
+                  </div>
+                  <div className="overflow-hidden">
+                    <motion.div
+                      variants={navVariants}
+                      initial="initial"
+                      animate="open"
+                      exit="initial"
+                    >
+                      <NavLink
+                        className="hover:text-white hover:scale-110 cursor-pointer transition-all"
+                        to="/games"
+                      >
+                        Games
+                      </NavLink>
+                    </motion.div>
+                  </div>
+                  <div className="overflow-hidden">
+                    <motion.div
+                      variants={navVariants}
+                      initial="initial"
+                      animate="open"
+                      exit="initial"
+                    >
+                      <NavLink
+                        className="hover:text-white hover:scale-110 cursor-pointer transition-all"
+                        to="/login"
+                      >
+                        Login
+                      </NavLink>
+                    </motion.div>
+                  </div>
+                  <div className="overflow-hidden">
+                    <motion.div
+                      variants={navVariants}
+                      initial="initial"
+                      animate="open"
+                      exit="initial"
+                    >
+                      <NavLink
+                        className="hover:text-white hover:scale-110 cursor-pointer transition-all"
+                        to="/signup"
+                      >
+                        Signup
+                      </NavLink>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+      <Outlet />
+    </>
   );
 };
 export default index;

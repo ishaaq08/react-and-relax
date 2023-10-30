@@ -1,4 +1,10 @@
+import { HomePageBody } from '../../components';
+
 const index = () => {
-  return <div>home page</div>;
+  return (
+    <>
+      <HomePageBody />
+    </>
+  );
 };
 export default index;
