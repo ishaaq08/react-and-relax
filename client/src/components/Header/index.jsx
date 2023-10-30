@@ -1,6 +1,14 @@
+import { NavLink, Outlet } from 'react-router-dom';
+
 const index = () => {
   return (
-    <div>index</div>
-  )
-}
-export default index
+    <>
+      <nav>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/games">Home</NavLink>
+      </nav>
+      <Outlet />
+    </>
+  );
+};
+export default index;
