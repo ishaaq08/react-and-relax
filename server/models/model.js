@@ -1,1 +1,9 @@
-// Made this file just to push to github. Doesn't push empty folders
+const { Pool } = require("pg");
+
+const db = new Pool({
+    connectionString: process.env.DB_URL
+})
+
+console.log("DB connection established.")
+
+module.exports = db;
