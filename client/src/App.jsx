@@ -12,11 +12,12 @@ import {
 } from './pages';
 import { DataProvider } from './contexts';
 import "./App.css"
+import './App.css';
 
 const App = () => {
   return (
     <>
-    <DataProvider>
+      <DataProvider>
         <Routes>
           <Route path="/" element={<Header />}>
             <Route index element={<HomePage />} />
@@ -34,10 +35,8 @@ const App = () => {
             </Route>
           </Route>
         </Routes>
-    </DataProvider>
+      </DataProvider>
     </>
   );
 };
 export default App;
-
-
