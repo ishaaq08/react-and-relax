@@ -1,14 +1,19 @@
-// Database setup
-const fs = require("fs")
-require("dotenv").config()
+// setup.js
+const fs = require("fs/promises"); 
+require("dotenv").config();
 
-const db = require("./connect")
+const db = require("./connect");
 
-const sql = fs.readFileSync("./database/setup.sql").toString()
+const setupDatabase = async () => {
+  try {
+    const sqlFilePath = process.env.DB_URL;
+    const sql = await fs.readFile(sqlFilePath, "utf8"); 
+    await db.query(sql);
+    db.end();
+    console.log("Set-up complete.");
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-db.query(sql)
-	.then((data) => {
-		db.end()
-		console.log("Set-up complete.")
-	})
-	.catch((error) => console.log(error))
+module.exports = setupDatabase;

@@ -26,4 +26,4 @@ api.use("/fill_in_blanks", fill_In_Blanks_Router)
 api.use("/users", userRouter)
 api.use("/html", html_Router)
 
-module.exports = app
+module.exports = api;
