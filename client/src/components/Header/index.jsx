@@ -65,7 +65,7 @@ const index = () => {
 
   return (
     <>
-      <header className="bg-black text-white p-8">
+      <header className="bg-[#00B4D8] text-white p-8">
         <nav className="flex items-center justify-between flex-row">
           <div onClick={toggleMenu} className="cursor-pointer">
             <Hamburger />
@@ -82,7 +82,7 @@ const index = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="fixed z-20 left-0 top-0 h-screen w-full bg-slate-500 origin-top text-black p-10"
+              className="fixed z-20 left-0 top-0 h-screen w-full bg-[#00B4D8] origin-top text-black p-10"
             >
               <div className="flex h-full flex-col">
                 <div className="flex justify-between">
@@ -100,7 +100,7 @@ const index = () => {
                   initial="initial"
                   animate="open"
                   exit="initial"
-                  className="flex flex-col h-full justify-center font-serif items-center gap-4 bg-slate-500 text-5xl uppercase text-black"
+                  className="flex flex-col h-full justify-center font-serif items-center gap-4 bg-[#00B4D8] text-5xl uppercase text-black"
                 >
                   <div className="overflow-hidden">
                     <motion.div variants={navVariants}>

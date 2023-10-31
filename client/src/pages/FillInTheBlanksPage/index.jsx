@@ -1,12 +1,9 @@
-import { Timer } from "../../components"
-import { useEffect, useState } from "react"
-import { useData } from "../../contexts"
+import { Timer } from '../../components';
+import { useEffect } from 'react';
+import { useData } from '../../contexts';
 
 const index = () => {
-
-  const {questions, setQuestions} = useData([])
-  const [currentQ, setCurrentQ] = useState([])
-  const [currentQIndex, setCurrentQIndex] = useState(0)
+  const { questions, setQuestions } = useData([]);
 
   async function loadQuestions(){
     const response = await fetch("https://react-and-relax.onrender.com/fill_in_blanks")

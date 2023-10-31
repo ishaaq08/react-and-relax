@@ -44,7 +44,7 @@ export const Logo = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
+      className="w-6 h-6 mx-auto"
     >
       <path
         strokeLinecap="round"
@@ -62,6 +62,7 @@ export const Facebook = () => {
       x="0px"
       y="0px"
       fill="white"
+      className="mx-auto"
       width="30"
       height="30"
       viewBox="0 0 24 24"
@@ -78,6 +79,7 @@ export const Twitter = () => {
       x="0px"
       y="0px"
       fill="white"
+      className="mx-auto"
       width="30"
       height="30"
       viewBox="0 0 24 24"
@@ -94,6 +96,7 @@ export const Youtube = () => {
       x="0px"
       y="0px"
       fill="white"
+      className="mx-auto"
       width="30"
       height="30"
       viewBox="0 0 24 24"
@@ -110,6 +113,7 @@ export const TikTok = () => {
       x="0px"
       y="0px"
       fill="white"
+      className="mx-auto"
       width="30"
       height="30"
       viewBox="0 0 24 24"

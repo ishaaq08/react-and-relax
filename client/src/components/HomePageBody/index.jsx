@@ -45,7 +45,7 @@ const index = () => {
             </p>
           </Reveal>
           <Reveal>
-            <button className="ml-auto w-full bg-purple-800 py-4 px-4 rounded-lg ">
+            <button className="w-full bg-[#00B4D8] py-4 px-4 rounded-lg ">
               <Link to="/signup">Signup Now</Link>
             </button>
           </Reveal>
