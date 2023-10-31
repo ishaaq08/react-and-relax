@@ -1,4 +1,4 @@
-const Fill_in_blanks = require("../models/fill_In_Blanks")
+const Fill_in_blanks = require("../models/Fill_In_Blanks")
 
 async function getAll(req, res) {
 	try {
