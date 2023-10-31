@@ -1,9 +1,12 @@
-import { Timer } from '../../components';
-import { useEffect } from 'react';
-import { useData } from '../../contexts';
+import { Timer } from "../../components"
+import { useEffect, useState } from "react"
+import { useData } from "../../contexts"
 
 const index = () => {
-  const { questions, setQuestions } = useData([]);
+
+  const {questions, setQuestions} = useData([])
+  const [currentQ, setCurrentQ] = useState([])
+  const [currentQIndex, setCurrentQIndex] = useState(0)
 
   async function loadQuestions(){
     const response = await fetch("https://react-and-relax.onrender.com/fill_in_blanks")
@@ -16,9 +19,14 @@ const index = () => {
     loadQuestions()
   },[])
 
-  function handleCorrectAnswer(){
-    setCurrentQIndex((prevIndex) => prevIndex + 1);
-    setCurrentQ(questions[currentQIndex + 1]);
+  function handleCorrectAnswer(e){
+    e.preventDefault()
+    if(e.target.classList.contains("true")){
+      setCurrentQIndex((prevIndex) => prevIndex + 1);
+      setCurrentQ(questions[currentQIndex + 1]);
+    } else {
+      alert("Incorrect answer")
+    }
   }
 
   return (
@@ -57,13 +65,13 @@ const index = () => {
           <>
             {Array.isArray(currentQ["answers"]) ? (
               currentQ["answers"].map((answer, index) => (
-                <button className="border-2 border-black ml-2 mr-2" key={index} onClick={handleCorrectAnswer}>{answer["answer"]}</button>
+                <button className={`border-2 border-black ml-2 mr-2 ${answer["is_correct"]}`} key={index} onClick={handleCorrectAnswer}>{answer["answer"]}</button>
               ))
             ) : (
               <p>Answers not available</p>
             )}
           </>
-        ) : (
+        ) : ( 
           <p>Loading answers</p>
         )}
     </div>
@@ -76,3 +84,5 @@ const index = () => {
   )
 }
 export default index
+
+// 
