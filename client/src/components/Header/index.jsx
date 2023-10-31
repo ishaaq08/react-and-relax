@@ -1,31 +1,47 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, Link } from 'react-router-dom';
 import { Hamburger, Logo } from '../../assets/Icons';
 import { useState } from 'react';
 
 const index = () => {
   const [open, setOpen] = useState(false);
   const toggleMenu = () => {
-    setOpen((prevState) => !prevState);
+    setOpen(!open);
   };
 
   const menuVariants = {
     initial: {
-      scaleY: 0,
+      opacity: 0,
     },
     animate: {
-      scaleY: 1,
+      opacity: 1,
       transition: {
         duration: 0.3,
         ease: [0.12, 0, 0.39, 0],
       },
     },
     exit: {
-      scaleY: 0,
+      opacity: 0,
       transition: {
         delay: 0.5,
         duration: 0.5,
         ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const containerVariants = {
+    initial: {
+      transition: {
+        staggerChildren: 0.1,
+        staggerDirection: -1,
+      },
+    },
+    open: {
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.1,
+        staggerDirection: 1,
       },
     },
   };
@@ -39,26 +55,10 @@ const index = () => {
       },
     },
     open: {
-      y: '0vh',
+      y: 0,
       transition: {
         ease: [0, 0.55, 0.45, 1],
         duration: 0.7,
-      },
-    },
-  };
-
-  const containerVariants = {
-    initial: {
-      transition: {
-        staggerChildren: 0.9,
-        staggerDirection: -1,
-      },
-    },
-    open: {
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.09,
-        staggerDirection: 1,
       },
     },
   };
@@ -82,14 +82,13 @@ const index = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="fixed left-0 top-0 h-screen w-full bg-slate-500 origin-top text-black p-10"
+              className="fixed z-20 left-0 top-0 h-screen w-full bg-slate-500 origin-top text-black p-10"
             >
               <div className="flex h-full flex-col">
                 <div className="flex justify-between">
                   <h2 className="text-lg text-black">React + Relax</h2>
                   <p
-                    className="
-            cursor-pointer text-md text-black"
+                    className="cursor-pointer text-md text-black"
                     onClick={toggleMenu}
                   >
                     Close
@@ -104,63 +103,47 @@ const index = () => {
                   className="flex flex-col h-full justify-center font-serif items-center gap-4 bg-slate-500 text-5xl uppercase text-black"
                 >
                   <div className="overflow-hidden">
-                    <motion.div
-                      variants={navVariants}
-                      initial="initial"
-                      animate="open"
-                      exit="initial"
-                    >
-                      <NavLink
-                        className="hover:text-white hover:scale-110 cursor-pointer transition-all"
+                    <motion.div variants={navVariants}>
+                      <Link
+                        onClick={toggleMenu}
+                        className=" cursor-pointer"
                         to="/"
                       >
                         Home
-                      </NavLink>
+                      </Link>
                     </motion.div>
                   </div>
                   <div className="overflow-hidden">
-                    <motion.div
-                      variants={navVariants}
-                      initial="initial"
-                      animate="open"
-                      exit="initial"
-                    >
-                      <NavLink
-                        className="hover:text-white hover:scale-110 cursor-pointer transition-all"
+                    <motion.div variants={navVariants}>
+                      <Link
+                        onClick={toggleMenu}
+                        className=" cursor-pointer"
                         to="/games"
                       >
                         Games
-                      </NavLink>
+                      </Link>
                     </motion.div>
                   </div>
                   <div className="overflow-hidden">
-                    <motion.div
-                      variants={navVariants}
-                      initial="initial"
-                      animate="open"
-                      exit="initial"
-                    >
-                      <NavLink
-                        className="hover:text-white hover:scale-110 cursor-pointer transition-all"
+                    <motion.div variants={navVariants}>
+                      <Link
+                        onClick={toggleMenu}
+                        className=" cursor-pointer"
                         to="/login"
                       >
                         Login
-                      </NavLink>
+                      </Link>
                     </motion.div>
                   </div>
                   <div className="overflow-hidden">
-                    <motion.div
-                      variants={navVariants}
-                      initial="initial"
-                      animate="open"
-                      exit="initial"
-                    >
-                      <NavLink
-                        className="hover:text-white hover:scale-110 cursor-pointer transition-all"
+                    <motion.div variants={navVariants}>
+                      <Link
+                        onClick={toggleMenu}
+                        className=" cursor-pointer"
                         to="/signup"
                       >
                         Signup
-                      </NavLink>
+                      </Link>
                     </motion.div>
                   </div>
                 </motion.div>
