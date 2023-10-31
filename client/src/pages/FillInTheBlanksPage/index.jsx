@@ -1,22 +1,25 @@
 import { Timer } from "../../components"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useData } from "../../contexts"
 
 const index = () => {
 
   const {questions, setQuestions} = useData([])
+  const [currentQ, setCurrentQ] = useState([])
+  const [currentQIndex, setCurrentQIndex] = useState(0)
 
   // Fetching the data
   async function loadQuestions(){
     const response = await fetch("https://react-and-relax.onrender.com/fill_in_blanks")
     const data = await response.json()
+    // const filteredData = data.filter(item => item.id === 19);
     setQuestions(data)
   }
 
-  
   // Load questions
   useEffect(() => {
     loadQuestions()
+    setCurrentQ(questions[currentQIndex])
   },[])
 
   // Random number generator
@@ -35,13 +38,27 @@ const index = () => {
       <div className="questions">
       {questions.length !== 0 ? (
     <>
-        <p>Question 1: {questions[0]["question"]}</p>
-        <p>Question 2: {questions[1]["question"]}</p>
-        <p>Question 3: {questions[2]["question"]}</p>
+        <h2>QUESTION</h2>
+        <br></br>
+        {/* <p>{questions[randNum(questions)]["question"]}</p> */}
+        <p>{currentQ["question"]}</p>
     </>
         ) : (
     <p>Loading Data</p>
       )}
+
+    <div className="answers">
+        {questions.length !== 0 && (
+          <>
+            <h2>ANSWERS</h2>
+            <br />
+            {/* Accessed the array I want to map over which is in the 'answers property. 'answer'=object and we want the 'answer' value of that object */}
+            {currentQ["answers"].map((answer, index) => (
+              <button className="border-2 border-black ml-2 mr-2" key={index}>{answer["answer"]}</button>
+            ))}
+          </>
+        )}
+    </div>
       </div>
     </>
   )
