@@ -8,61 +8,74 @@ const index = () => {
   const [currentQ, setCurrentQ] = useState([])
   const [currentQIndex, setCurrentQIndex] = useState(0)
 
-  // Fetching the data
   async function loadQuestions(){
     const response = await fetch("https://react-and-relax.onrender.com/fill_in_blanks")
     const data = await response.json()
-    // const filteredData = data.filter(item => item.id === 19);
-    setQuestions(data)
+    setQuestions(data) // Array
+    setCurrentQ(data[currentQIndex]); // Object
   }
 
-  // Load questions
   useEffect(() => {
     loadQuestions()
-    setCurrentQ(questions[currentQIndex])
   },[])
 
-  // Random number generator
-  function randNum(array){
-    return Math.floor(Math.random()*array.length)
+  function handleCorrectAnswer(){
+    setCurrentQIndex((prevIndex) => prevIndex + 1);
+    setCurrentQ(questions[currentQIndex + 1]);
   }
 
   return (
     <>
-      <h1>Fill in the blanks game</h1><br />
-      <div>
+      <h1>Fill in the blanks game</h1>
+      
+      <br />
+
+      <div className="timer">
         <h2>Countdown Timer: </h2>
         <Timer />
       </div>
+
       <br />
+
       <div className="questions">
-      {questions.length !== 0 ? (
-    <>
         <h2>QUESTION</h2>
-        <br></br>
-        {/* <p>{questions[randNum(questions)]["question"]}</p> */}
-        <p>{currentQ["question"]}</p>
-    </>
-        ) : (
-    <p>Loading Data</p>
-      )}
+            <br></br>
+        {currentQ ? (
+          <>
+            <p>{currentQ["question"]}</p>
+          </>
+          ) : (
+            <>
+              <p>Loading Data</p>
+              <br />
+            </>
+        )}
+      </div>
 
     <div className="answers">
-        {questions.length !== 0 && (
+      <h2>ANSWERS</h2>
+      <br />
+
+        {currentQ ? (
           <>
-            <h2>ANSWERS</h2>
-            <br />
-            {/* Accessed the array I want to map over which is in the 'answers property. 'answer'=object and we want the 'answer' value of that object */}
-            {currentQ["answers"].map((answer, index) => (
-              <button className="border-2 border-black ml-2 mr-2" key={index}>{answer["answer"]}</button>
-            ))}
+            {Array.isArray(currentQ["answers"]) ? (
+              currentQ["answers"].map((answer, index) => (
+                <button className="border-2 border-black ml-2 mr-2" key={index} onClick={handleCorrectAnswer}>{answer["answer"]}</button>
+              ))
+            ) : (
+              <p>Answers not available</p>
+            )}
           </>
+        ) : (
+          <p>Loading answers</p>
         )}
     </div>
-      </div>
+
+    <div className="submit-answers">
+
+    </div>
+    
     </>
   )
 }
 export default index
-
-// A fetch request is being made every second 
