@@ -2,7 +2,6 @@ import React, { useEffect, useState} from 'react'
 import { useData } from '../../contexts'
 
 export default function index() {
-    // 25 minutes is initialised in seconds
     const [time, setTime] = useState(25*60)
 
     useEffect(() => {
