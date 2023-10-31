@@ -67,7 +67,11 @@ const index = () => {
     <>
       <header className="bg-[#00B4D8] text-white p-8">
         <nav className="flex items-center justify-between flex-row">
-          <div onClick={toggleMenu} className="cursor-pointer">
+          <div
+            role="nav-toggle"
+            onClick={toggleMenu}
+            className="cursor-pointer"
+          >
             <Hamburger />
           </div>
           <div className="flex w-1/5 justify-around">
@@ -78,13 +82,14 @@ const index = () => {
         <AnimatePresence>
           {open && (
             <motion.div
+              role="main-nav"
               variants={menuVariants}
               initial="initial"
               animate="animate"
               exit="exit"
               className="fixed z-20 left-0 top-0 h-screen w-full bg-[#00B4D8] origin-top text-black p-10"
             >
-              <div className="flex h-full flex-col">
+              <div className="flex h-full flex-col" role='nav-container'>
                 <div className="flex justify-between">
                   <h2 className="text-lg text-black">React + Relax</h2>
                   <p

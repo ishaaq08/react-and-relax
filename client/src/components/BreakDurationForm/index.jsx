@@ -21,7 +21,7 @@ export default function index() {
             ? `0${breakLength}:00`
             : `${breakLength}:00`}
         </div>
-        <div className="bg-purple-100 flex justify-center items-center text-5xl ">
+        <div className="bg-purple-100 flex justify-center items-center text-5xl">
           <button className="tracking-widest" onClick={handleClickShort}>
             Short Break
           </button>
