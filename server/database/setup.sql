@@ -149,6 +149,137 @@ INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (20, '</body>',
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (20, '<html>', false);
 
 
+-- EASY QUESTIONS:
+
+-- 1.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('In Python, the output function is __________.', 'easy', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (21, 'print', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (21, 'output', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (21, 'echo', false);
+
+-- 2.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('In Python, "True" and "False" are of type __________.', 'easy', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (22, 'bool', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (22, 'string', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (22, 'int', false);
+
+-- 3.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('In Python, to convert a string to integer you use the function __________.', 'easy', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (23, 'int', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (23, 'str2int', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (23, 'to_integer', false);
+
+-- 4.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('Python lists are enclosed in __________.', 'easy', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (24, '[]', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (24, '{}', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (24, '()', false);
+
+-- 5.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('In Python, a single line comment starts with __________.', 'easy', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (25, '#', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (25, '//', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (25, '--', false);
+
+-- MEDIUM QUESTIONS:
+
+-- 1.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('The Python library used for working with arrays and matrices is __________.', 'medium', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (26, 'numpy', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (26, 'arraylib', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (26, 'matrixpy', false);
+
+-- 2.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('The built-in Python function to get all keys from a dictionary is __________.', 'medium', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (27, 'keys()', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (27, 'getkeys()', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (27, 'allkeys()', false);
+
+-- 3.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('Which Python library is specifically designed for data analysis and manipulation? __________.', 'medium', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (28, 'pandas', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (28, 'dataman', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (28, 'pydata', false);
+
+-- 4.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('The method to remove the last item from a list in Python is __________.', 'medium', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (29, 'pop()', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (29, 'remove()', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (29, 'delete()', false);
+
+-- 5.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('In Python, the code "lambda x: x*2" represents a __________.', 'medium', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (30, 'lambda function', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (30, 'list comprehension', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (30, 'generator expression', false);
+
+
+-- EASY QUESTIONS:
+
+-- 6.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('To get the current date and time in Python, we use the __________ module.', 'easy', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (31, 'datetime', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (31, 'date', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (31, 'time', false);
+
+-- 7.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('In Python, a set is an unordered collection with __________.', 'easy', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (32, 'no duplicate elements', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (32, 'ordered elements', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (32, 'indexed elements', false);
+
+-- 8.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('To repeat a string "Hello" 3 times, you would use __________ in Python.', 'easy', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (33, '"Hello" * 3', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (33, 'repeat("Hello", 3)', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (33, '"Hello".repeat(3)', false);
+
+-- 9.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('To get the absolute value of a number in Python, we use the __________ function.', 'easy', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (34, 'abs', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (34, 'absolute', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (34, 'fabs', false);
+
+-- 10.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('In Python, to concatenate strings you use the __________ operator.', 'easy', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (35, '+', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (35, 'concat', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (35, '&', false);
+
+-- MEDIUM QUESTIONS:
+
+-- 6.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('Which function in Python can be used to read input from the user? __________.', 'medium', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (36, 'input()', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (36, 'get()', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (36, 'read()', false);
+
+-- 7.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('Which function allows you to wait a certain number of seconds in a Python script? __________.', 'medium', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (37, 'sleep()', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (37, 'delay()', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (37, 'wait()', false);
+
+-- 8.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('In Python, the "os" module provides a way to use __________.', 'medium', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (38, 'operating system dependent functionality', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (38, 'string operations', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (38, 'math functions', false);
+
+-- 9.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('The "requests" module in Python is used for __________.', 'medium', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (39, 'making HTTP requests', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (39, 'performing database operations', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (39, 'handling XML data', false);
+
+-- 10.
+INSERT INTO fill_in_blanks (question, difficulty, language) VALUES ('Which of these is not a core data type in Python? __________.', 'medium', 'python');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (40, 'Class', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (40, 'List', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (40, 'Tuple', false);
+
+
+
 
 
 
