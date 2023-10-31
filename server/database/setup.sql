@@ -81,3 +81,74 @@ INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (10, 'a', true)
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (10, 'anchor', false);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (10, 'link', false);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (10, 'href', false);
+
+-- Question 11: Form
+INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('The HTML element used to create a form is __________.', 'easy', 'html');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (11, 'form', true);
+
+-- Question 12: Input
+INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('The HTML element used to create a text input field is __________.', 'easy', 'html');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (12, 'input', true);
+
+-- Question 13: Button
+INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('The HTML element used to create a button is __________.', 'easy', 'html');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (13, 'button', true);
+
+-- question 14: document structure
+INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('What is missing? <html> <head> <title>My First Heading</title> </head> <body> <h1>My First Heading</h1> <p>My first paragraph.</p> </body> </html>', 'medium', 'html');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (14, '<!DOCTYPE html>', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (14, '<html>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (14, '<!doctype>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (14, '<!DOCTYPES html>', false);
+
+-- question 15: document structure
+INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('What is missing? <!DOCTYPE html><html> <head> <title>My First Heading</title> </head> <body> <h1>My First Heading</h1> <p>My first paragraph. </body> </html>', 'medium', 'html');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (15, '</p>', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (15, '</head>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (15, '</body>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (15, '<p>', false);
+
+-- question 16: document structure
+INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('What is missing? <!DOCTYPE html>  <head> <title>My First Heading</title> </head> <body> <h1>My First Heading</h1> <p>My first paragraph. </p> </body> </html>', 'medium', 'html');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (16, '</html>', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (16, '</head>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (16, '</body>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (16, '<html>', false);
+
+-- question 17: document structure
+INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('What is missing? <!DOCTYPE html><html> <title>My First Heading</title> </head> <body> <h1>My First Heading</h1> <p>My first paragraph. </p> </body> </html>', 'medium', 'html');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (17, '<head>', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (17, '</head>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (17, '<body>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (17, '</body>', false);
+
+
+-- question 18: document structure
+INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('What is missing? <!DOCTYPE html><html> <head> <title>My First Heading</title> </head>  <h1>My First Heading</h1> <p>My first paragraph. </p> </html>', 'medium', 'html');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (18, '</body>', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (18, '</html>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (18, '<body>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (18, '<html>', false);
+
+
+-- question 19: document structure
+INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('What is missing? <html> <head> My First Heading</title> </head> <body> <h1>My First Heading</h1> <p>My first paragraph. </p> </body> </html>', 'medium', 'html');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<!DOCTYPE html>', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<html/>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<!doctype htm>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<tiltle', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<head>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<title/>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<title>', false);
+
+-- question 20: document structure
+INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('What is missing? <!DOCTYPE html><html> <head> <title>My First Heading</title> </head> <body> <h1>My First Heading</h1> <p>My first paragraph. </p> </body> ', 'medium', 'html');
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (20, '</html>', true);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (20, '</head>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (20, '</body>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (20, '<html>', false);
+
+
+
+
+
