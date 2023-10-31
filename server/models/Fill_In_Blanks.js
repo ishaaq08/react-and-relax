@@ -34,6 +34,25 @@ class Fill_In_Blanks {
 			console.log(err)
 		}
 	}
+
+	static async getAllHtml(difficulty) {
+		try {
+			const { rows } = await db.query(
+				"SELECT * FROM fill_in_blanks where language = 'html' and difficulty = $1 ORDER BY RANDOM()",
+				[difficulty]
+			)
+			console.log(rows)
+			const results = []
+			for (let row of rows) {
+				const instance = new Fill_In_Blanks(row)
+				await instance.getAnswers()
+				results.push(instance)
+			}
+			return results
+		} catch (error) {
+			console.log(error)
+		}
+	}
 }
 
 module.exports = Fill_In_Blanks
