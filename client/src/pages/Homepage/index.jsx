@@ -1,9 +1,10 @@
-import { HomePageBody } from '../../components';
+import { Footer, HomePageBody } from '../../components';
 
 const index = () => {
   return (
     <>
       <HomePageBody />
+      <Footer />
     </>
   );
 };

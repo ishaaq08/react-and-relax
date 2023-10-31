@@ -41,7 +41,7 @@ export const Reveal = ({ children, width = '100%' || 'fit-content' }) => {
           bottom: 4,
           left: 0,
           right: 0,
-          backgroundColor: '#ADE8F4',
+          backgroundColor: '#00B4D8',
           zIndex: 10,
         }}
       ></motion.div>
