@@ -1,8 +1,12 @@
-import React from 'react'
+import { BeginGame, BreakDurationForm, HowToPlay } from '../../components';
 
-export default function index() {
+const index = () => {
   return (
-    <div>How to page 1</div>
-  )
-}
-
+    <>
+      <HowToPlay />
+      <BreakDurationForm />
+      {/* <BeginGame /> */}
+    </>
+  );
+};
+export default index;

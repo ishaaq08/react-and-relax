@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 
 const index = () => {
   return (
-    <div className="bg-[#00B4D8] p-5 w-full text-white">
+    <footer className="bg-[#00B4D8] p-5 w-full h-full text-white">
       <div className="flex justify-between items-center mb-6">
         <div className="text-white font-semibold text-5xl tracking-widest">
           <Reveal>
@@ -45,7 +45,7 @@ const index = () => {
                 <Link to="/">Terms & Conditions</Link>
                 <Reveal></Reveal>
 
-                <Link to="/">Cookie Polciy</Link>
+                <Link to="/">Cookie Policy</Link>
               </Reveal>
             </div>
           </div>
@@ -111,7 +111,7 @@ const index = () => {
           </motion.span>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 export default index;
