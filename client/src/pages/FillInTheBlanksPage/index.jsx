@@ -5,18 +5,20 @@ import { useData } from '../../contexts';
 const index = () => {
   const { questions, setQuestions } = useData([]);
 
-  async function loadQuestions(){
-    const response = await fetch("https://react-and-relax.onrender.com/fill_in_blanks")
-    const data = await response.json()
-    setQuestions(data) // Array
+  async function loadQuestions() {
+    const response = await fetch(
+      'https://react-and-relax.onrender.com/fill_in_blanks'
+    );
+    const data = await response.json();
+    setQuestions(data); // Array
     setCurrentQ(data[currentQIndex]); // Object
   }
 
   useEffect(() => {
-    loadQuestions()
-  },[])
+    loadQuestions();
+  }, []);
 
-  function handleCorrectAnswer(){
+  function handleCorrectAnswer() {
     setCurrentQIndex((prevIndex) => prevIndex + 1);
     setCurrentQ(questions[currentQIndex + 1]);
   }
@@ -24,7 +26,7 @@ const index = () => {
   return (
     <>
       <h1>Fill in the blanks game</h1>
-      
+
       <br />
 
       <div className="timer">
@@ -36,28 +38,34 @@ const index = () => {
 
       <div className="questions">
         <h2>QUESTION</h2>
-            <br></br>
+        <br></br>
         {currentQ ? (
           <>
-            <p>{currentQ["question"]}</p>
+            <p>{currentQ['question']}</p>
           </>
-          ) : (
-            <>
-              <p>Loading Data</p>
-              <br />
-            </>
+        ) : (
+          <>
+            <p>Loading Data</p>
+            <br />
+          </>
         )}
       </div>
 
-    <div className="answers">
-      <h2>ANSWERS</h2>
-      <br />
+      <div className="answers">
+        <h2>ANSWERS</h2>
+        <br />
 
         {currentQ ? (
           <>
-            {Array.isArray(currentQ["answers"]) ? (
-              currentQ["answers"].map((answer, index) => (
-                <button className="border-2 border-black ml-2 mr-2" key={index} onClick={handleCorrectAnswer}>{answer["answer"]}</button>
+            {Array.isArray(currentQ['answers']) ? (
+              currentQ['answers'].map((answer, index) => (
+                <button
+                  className="border-2 border-black ml-2 mr-2"
+                  key={index}
+                  onClick={handleCorrectAnswer}
+                >
+                  {answer['answer']}
+                </button>
               ))
             ) : (
               <p>Answers not available</p>
@@ -66,13 +74,10 @@ const index = () => {
         ) : (
           <p>Loading answers</p>
         )}
-    </div>
+      </div>
 
-    <div className="submit-answers">
-
-    </div>
-    
+      <div className="submit-answers"></div>
     </>
-  )
-}
-export default index
+  );
+};
+export default index;
