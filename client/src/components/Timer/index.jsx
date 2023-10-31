@@ -1,21 +1,18 @@
-import React, { useEffect} from 'react'
+import React, { useEffect, useState} from 'react'
 import { useData } from '../../contexts'
 
 export default function index() {
     // 25 minutes is initialised in seconds
-    const {time, setTime} = useData()
-
+    const [time, setTime] = useState(25*60)
 
     useEffect(() => {
-
         // setInterval invokes the function to decrement the timer every second 
         const timer = setInterval(()=> { setTime(time - 1)}, 1000)
 
         // Clear the interval when the component is unmounted
         return () => 
         clearInterval(timer)
-        }, [])
-
+        }, [time])
 
     const formatTime = seconds => {
         // Get the minutes e.g. 120/60 = 2mins
@@ -33,6 +30,6 @@ export default function index() {
     <>
         <p>{formatTime(time)}</p>
     </>
-    
+
   )
 }

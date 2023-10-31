@@ -30,8 +30,8 @@ const App = () => {
                 element={<HowToPage1 />}
               />
               <Route path="how-to-play/coding-env" element={<HowToPage2 />} />
-              <Route path="game1" element={<CodingEnvPage />} />
-              <Route path="game2" element={<FillInTheBlanksPage />} />
+              <Route path="game1" element={<FillInTheBlanksPage />} />
+              <Route path="game2" element={<CodingEnvPage />} />
             </Route>
           </Route>
         </Routes>

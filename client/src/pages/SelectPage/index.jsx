@@ -1,4 +1,4 @@
-import { BeginGame, BreakDurationForm, Timer } from "../../components";
+import { BeginGame, BreakDurationForm } from "../../components";
 
 const index = (breakLength, setBreakLength) => {
 
@@ -8,7 +8,6 @@ const index = (breakLength, setBreakLength) => {
       <h1>Select Page</h1>
       <BreakDurationForm breakLength={breakLength} setBreakLength={setBreakLength} />
       <BeginGame breakLength={breakLength} setBreakLength={setBreakLength}/>
-      <Timer />
     </>
   )
     
