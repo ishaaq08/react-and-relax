@@ -41,7 +41,7 @@ class Fill_In_Blanks {
 				"SELECT * FROM fill_in_blanks where lower(difficulty) = lower($1) ORDER BY RANDOM()",
 				[difficulty]
 			)
-			console.log(rows)
+
 			const results = []
 			for (let row of rows) {
 				const instance = new Fill_In_Blanks(row)
@@ -60,7 +60,7 @@ class Fill_In_Blanks {
 				"SELECT * FROM fill_in_blanks where language = 'python' and lower(difficulty) = lower($1) ORDER BY RANDOM()",
 				[difficulty]
 			)
-			console.log(rows)
+
 			const results = []
 			for (let row of rows) {
 				const instance = new Fill_In_Blanks(row)
