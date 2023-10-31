@@ -14,7 +14,6 @@ afterAll(() => {
 describe('Token', () => {
   describe('create', () => {
     it('should create and return a new token', async () => {
-      // Mock the database query function
       const mockUuid = 'mocked-uuid';
       const mockResponse = {
         rows: [{ token_id: 1, user_id: 1, token: mockUuid }],
@@ -34,17 +33,14 @@ describe('Token', () => {
     });
 
     it('should handle database errors', async () => {
-      // Mock the database query function to simulate an error
       db.query.mockRejectedValue(new Error('Database error'));
 
-      // Make sure the function throws an error
       await expect(Token.create(1)).rejects.toThrow('Database error');
     });
   });
 
   describe('getOneById', () => {
     it('should fetch and return a token by its ID', async () => {
-      // Mock the database query function
       const mockResponse = {
         rows: [{ token_id: 1, user_id: 1, token: 'token-1' }],
       };
@@ -63,18 +59,14 @@ describe('Token', () => {
     });
 
     it('should handle cases when the token is not found', async () => {
-      // Mock the database query function to return an empty result
       db.query.mockResolvedValue({ rows: [] });
 
-      // Make sure the function throws an error
       await expect(Token.getOneById(1)).rejects.toThrow('Unable to locate token.');
     });
 
     it('should handle database errors', async () => {
-      // Mock the database query function to simulate an error
       db.query.mockRejectedValue(new Error('Database error'));
 
-      // Make sure the function throws an error
       await expect(Token.getOneById(1)).rejects.toThrow('Database error');
     });
   });
@@ -100,18 +92,14 @@ describe('Token', () => {
     });
 
     it('should handle cases when the token is not found', async () => {
-      // Mock the database query function to return an empty result
       db.query.mockResolvedValue({ rows: [] });
 
-      // Make sure the function throws an error
       await expect(Token.getOneByToken('nonexistent-token')).rejects.toThrow('Unable to locate token.');
     });
 
     it('should handle database errors', async () => {
-      // Mock the database query function to simulate an error
       db.query.mockRejectedValue(new Error('Database error'));
 
-      // Make sure the function throws an error
       await expect(Token.getOneByToken('token-1')).rejects.toThrow('Database error');
     });
   });

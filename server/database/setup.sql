@@ -136,7 +136,7 @@ INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('What is missi
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<!DOCTYPE html>', true);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<html/>', false);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<!doctype htm>', false);
-INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<tiltle', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<title', false);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<head>', false);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<title/>', false);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<title>', false);
