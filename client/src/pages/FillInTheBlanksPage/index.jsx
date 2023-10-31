@@ -7,6 +7,7 @@ const index = () => {
   const {questions, setQuestions} = useData([])
   const [currentQ, setCurrentQ] = useState([])
   const [currentQIndex, setCurrentQIndex] = useState(0)
+  const [showIncorrectMessage, setShowIncorrectMessage] = useState(false)
 
   async function loadQuestions(){
     const response = await fetch("https://react-and-relax.onrender.com/fill_in_blanks")
@@ -19,13 +20,17 @@ const index = () => {
     loadQuestions()
   },[])
 
+  useEffect(() => {
+    setShowIncorrectMessage(false)
+  }, [currentQ])
+
   function handleCorrectAnswer(e){
     e.preventDefault()
     if(e.target.classList.contains("true")){
       setCurrentQIndex((prevIndex) => prevIndex + 1);
       setCurrentQ(questions[currentQIndex + 1]);
     } else {
-      alert("Incorrect answer")
+      setShowIncorrectMessage(true)
     }
   }
 
@@ -48,6 +53,7 @@ const index = () => {
         {currentQ ? (
           <>
             <p>{currentQ["question"]}</p>
+            <br />
           </>
           ) : (
             <>
@@ -76,13 +82,12 @@ const index = () => {
         )}
     </div>
 
-    <div className="submit-answers">
-
+    <div className="incorrect-answer-message">
+      <br />
+      <p>{showIncorrectMessage ? "Incorrect answer. Please try again" : null}</p>
     </div>
     
     </>
   )
 }
 export default index
-
-// 
