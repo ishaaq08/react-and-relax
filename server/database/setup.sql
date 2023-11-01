@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS fib_Answers;
 DROP TABLE IF EXISTS fill_in_blanks;
 DROP TABLE IF EXISTS token;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS pseudocode;
 
 
 CREATE TABLE users (
@@ -43,8 +44,9 @@ CREATE TABLE fib_Answers(
 CREATE TABLE pseudocode(
     id INT GENERATED ALWAYS AS IDENTITY,
     difficulty VARCHAR(255) NOT NULL,
-    code text NOT NULL,
-    question VARCHAR(255) NOT NULL,  
+    code TEXT NOT NULL,
+    question VARCHAR(255) NOT NULL, 
+    answer VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -289,6 +291,43 @@ INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (40, 'Tuple', f
 
 
 
+-- Inserting sample data into pseudocode table
+
+-- Easy
+INSERT INTO pseudocode (difficulty, code, question, answer) VALUES 
+('Easy', 'BEGIN\n  PRINT "Hello, World!"\nEND', 'What will the pseudocode output?', 'Hello, World!'),
+('Easy', 'BEGIN\n  PRINT 5+3\nEND', 'What will the pseudocode output?', '8'),
+('Easy', 'BEGIN\n  PRINT "OpenAI"\nEND', 'What will the pseudocode output?', 'OpenAI'),
+('Easy', 'BEGIN\n  PRINT 12-5\nEND', 'What will the pseudocode output?', '7'),
+('Easy', 'BEGIN\n  PRINT "ChatGPT"\nEND', 'What will the pseudocode output?', 'ChatGPT'),
+('Easy', 'BEGIN\n  PRINT "5 * 3"\nEND', 'What does the pseudocode display?', '5 * 3'),
+('Easy', 'BEGIN\n  PRINT 6/2\nEND', 'What will the pseudocode output?', '3'),
+('Easy', 'BEGIN\n  PRINT "2 ^ 3"\nEND', 'What does the pseudocode display?', '2 ^ 3'),
+('Easy', 'BEGIN\n  PRINT "AI"\nEND', 'What will the pseudocode output?', 'AI'),
+('Easy', 'BEGIN\n  PRINT 9+1\nEND', 'What will the pseudocode output?', '10'),
+
+-- Medium
+('Medium', 'BEGIN\n  FOR i = 1 TO 5\n    PRINT i\n  END FOR\nEND', 'How many numbers will the pseudocode print?', '5'),
+('Medium', 'BEGIN\n  INPUT x\n  PRINT x * 10\nEND', 'What does the pseudocode do?', 'Multiplies input by 10 and prints it'),
+('Medium', 'BEGIN\n  INPUT y\n  IF y > 5 THEN\n    PRINT "Greater"\n  ELSE\n    PRINT "Smaller or Equal"\n  END IF\nEND', 'What will the pseudocode print if the input is 3?', 'Smaller or Equal'),
+('Medium', 'BEGIN\n  FOR i = 5 DOWNTO 1\n    PRINT i\n  END FOR\nEND', 'What is the first number the pseudocode will print?', '5'),
+('Medium', 'BEGIN\n  x = 5\n  y = x + 3\n  PRINT y\nEND', 'What will the pseudocode output?', '8'),
+('Medium', 'BEGIN\n  INPUT name\n  PRINT "Hello, " + name\nEND', 'What will the pseudocode print if the input is "Alice"?', 'Hello, Alice'),
+('Medium', 'BEGIN\n  z = 10\n  z = z / 2\n  PRINT z\nEND', 'What will the pseudocode output?', '5'),
+('Medium', 'BEGIN\n  a = 3\n  b = 4\n  c = a * b\n  PRINT c\nEND', 'What will the pseudocode output?', '12'),
+('Medium', 'BEGIN\n  FOR i = 1 TO 3\n    FOR j = 1 TO 2\n      PRINT i, j\n    END FOR\n  END FOR\nEND', 'How many pairs of numbers will the pseudocode print?', '6'),
+
+-- Hard
+('Hard', 'BEGIN\n  INPUT n\n  sum = 0\n  FOR i = 1 TO n\n    sum = sum + i\n  END FOR\n  PRINT sum\nEND', 'What will the pseudocode print if the input is 4?', '10'),
+('Hard', 'BEGIN\n  INPUT num\n  IF num MOD 2 = 0 THEN\n    PRINT "Even"\n  ELSE\n    PRINT "Odd"\n  END IF\nEND', 'What will the pseudocode print if the input is 7?', 'Odd'),
+('Hard', 'BEGIN\n  a = 5\n  b = 3\n  WHILE a > 0\n    a = a - 1\n    b = b + 2\n  END WHILE\n  PRINT b\nEND', 'What will the pseudocode output?', '13'),
+('Hard', 'BEGIN\n  arr = [1,2,3,4,5]\n  FOR i = 1 TO LENGTH(arr)\n    PRINT arr[i]\n  END FOR\nEND', 'Which number will be printed last?', '5'),
+('Hard', 'BEGIN\n  n = 10\n  factorial = 1\n  FOR i = 1 TO n\n    factorial = factorial * i\n  END FOR\n  PRINT factorial\nEND', 'What will the pseudocode output?', '3628800'),
+('Hard', 'BEGIN\n  INPUT str\n  IF LENGTH(str) > 5 THEN\n    PRINT "Long"\n  ELSE\n    PRINT "Short"\n  END IF\nEND', 'What will the pseudocode print if the input is "OpenAI"?', 'Long'),
+('Hard', 'BEGIN\n  arr = [2,4,6,8,10]\n  sum = 0\n  FOR i = 1 TO LENGTH(arr)\n    sum = sum + arr[i]\n  END FOR\n  avg = sum / LENGTH(arr)\n  PRINT avg\nEND', 'What will the pseudocode output?', '6'),
+('Hard', 'BEGIN\n  INPUT n\n  count = 0\n  FOR i = 1 TO n\n    IF i MOD 2 = 0 THEN\n      count = count + 1\n    END IF\n  END FOR\n  PRINT count\nEND', 'What will the pseudocode print if the input is 8?', '4'),
+('Hard', 'BEGIN\n  x = 10\n  y = 20\n  z = 0\n  IF x > y THEN\n    z = x\n  ELSE\n    z = y\n  END IF\n  PRINT z\nEND', 'What will the pseudocode output?', '20'),
+('Hard', 'BEGIN\n  numbers = [3,1,4,1,5,9,2,6,5,3]\n  max = numbers[1]\n  FOR i = 2 TO LENGTH(numbers)\n    IF numbers[i] > max THEN\n      max = numbers[i]\n    END IF\n  END FOR\n  PRINT max\nEND', 'What will the pseudocode output?', '9');
 
 
 
