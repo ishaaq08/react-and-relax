@@ -11,7 +11,9 @@ class Pseudocode {
 
 	static async getAll() {
 		try {
-			const { rows } = await db.query("SELECT * FROM pseudocode ")
+			const { rows } = await db.query(
+				"SELECT * FROM pseudocode  ORDER BY RANDOM()"
+			)
 			const results = []
 			for (let row of rows) {
 				const instance = new Pseudocode(row)
@@ -28,7 +30,7 @@ class Pseudocode {
 	static async getByDifficulty(difficulty) {
 		try {
 			const { rows } = await db.query(
-				"SELECT * FROM pseudocode WHERE lower(difficulty) = lower($1)",
+				"SELECT * FROM pseudocode WHERE lower(difficulty) = lower($1) ORDER BY RANDOM()",
 				[difficulty]
 			)
 
