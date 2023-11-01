@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router"
 
 function SignUpForm({
 	userName,
@@ -14,7 +15,7 @@ function SignUpForm({
 }) {
 	const [passwordsMatch, setPasswordsMatch] = useState(true)
 	console.log(passwordsMatch)
-
+	const Navigate = useNavigate()
 	useEffect(() => {
 		if (password !== confirmPassword) {
 			setErrorMessage("Passwords do not match")
@@ -64,7 +65,7 @@ function SignUpForm({
 					setErrorMessage(data.error)
 				} else {
 					console.log(data)
-					window.location.replace("/login")
+					Navigate("/login")
 				}
 			})
 			.catch((err) => {

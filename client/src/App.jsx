@@ -10,6 +10,8 @@ import {
 	SelectPage,
 	SignUpPage,
 	ProfilePage,
+	LogoutPage,
+	Dashboard,
 } from "./pages"
 import { DataProvider } from "./contexts"
 import "./App.css"
@@ -24,6 +26,8 @@ const App = () => {
 						<Route path="/login" element={<LogInPage />} />
 						<Route path="/signup" element={<SignUpPage />} />
 						<Route path="/profile" element={<ProfilePage />} />
+						<Route path="/logout" element={<LogoutPage />} />
+						<Route path="/dashboard" element={<Dashboard />} />
 						<Route path="/games">
 							<Route index element={<SelectPage />} />
 							<Route
