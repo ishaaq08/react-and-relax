@@ -99,8 +99,11 @@ const index = () => {
                 </h4>
                 <Reveal>
                   <p className="text-md my-5 tracking-tight">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facilis, autem.
+                    A pseudocode game is an interactive learning activity that
+                    teaches programming logic through simplified, human-readable
+                    code representation. Players solve problems and express
+                    solutions using pseudocode, enhancing problem-solving and
+                    algorithm design skills without writing actual code.
                   </p>
                 </Reveal>
                 <Reveal>
@@ -127,13 +130,12 @@ const index = () => {
                 </h4>
                 <Reveal>
                   <p className="text-md my-5 tracking-tight">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facilis, autem.
+                    Get flashcards, practice tests and more in one click
                   </p>
                 </Reveal>
                 <Reveal>
                   <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
-                    <Link to="/signup">Signup Now</Link>
+                    <Link to="/games">Get Started</Link>
                   </button>
                 </Reveal>
               </Reveal>

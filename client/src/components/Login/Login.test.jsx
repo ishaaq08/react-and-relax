@@ -4,15 +4,15 @@ import userEvent from "@testing-library/user-event"
 
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 import { screen, render, cleanup } from "@testing-library/react"
-// screen is like virtual document so you can get something from the DOM i.e. button via classname
-// Render allows you to render component on the sceen
+// screen is like virtual document so you can get something from the DOM i.e. button via classnames
+// Render allows you to render component on the screen
 
 // Code that allows us to test document specific behaviour i.e. presence within the document (is the component on the page or not)
 // matchers allow us to test presence within the document
 import * as matchers from "@testing-library/jest-dom/matchers"
 expect.extend(matchers)
 
-import login from "."
+import Login from "."
 import { DataProvider } from "../../contexts"
 
 describe("login", () => {
@@ -20,7 +20,7 @@ describe("login", () => {
 		render(
 			<DataProvider>
 				<BrowserRouter>
-					<login />
+					<Login />
 				</BrowserRouter>
 			</DataProvider>
 		)
@@ -48,10 +48,10 @@ describe("login", () => {
 	it("displays a button with the correct text content", () => {
 		const button = screen.getByRole("button")
 		expect(button).toBeInTheDocument()
-		expect(button.textContent).toBe("Sign In")
+		expect(button.textContent).toBe("Sign in")
 	})
 	it("displays a link with the correct text content", () => {
-		const link = screen.getByText("start a 14 day free trial")
+		const link = screen.getByText("Start a 14 day free trial")
 		expect(link).toBeInTheDocument()
 	})
 	it("displays a p tag with the correct text content", () => {

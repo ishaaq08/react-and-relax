@@ -1,6 +1,7 @@
 import bg from '../../assets/howtoplaybg.jpg';
 import game from '../../assets/game1.png';
 import { useData } from '../../contexts';
+import { Link, NavLink } from 'react-router-dom';
 
 const index = () => {
   const { howTo, setHowTo } = useData();
@@ -38,10 +39,14 @@ const index = () => {
               ? 'Play the computer science fill-in-the-blank game by filling in missing code or concepts in sentences to test and enhance your programming knowledge.'
               : 'In the computer science pseudocode game, practice your algorithmic thinking by completing pseudocode fragments to solve problems and develop your coding skills.'}
           </p>
-          <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
+
+          <NavLink
+            to={howTo === 1 ? '/games/game1' : '/games/game2'}
+            className="w-6/12 font-semibold text-white text-center mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg"
+          >
             Start game
-          </button>
-          {/* Add BeginGame component here */}
+          </NavLink>
+          {/* <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg "></button> */}
         </div>
       </div>
     </>
