@@ -1,4 +1,4 @@
-import { useData } from '../../contexts';
+import { useData } from '../../contexts'
 
 export default function index() {
   const { breakLength, setBreakLength, language, setLanguage, difficulty, setDifficulty } = useData();
@@ -26,6 +26,9 @@ export default function index() {
     setDifficulty(e.target.value)
   }
 
+  console.log(language);
+  console.log(difficulty);
+
   return (
     <>
     
@@ -39,16 +42,16 @@ export default function index() {
 
         <div className="language">
             <select onChange={handleChangeLanguage}>
-              <option value="python">Python</option>
-              <option value="html">HTML</option>
+              <option value="python">python</option>
+              <option value="html">html</option>
             </select>
         </div>
 
         <div className="difficulty">
           {/* Recommended event handler for handling changes in a select tag is to use onChange{} */}
             <select onChange={handleChangeDifficulty}>
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
+              <option value="easy">easy</option>
+              <option value="medium">medium</option>
             </select>
         </div>
 

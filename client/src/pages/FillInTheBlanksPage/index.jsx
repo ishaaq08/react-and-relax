@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useData } from "../../contexts";
 
 const Index = () => {
-  const { questions, setQuestions } = useData();
+  const { questions, setQuestions, language, difficulty } = useData();
   const { session } = useData()
   // language state
   // difficulty state
@@ -13,7 +13,7 @@ const Index = () => {
   const [showIncorrectMessage, setShowIncorrectMessage] = useState(false);
 
   async function loadQuestions() {
-    const response = await fetch("https://react-and-relax.onrender.com/pyhton/easy");
+    const response = await fetch(`https://react-and-relax.onrender.com/${language}/${difficulty}`);
     const data = await response.json();
     setQuestions(data);
     setCurrentQ(data[currentQIndex]);
