@@ -1,4 +1,4 @@
-const Pseudocode = require("../models/pseudocode")
+const Pseudocode = require("../models/Pseudocode")
 
 async function getAll(req, res) {
 	try {
