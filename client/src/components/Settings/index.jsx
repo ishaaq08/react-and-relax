@@ -1,4 +1,4 @@
-import { useData } from '../../contexts';
+import { useData } from '../../contexts'
 
 export default function index() {
   const {
@@ -31,6 +31,12 @@ export default function index() {
   function handleChangeDifficulty(e) {
     setDifficulty(e.target.value);
   }
+
+  const minutes = breakLength/60 
+console.log(breakLength);
+
+  console.log(language);
+  console.log(difficulty);
 
   return (
     <div className="max-w-[1500px] mx-auto">
@@ -65,15 +71,15 @@ export default function index() {
         <div className="flex ">
           <div className="language ">
             <select onChange={handleChangeLanguage}>
-              <option value="python">Python</option>
-              <option value="html">HTML</option>
+              <option value="python">python</option>
+              <option value="html">html</option>
             </select>
           </div>
           <div className="difficulty">
             {/* Recommended event handler for handling changes in a select tag is to use onChange{} */}
             <select onChange={handleChangeDifficulty}>
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
+              <option value="easy">easy</option>
+              <option value="medium">medium</option>
             </select>
           </div>{' '}
         </div>
