@@ -28,10 +28,10 @@ async function getAllHtml(req, res) {
 	}
 }
 
-async function getAllPyhton(req, res) {
+async function getAllPython(req, res) {
 	try {
 		difficulty = req.params.difficulty
-		const fill_in_blank = await Fill_in_blanks.getAllPyhton(difficulty)
+		const fill_in_blank = await Fill_in_blanks.getAllPython(difficulty)
 		res.status(200).json(fill_in_blank)
 	} catch (err) {
 		console.log(err)
@@ -42,5 +42,5 @@ module.exports = {
 	getAll,
 	getAnswers,
 	getAllHtml,
-	getAllPyhton,
+	getAllPython,
 }
