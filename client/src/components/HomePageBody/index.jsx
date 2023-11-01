@@ -61,8 +61,8 @@ const index = () => {
 
         <div className="grid max-w-[1500px] gap-28 place-items-center mx-auto mb-auto top-0  flex-row  w-full items-start ">
           {/* Flex Item  */}{' '}
-          <div className="flex flex-shrink-0 flex-row-reverse gap-4 ">
-            <div className="ml-7">
+          <div className="flex flex-shrink-0 flex-row-reverse max-w-[1000px] gap-4 ">
+            <div className="ml-7 w-7/12">
               <Reveal>
                 <h4 className="font-extrabold py-2 text-5xl mb-2">
                   Fill in the Blanks
@@ -77,25 +77,25 @@ const index = () => {
                 </Reveal>
                 <Reveal>
                   <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
-                    <Link to="/how-to-play/fill-in-the-blanks">Play Now</Link>
+                    <Link to="/games">Play Now</Link>
                   </button>
                 </Reveal>
               </Reveal>
             </div>
             <Reveal>
               <img
-                className="object-cover  mx-auto  rounded-xl"
+                className="object-cover mx-auto rounded-xl"
                 src={revision3}
                 alt="revision"
               />
             </Reveal>
           </div>
           {/* Flex Item  */}{' '}
-          <div className="flex   flex-shrink-0 gap-4 ">
-            <div className="mr-7 ">
+          <div className="flex flex-shrink-0 gap-4 max-w-[1000px] ">
+            <div className="mr-7  w-7/12">
               <Reveal>
                 <h4 className="font-extrabold py-2 text-5xl mb-2">
-                  Create Magic Notes
+                  PseudoCode
                 </h4>
                 <Reveal>
                   <p className="text-md my-5 tracking-tight">
@@ -105,7 +105,7 @@ const index = () => {
                 </Reveal>
                 <Reveal>
                   <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
-                    <Link to="/signup">Signup Now</Link>
+                    <Link to="/games">Play Now</Link>
                   </button>
                 </Reveal>
               </Reveal>
@@ -119,8 +119,8 @@ const index = () => {
             </Reveal>
           </div>
           {/* Flex Item  */}
-          <div className="flex   mb-5 flex-shrink-0 flex-row-reverse gap-4 ">
-            <div className="mr-7 ">
+          <div className="flex mb-32 flex-shrink-0 flex-row-reverse max-w-[1000px] w-7/12 gap-4 ">
+            <div className="ml-7  w-7/12">
               <Reveal>
                 <h4 className="font-extrabold py-2 text-5xl mb-2">
                   Create Magic Notes

@@ -11,7 +11,6 @@ import {
   SignUpPage,
 } from './pages';
 import { DataProvider } from './contexts';
-import "./App.css"
 import './App.css';
 
 const App = () => {
