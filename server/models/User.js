@@ -1,11 +1,13 @@
 const db = require("../database/connect")
 
 class User {
-	constructor({ id, username, password, email }) {
+	constructor({ id, username, password, email, points, date_registered }) {
 		this.id = id
 		this.username = username
 		this.password = password
 		this.email = email
+		this.points = points
+		this.date_registered = date_registered
 	}
 
 	static async getOneById(id) {
