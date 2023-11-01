@@ -1,34 +1,34 @@
 function SignUpForm({
-	userName,
-	setUserName,
-	email,
-	setEmail,
-	password,
-	setPassword,
-	confirmPassword,
-	setConfirmPassword,
-	errorMessage,
-	setErrorMessage,
+  userName,
+  setUserName,
+  email,
+  setEmail,
+  password,
+  setPassword,
+  confirmPassword,
+  setConfirmPassword,
+  errorMessage,
+  setErrorMessage,
 }) {
-	function handleUsernameChange(event) {
-		setUserName(event.target.value)
-	}
-	function handleEmailChange(event) {
-		setEmail(event.target.value)
-	}
-	function handlePasswordChange(event) {
-		setPassword(event.target.value)
-	}
-	function handleConfirmPasswordChange(event) {
-		setConfirmPassword(event.target.value)
-		if (password !== confirmPassword) {
-			setErrorMessage("Passwords do not match")
-		} else {
-			setErrorMessage("")
-		}
-	}
-	function handleSubmit(event) {
-		event.preventDefault()
+  function handleUsernameChange(event) {
+    setUserName(event.target.value);
+  }
+  function handleEmailChange(event) {
+    setEmail(event.target.value);
+  }
+  function handlePasswordChange(event) {
+    setPassword(event.target.value);
+  }
+  function handleConfirmPasswordChange(event) {
+    setConfirmPassword(event.target.value);
+    if (password !== confirmPassword) {
+      setErrorMessage('Passwords do not match');
+    } else {
+      setErrorMessage('');
+    }
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
 
 		fetch("https://react-and-relax.onrender.com/users/register", {
 			method: "POST",
@@ -101,4 +101,4 @@ function SignUpForm({
 	)
 }
 
-export default SignUpForm
+export default SignUpForm;

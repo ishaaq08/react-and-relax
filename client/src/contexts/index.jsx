@@ -1,6 +1,6 @@
-import { useState, useContext, createContext } from 'react';
+import { useState, useContext, createContext } from "react"
 
-const DataContext = createContext();
+const DataContext = createContext()
 
 export const DataProvider = ({ children }) => {
   const [breakLength, setBreakLength] = useState(0.1*100); // change back to useState(0)
@@ -8,6 +8,8 @@ export const DataProvider = ({ children }) => {
   const [beginGameError, setBeginGameError] = useState(undefined);
   const [howTo, setHowTo] = useState(undefined);
   const [session, setSession] = useState(1)
+  const [username, setUsername] = useState("")
+	const [token, setToken] = useState("")
 
   return (
     <DataContext.Provider
@@ -20,8 +22,12 @@ export const DataProvider = ({ children }) => {
         setBeginGameError,
         questions,
         setQuestions,
-        session, 
-        setSession
+        session,
+        setSession,
+        username,
+        setUsername,
+        token,
+        setToken
       }}
     >
       {children}
@@ -29,4 +35,4 @@ export const DataProvider = ({ children }) => {
   );
 };
 
-export const useData = () => useContext(DataContext);
+export const useData = () => useContext(DataContext)
