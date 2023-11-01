@@ -8,13 +8,14 @@ const userRouter = require("./routers/users")
 const fill_In_Blanks_Router = require("./routers/fill_In_Blanks")
 
 const html_Router = require("./routers/html")
+
 const python_Router = require("./routers/python")
+
 const api = express()
 
 api.use(cors())
 api.use(express.json())
 api.use(logRoutes)
-
 
 api.get("/", (req, res) => {
 	res.json({
@@ -26,6 +27,8 @@ api.get("/", (req, res) => {
 api.use("/fill_in_blanks", fill_In_Blanks_Router)
 api.use("/users", userRouter)
 api.use("/html", html_Router)
+
 api.use("/python", python_Router)
 
 module.exports = api;
+
