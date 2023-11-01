@@ -26,7 +26,7 @@ class Fill_In_Blanks {
 	async getAnswers() {
 		try {
 			const { rows } = await db.query(
-				"SELECT question_id, answer, is_correct FROM fib_Answers WHERE question_id = $1",
+				"SELECT question_id, answer, is_correct FROM fib_Answers WHERE question_id = $1 ORDER BY RANDOM()",
 				[this.id]
 			)
 

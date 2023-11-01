@@ -305,8 +305,6 @@ INSERT INTO pseudocode (difficulty, code, question, answer) VALUES
 ('Easy', 'BEGIN\n  PRINT "2 ^ 3"\nEND', 'What does the pseudocode display?', '2 ^ 3'),
 ('Easy', 'BEGIN\n  PRINT "AI"\nEND', 'What will the pseudocode output?', 'AI'),
 ('Easy', 'BEGIN\n  PRINT 9+1\nEND', 'What will the pseudocode output?', '10'),
-
--- Medium
 ('Medium', 'BEGIN\n  FOR i = 1 TO 5\n    PRINT i\n  END FOR\nEND', 'How many numbers will the pseudocode print?', '5'),
 ('Medium', 'BEGIN\n  INPUT x\n  PRINT x * 10\nEND', 'What does the pseudocode do?', 'Multiplies input by 10 and prints it'),
 ('Medium', 'BEGIN\n  INPUT y\n  IF y > 5 THEN\n    PRINT "Greater"\n  ELSE\n    PRINT "Smaller or Equal"\n  END IF\nEND', 'What will the pseudocode print if the input is 3?', 'Smaller or Equal'),
@@ -316,8 +314,6 @@ INSERT INTO pseudocode (difficulty, code, question, answer) VALUES
 ('Medium', 'BEGIN\n  z = 10\n  z = z / 2\n  PRINT z\nEND', 'What will the pseudocode output?', '5'),
 ('Medium', 'BEGIN\n  a = 3\n  b = 4\n  c = a * b\n  PRINT c\nEND', 'What will the pseudocode output?', '12'),
 ('Medium', 'BEGIN\n  FOR i = 1 TO 3\n    FOR j = 1 TO 2\n      PRINT i, j\n    END FOR\n  END FOR\nEND', 'How many pairs of numbers will the pseudocode print?', '6'),
-
--- Hard
 ('Hard', 'BEGIN\n  INPUT n\n  sum = 0\n  FOR i = 1 TO n\n    sum = sum + i\n  END FOR\n  PRINT sum\nEND', 'What will the pseudocode print if the input is 4?', '10'),
 ('Hard', 'BEGIN\n  INPUT num\n  IF num MOD 2 = 0 THEN\n    PRINT "Even"\n  ELSE\n    PRINT "Odd"\n  END IF\nEND', 'What will the pseudocode print if the input is 7?', 'Odd'),
 ('Hard', 'BEGIN\n  a = 5\n  b = 3\n  WHILE a > 0\n    a = a - 1\n    b = b + 2\n  END WHILE\n  PRINT b\nEND', 'What will the pseudocode output?', '13'),
