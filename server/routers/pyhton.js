@@ -1,9 +1,9 @@
 const { Router } = require("express")
 
-const Pyhton_Controller = require("../controllers/fill_In_Blanks.js")
+const Python_Controller = require("../controllers/fill_In_Blanks.js")
 
-const Pyhton_Router = Router()
+const Python_Router = Router()
 
-Pyhton_Router.get("/:difficulty", Pyhton_Controller.getAllPyhton)
+Python_Router.get("/:difficulty", Python_Controller.getAllPython)
 
-module.exports = Pyhton_Router
+module.exports = Python_Router
