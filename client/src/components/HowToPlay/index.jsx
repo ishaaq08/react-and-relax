@@ -10,7 +10,7 @@ const index = () => {
     backgroundColor: `#023E8A`, // Use the 'url' function to specify the image path
     backgroundSize: 'cover', // Adjust to your preference
     backgroundPosition: 'center', // Adjust to your preference
-    height: '93.5vh',
+    height: '50vh',
     width: '100vw',
     position: 'relative', // Required for overlay // Set the desired height of your hero section
   };
@@ -29,7 +29,7 @@ const index = () => {
     <>
       <div
         style={bgStyles}
-        className="flex overflow-hidden justify-center items-center"
+        className="flex overflow-hidden justify-center items-center mb-24"
       >
         <div className="flex flex-col justify-center w-[20%] items-center mb-12">
           <img className="w-4/12" src={game} alt={game} />
@@ -40,13 +40,9 @@ const index = () => {
               : 'In the computer science pseudocode game, practice your algorithmic thinking by completing pseudocode fragments to solve problems and develop your coding skills.'}
           </p>
 
-          <NavLink
-            to={howTo === 1 ? '/games/game1' : '/games/game2'}
-            className="w-6/12 font-semibold text-white text-center mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg"
-          >
-            Start game
-          </NavLink>
-          {/* <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg "></button> */}
+          <button className="w-6/12 min-w-[200px] font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
+            Choose your time
+          </button>
         </div>
       </div>
     </>

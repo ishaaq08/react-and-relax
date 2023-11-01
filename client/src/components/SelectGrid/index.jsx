@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { Footer } from '..';
 import { Link } from 'react-router-dom';
 import { useData } from '../../contexts';
+
+import background from '../../assets/background.svg';
 const index = () => {
   const { howTo, setHowTo } = useData();
   const handleGame = (index) => {
@@ -13,6 +15,14 @@ const index = () => {
 
   const handleCardClick = (index) => {
     setExpandedIndex(index === expandedIndex ? -1 : index);
+  };
+
+  const bgStyles = {
+    backgroundImage: `url(${background})`, // Use the 'url' function to specify the image path // Adjust to your preference
+    backgroundSize: 'cover',
+    backgroundPosition: 'center', // Adjust to your preference
+    backgroundRepeat: 'no-repeat',
+    height: '100vh', // Set the desired height of your hero section
   };
 
   const cardVariants = {
@@ -37,7 +47,7 @@ const index = () => {
 
   return (
     <>
-      <section className="py-16 h-screen">
+      <section className="py-16 h-screen" style={bgStyles}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* <div className="text-center">
             <h1 className="text-3xl font-extrabold">Select A Game</h1>
