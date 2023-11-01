@@ -30,81 +30,75 @@ function SignUpForm({
   function handleSubmit(event) {
     event.preventDefault();
 
-    fetch('https://react-and-relax.onrender.com/users/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: userName,
-        email: email,
-        password: password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.error) {
-          setErrorMessage(data.error);
-        } else {
-          window.location.href = '/login';
-        }
-      })
-      .catch((err) => {
-        setErrorMessage(err);
-      });
-  }
+		fetch("https://react-and-relax.onrender.com/users/register", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				username: userName,
+				email: email,
+				password: password,
+			}),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				if (data.error) {
+					setErrorMessage(data.error)
+				} else {
+					console.log(data)
+				}
+			})
+			.catch((err) => {
+				setErrorMessage(err)
+			})
+	}
 
-  return (
-    <form>
-      <div>
-        <label>Email address</label>
-        <input
-          onChange={handleEmailChange}
-          type="email"
-          className="form-control"
-          id="email-input"
-          placeholder="Email"
-        />
-      </div>
-      <div>
-        <label>Username</label>
-        <input
-          onChange={handleUsernameChange}
-          type="username"
-          className="form-control"
-          id="username-input"
-          placeholder="Username"
-        />
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          onChange={handlePasswordChange}
-          type="password"
-          className="form-control"
-          id="password-input"
-          placeholder="Password"
-        />
-      </div>
-      <div>
-        <label>Confirm Password</label>
-        <input
-          onChange={handleConfirmPasswordChange}
-          type="confirm-password"
-          className="form-control"
-          id="confirm-password-input"
-          placeholder="Password"
-        />
-      </div>
-      {errorMessage === '' ? (
-        <button type="submit" onSubmit={handleSubmit}>
-          Sign Up
-        </button>
-      ) : (
-        errorMessage
-      )}
-    </form>
-  );
+	return (
+		<form onSubmit={handleSubmit}>
+			<div>
+				<label>Email address</label>
+				<input
+					onChange={handleEmailChange}
+					type="email"
+					className="form-control"
+					id="email-input"
+					placeholder="Email"
+				/>
+			</div>
+			<div>
+				<label>Username</label>
+				<input
+					onChange={handleUsernameChange}
+					type="username"
+					className="form-control"
+					id="username-input"
+					placeholder="Username"
+				/>
+			</div>
+			<div>
+				<label>Password</label>
+				<input
+					onChange={handlePasswordChange}
+					type="password"
+					className="form-control"
+					id="password-input"
+					placeholder="Password"
+				/>
+			</div>
+			<div>
+				<label>Confirm Password</label>
+				<input
+					onChange={handleConfirmPasswordChange}
+					type="confirm-password"
+					className="form-control"
+					id="confirm-password-input"
+					placeholder="Password"
+				/>
+			</div>
+			{errorMessage === "" ? <button>Sign Up</button> : errorMessage}
+		</form>
+	)
 }
 
 export default SignUpForm;

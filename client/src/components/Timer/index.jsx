@@ -2,12 +2,22 @@ import React, { useEffect, useState} from 'react'
 import { useData } from '../../contexts'
 
 export default function index() {
-    const [time, setTime] = useState(25*60)
+    const [time, setTime] = useState(0.1*50) 
+    const { breakLength } = useData()
+
+    console.log(breakLength) 
 
     useEffect(() => {
-        // setInterval invokes the function to decrement the timer every second 
-        const timer = setInterval(()=> { setTime(time - 1)}, 1000)
+      let timer ;
+        
+        if (time >= 0){
+          timer = setInterval(()=> { setTime((prevTime) => prevTime -1)}, 1000)
+        } else {
+          setTime(breakLength) // 5 mins
+        }
 
+        // ? If no break time is set the session still runs 
+        
         // Clear the interval when the component is unmounted
         return () => 
         clearInterval(timer)
@@ -27,7 +37,7 @@ export default function index() {
 
   return (
     <>
-        <p>{formatTime(time)}</p>
+      <p>{formatTime(time)}</p>
     </>
 
   )
