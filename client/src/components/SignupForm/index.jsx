@@ -46,7 +46,7 @@ function SignUpForm({
 				if (data.error) {
 					setErrorMessage(data.error)
 				} else {
-					window.location.href = "/login"
+					console.log(data)
 				}
 			})
 			.catch((err) => {
@@ -55,7 +55,7 @@ function SignUpForm({
 	}
 
 	return (
-		<form>
+		<form onSubmit={handleSubmit}>
 			<div>
 				<label>Email address</label>
 				<input
@@ -96,13 +96,7 @@ function SignUpForm({
 					placeholder="Password"
 				/>
 			</div>
-			{errorMessage === "" ? (
-				<button type="submit" onSubmit={handleSubmit}>
-					Sign Up
-				</button>
-			) : (
-				errorMessage
-			)}
+			{errorMessage === "" ? <button>Sign Up</button> : errorMessage}
 		</form>
 	)
 }
