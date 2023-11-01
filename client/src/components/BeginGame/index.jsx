@@ -3,15 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { useData } from '../../contexts';
 
 export default function index() {
-  const { breakLength, beginGameError, setBeginGameError } = useData();
+  const { breakLength, beginGameError, setBeginGameError, howTo } = useData();
   const navigate = useNavigate();
   const navigationCondition = breakLength;
 
   function handleClick(e) {
     e.preventDefault();
 
-    if (navigationCondition) {
+    // Break length is mandatory. Difficulty is optional
+    if (navigationCondition && howTo == 1) {
       navigate('/games/game1');
+    } else if (navigationCondition && howTo == 2) {
+      navigate('/games/game2');
     } else {
       setBeginGameError('Please select whether you want a short or long break');
     }

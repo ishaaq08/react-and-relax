@@ -8,6 +8,7 @@ export default function index() {
     setLanguage,
     difficulty,
     setDifficulty,
+    howTo
   } = useData();
 
   function handleClickShort(e) {
@@ -64,22 +65,25 @@ export default function index() {
         <h2 className="text-white text-2xl my-4 font-bold tracking-widest">
           Select Difficulty
         </h2>
+
+        {howTo === 1 && 
         <div className="flex ">
           <div className="language ">
             <select onChange={handleChangeLanguage}>
               <option value="python">python</option>
               <option value="html">html</option>
             </select>
-          </div>
+            </div>
+          </div> 
+      }
+       
           <div className="difficulty">
-            {/* Recommended event handler for handling changes in a select tag is to use onChange{} */}
             <select onChange={handleChangeDifficulty}>
               <option value="easy">easy</option>
               <option value="medium">medium</option>
             </select>
-          </div>{' '}
+          </div>
         </div>
       </div>
-    </div>
   );
 }
