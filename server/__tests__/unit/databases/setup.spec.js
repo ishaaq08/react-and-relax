@@ -1,10 +1,10 @@
 // setup.spec.js
 const { Pool } = require("pg");
 const setupDatabase = require("../../../database/setup");
-const fs = require("fs/promises"); // Use promises-based fs module
+const fs = require("fs/promises"); 
 
 jest.mock("fs/promises", () => ({
-  readFile: jest.fn(() => "SQL content from setup.sql"), // Return expected SQL content.
+  readFile: jest.fn(() => "SQL content from setup.sql"), 
 }));
 
 jest.mock("../../../database/connect", () => ({

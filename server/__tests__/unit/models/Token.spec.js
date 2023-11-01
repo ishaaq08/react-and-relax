@@ -73,7 +73,6 @@ describe('Token', () => {
 
   describe('getOneByToken', () => {
     it('should fetch and return a token by its token value', async () => {
-      // Mock the database query function
       const mockResponse = {
         rows: [{ token_id: 1, user_id: 1, token: 'token-1' }],
       };
