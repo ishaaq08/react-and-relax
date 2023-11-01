@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 
 const index = () => {
   return (
-    <footer className="bg-[#00B4D8] p-5 w-full h-full text-white">
+    <footer role="footer" className="bg-[#023E8A] p-5 w-full h-full text-white">
       <div className="flex justify-between items-center mb-6">
         <div className="text-white font-semibold text-5xl tracking-widest">
           <Reveal>

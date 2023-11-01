@@ -6,7 +6,7 @@ import revision3 from '../../assets/childrevising3.jpg';
 import revision4 from '../../assets/revision4.jpg';
 import { Button1 } from '../Interface';
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Reveal } from '../Reveal';
 
 const index = () => {
@@ -15,7 +15,7 @@ const index = () => {
     target: refContainer,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ['6%', '-405%']);
+  const x = useTransform(scrollYProgress, [0, 1], ['6%', '-430%']);
 
   const bgStyles = {
     backgroundImage: `url(${background})`, // Use the 'url' function to specify the image path
@@ -27,10 +27,10 @@ const index = () => {
     // Hero Section
     <>
       <div
-        className="text-white font-semibold flex justify-content items-center"
+        className="text-white font-semibold flex justify-start items-center"
         style={bgStyles}
       >
-        <div className="w-6/12 h-full flex flex-col gap-3 items-center justify-center ml-6">
+        <div className="w-3/12 flex ml-32 flex-col gap-3 items-center justify-center ">
           <Reveal>
             <h1 className="text-5xl mr-auto">
               Experience a new era of AI-enhanced learning
@@ -45,149 +45,107 @@ const index = () => {
             </p>
           </Reveal>
           <Reveal>
-            <button className="w-full bg-[#00B4D8] py-4 px-4 rounded-lg ">
+            <button className="w-6/12 bg-[#00B4D8] py-4 px-4 rounded-lg ">
               <Link to="/signup">Signup Now</Link>
             </button>
           </Reveal>
         </div>
       </div>
       {/* Features */}
-      <div ref={refContainer} className="relative h-[300vh] w-screen">
-        <Reveal>
-          {/* <h2 className="font-semibold text-5xl pt-10 tracking-tight text-white py-5 text-center ">
-            Features
-          </h2> */}
+      <div ref={refContainer} className="relative  w-screen mx-auto ">
+        <Reveal width="fit-content">
+          <h2 className="font-semibold text-5xl pt-10 tracking-tight w-screen  py-5 text-center text-black my-16">
+            Ace your classes with our new suite of study tools
+          </h2>
         </Reveal>
 
-        <div className="sticky inset-0 flex gap-7 h-screen items-center overflow-hidden ">
-          <motion.div
-            style={{ x }}
-            className="flex w-5/12 flex-shrink-0 flex-col gap-4 "
-          >
+        <div className="grid max-w-[1500px] gap-28 place-items-center mx-auto mb-auto top-0  flex-row  w-full items-start ">
+          {/* Flex Item  */}{' '}
+          <div className="flex flex-shrink-0 flex-row-reverse gap-4 ">
+            <div className="ml-7">
+              <Reveal>
+                <h4 className="font-extrabold py-2 text-5xl mb-2">
+                  Fill in the Blanks
+                </h4>
+                <Reveal>
+                  <p className="text-md my-5 tracking-tight">
+                    Get ready for a fun, educational challenge with our
+                    Fill-in-the-Blanks Revision Game! Complete sentences, boost
+                    your knowledge, and have a blast. Suitable for all ages with
+                    various difficulty levels. Ready to fill in the blanks?
+                  </p>
+                </Reveal>
+                <Reveal>
+                  <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
+                    <Link to="/how-to-play/fill-in-the-blanks">Play Now</Link>
+                  </button>
+                </Reveal>
+              </Reveal>
+            </div>
             <Reveal>
               <img
-                className="object-cover  rounded-xl"
-                src={revision1}
-                alt="revision"
-              />
-            </Reveal>
-            <Reveal>
-              <h4 className="font-semibold py-2 text-xl">Create Magic Notes</h4>
-            </Reveal>
-            <Reveal>
-              <p className="text-md tracking-tight">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, autem.
-              </p>
-            </Reveal>
-          </motion.div>
-
-          <motion.div
-            style={{ x }}
-            className="flex w-5/12 flex-shrink-0 flex-col gap-4 "
-          >
-            <Reveal>
-              <img
-                className="object-cover   rounded-xl"
-                src={revision4}
-                alt="revision"
-              />
-            </Reveal>
-            <Reveal>
-              <h4 className="font-semibold py-2 text-xl">Create Magic Notes</h4>
-            </Reveal>
-            <Reveal>
-              <p className="text-md tracking-tight">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, autem.
-              </p>
-            </Reveal>
-          </motion.div>
-
-          <motion.div
-            style={{ x }}
-            className="flex w-5/12 flex-shrink-0 flex-col gap-4 "
-          >
-            <Reveal>
-              <img
-                className="object-cover  rounded-xl"
+                className="object-cover  mx-auto  rounded-xl"
                 src={revision3}
                 alt="revision"
               />
             </Reveal>
-            <Reveal>
-              <h4 className="font-semibold py-2 text-xl">Create Magic Notes</h4>
-            </Reveal>
-            <Reveal>
-              <p className="text-md tracking-tight">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, autem.
-              </p>
-            </Reveal>
-          </motion.div>
-          <motion.div
-            style={{ x }}
-            className="flex w-5/12 flex-shrink-0 flex-col gap-4 "
-          >
+          </div>
+          {/* Flex Item  */}{' '}
+          <div className="flex   flex-shrink-0 gap-4 ">
+            <div className="mr-7 ">
+              <Reveal>
+                <h4 className="font-extrabold py-2 text-5xl mb-2">
+                  Create Magic Notes
+                </h4>
+                <Reveal>
+                  <p className="text-md my-5 tracking-tight">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Facilis, autem.
+                  </p>
+                </Reveal>
+                <Reveal>
+                  <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
+                    <Link to="/signup">Signup Now</Link>
+                  </button>
+                </Reveal>
+              </Reveal>
+            </div>
             <Reveal>
               <img
-                className="object-cover  rounded-xl"
+                className="object-cover  mx-auto rounded-xl"
                 src={revision1}
                 alt="revision"
               />
             </Reveal>
-            <Reveal>
-              <h4 className="font-semibold py-2 text-xl">Create Magic Notes</h4>
-            </Reveal>
-            <Reveal>
-              <p className="text-md tracking-tight">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, autem.
-              </p>
-            </Reveal>
-          </motion.div>
-          <motion.div
-            style={{ x }}
-            className="flex w-5/12 flex-shrink-0 flex-col gap-4 "
-          >
+          </div>
+          {/* Flex Item  */}
+          <div className="flex   mb-5 flex-shrink-0 flex-row-reverse gap-4 ">
+            <div className="mr-7 ">
+              <Reveal>
+                <h4 className="font-extrabold py-2 text-5xl mb-2">
+                  Create Magic Notes
+                </h4>
+                <Reveal>
+                  <p className="text-md my-5 tracking-tight">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Facilis, autem.
+                  </p>
+                </Reveal>
+                <Reveal>
+                  <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
+                    <Link to="/signup">Signup Now</Link>
+                  </button>
+                </Reveal>
+              </Reveal>
+            </div>
             <Reveal>
               <img
-                className="object-cover   rounded-xl"
+                className="object-cover mx-auto   rounded-xl"
                 src={revision4}
                 alt="revision"
               />
             </Reveal>
-            <Reveal>
-              <h4 className="font-semibold py-2 text-xl">Create Magic Notes</h4>
-            </Reveal>
-            <Reveal>
-              <p className="text-md tracking-tight">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, autem.
-              </p>
-            </Reveal>
-          </motion.div>
-          <motion.div
-            style={{ x }}
-            className="flex w-5/12 flex-shrink-0 flex-col gap-4 "
-          >
-            <Reveal>
-              <img
-                className="object-cover  rounded-xl"
-                src={revision3}
-                alt="revision"
-              />
-            </Reveal>
-            <Reveal>
-              <h4 className="font-semibold py-2 text-xl">Create Magic Notes</h4>
-            </Reveal>
-            <Reveal>
-              <p className="text-md tracking-tight">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, autem.
-              </p>
-            </Reveal>
-          </motion.div>
+          </div>
         </div>
       </div>
     </>

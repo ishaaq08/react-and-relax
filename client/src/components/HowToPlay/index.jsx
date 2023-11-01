@@ -1,48 +1,48 @@
 import bg from '../../assets/howtoplaybg.jpg';
+import game from '../../assets/game1.png';
+import { useData } from '../../contexts';
+
 const index = () => {
+  const { howTo, setHowTo } = useData();
+
   const bgStyles = {
-    backgroundImage: `url(${bg})`, // Use the 'url' function to specify the image path
+    backgroundColor: `#023E8A`, // Use the 'url' function to specify the image path
     backgroundSize: 'cover', // Adjust to your preference
     backgroundPosition: 'center', // Adjust to your preference
-    height: '50vh',
+    height: '93.5vh',
+    width: '100vw',
     position: 'relative', // Required for overlay // Set the desired height of your hero section
   };
 
-  const overlayStyles = {
-    content: '""',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    background: 'rgba(0, 0, 0, 0.5)', // Adjust the alpha value (0.4) to control darkness
-  };
+  // const overlayStyles = {
+  //   content: '""',
+  //   position: 'absolute',
+  //   top: 0,
+  //   left: 0,
+  //   right: 0,
+  //   bottom: 0,
+  //   background: 'rgba(0, 0, 0, 0.5)', // Adjust the alpha value (0.4) to control darkness
+  // };
 
   return (
     <>
-      <div>
-        <h1 className="text-5xl uppercase tracking-widest font-semibold text-center mt-6">
-          How To Play
-        </h1>
-      </div>
-      <div style={bgStyles} className="w-11/12 mx-auto rounded-full mt-6">
-        <div
-          className="flex justify-center items-center rounded-full"
-          style={overlayStyles}
-        >
-          <p className="text-white w-6/12">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia iure
-            porro officia qui tenetur repudiandae ullam ipsa aut eum non velit,
-            consequatur, minus voluptate quae! Eveniet eaque numquam delectus,
-            odit excepturi debitis dolore ducimus accusantium ab, aliquam
-            accusamus labore ea exercitationem maiores eum similique repellendus
-            explicabo iusto ullam hic. Quos!
+      <div
+        style={bgStyles}
+        className="flex overflow-hidden justify-center items-center"
+      >
+        <div className="flex flex-col justify-center w-[20%] items-center mb-12">
+          <img className="w-4/12" src={game} alt={game} />
+          <h4 className="text-2xl font-bold text-white mb-5">Ready to Play?</h4>
+          <p className="text-white text-center w-10/12">
+            {howTo === 1
+              ? 'Play the computer science fill-in-the-blank game by filling in missing code or concepts in sentences to test and enhance your programming knowledge.'
+              : 'In the computer science pseudocode game, practice your algorithmic thinking by completing pseudocode fragments to solve problems and develop your coding skills.'}
           </p>
+          <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
+            Start game
+          </button>
         </div>
       </div>
-      <h2 className="text-5xl uppercase tracking-widest font-semibold text-center mt-6">
-        Timer Settings
-      </h2>
     </>
   );
 };
