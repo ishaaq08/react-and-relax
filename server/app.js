@@ -8,7 +8,9 @@ const userRouter = require("./routers/users")
 const fill_In_Blanks_Router = require("./routers/fill_In_Blanks")
 
 const html_Router = require("./routers/html")
-const pyhton_Router = require("./routers/pyhton")
+
+const python_Router = require("./routers/python")
+
 const api = express()
 
 api.use(cors())
@@ -25,6 +27,8 @@ api.get("/", (req, res) => {
 api.use("/fill_in_blanks", fill_In_Blanks_Router)
 api.use("/users", userRouter)
 api.use("/html", html_Router)
-api.use("/pyhton", pyhton_Router)
 
-module.exports = api
+api.use("/python", python_Router)
+
+module.exports = api;
+

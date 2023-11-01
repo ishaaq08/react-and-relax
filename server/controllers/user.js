@@ -8,10 +8,8 @@ async function register(req, res) {
 	try {
 		const data = req.body
 
-		// Generate a salt with a specific cost
 		const salt = await bcrypt.genSalt(parseInt(process.env.BCRYPT_SALT_ROUNDS))
 
-		// Hash the password
 		data["password"] = await bcrypt.hash(data["password"], salt)
 
 		const result = await User.create(data)

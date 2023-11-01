@@ -99,7 +99,7 @@ INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('What is missi
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (14, '<!DOCTYPE html>', true);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (14, '<html>', false);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (14, '<!doctype>', false);
-INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (14, '<!DOCTYPES html>', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (14, '<!DOCTYPE html>', false);
 
 -- question 15: document structure
 INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('What is missing? <!DOCTYPE html><html> <head> <title>My First Heading</title> </head> <body> <h1>My First Heading</h1> <p>My first paragraph. </body> </html>', 'medium', 'html');
@@ -136,7 +136,7 @@ INSERT INTO fill_in_blanks (question,difficulty,language) VALUES ('What is missi
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<!DOCTYPE html>', true);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<html/>', false);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<!doctype htm>', false);
-INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<tiltle', false);
+INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<title', false);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<head>', false);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<title/>', false);
 INSERT INTO fib_Answers (question_id, answer, is_correct) VALUES (19, '<title>', false);

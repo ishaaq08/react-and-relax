@@ -3,14 +3,12 @@ const User = require('../../../models/User');
 const Token = require('../../../models/Token');
 const { register, login } = require('../../../controllers/user');
 
-// Mock dependencies and their functions
 jest.mock('bcrypt');
 jest.mock('../../../models/User');
 jest.mock('../../../models/Token');
 
 describe('register', () => {
   it('should successfully register a user', async () => {
-    // Mock request and response objects
     const req = {
       body: {
         username: 'testuser',
@@ -23,11 +21,9 @@ describe('register', () => {
       send: jest.fn(),
     };
 
-    // Mock bcrypt functions
     bcrypt.genSalt.mockResolvedValue('salt');
     bcrypt.hash.mockResolvedValue('hashedPassword');
 
-    // Mock User.create function
     User.create.mockResolvedValue({ id: 1, username: 'testuser', email: 'test@example.com' });
 
     await register(req, res);
@@ -37,7 +33,6 @@ describe('register', () => {
   });
 
   it('should handle registration errors', async () => {
-    // Mock request and response objects
     const req = {
       body: {
         username: 'testuser',
@@ -50,7 +45,6 @@ describe('register', () => {
       json: jest.fn(),
     };
 
-    // Mock bcrypt functions
     bcrypt.genSalt.mockRejectedValue(new Error('Bcrypt error'));
 
     await register(req, res);
@@ -62,7 +56,6 @@ describe('register', () => {
 
 describe('login', () => {
   it('should successfully log in a user', async () => {
-    // Mock request and response objects
     const req = {
       body: {
         username: 'testuser',
@@ -74,17 +67,14 @@ describe('login', () => {
       json: jest.fn(),
     };
 
-    // Mock User.getOneByUsername function
     User.getOneByUsername.mockResolvedValue({
       id: 1,
       username: 'testuser',
       password: 'hashedPassword',
     });
 
-    // Mock bcrypt compare function
     bcrypt.compare.mockResolvedValue(true);
 
-    // Mock Token.create function
     Token.create.mockResolvedValue({ token: 'testToken' });
 
     await login(req, res);
@@ -94,7 +84,6 @@ describe('login', () => {
   });
 
   it('should handle login errors', async () => {
-    // Mock request and response objects
     const req = {
       body: {
         username: 'testuser',
@@ -106,7 +95,6 @@ describe('login', () => {
       json: jest.fn(),
     };
 
-    // Mock User.getOneByUsername function
     User.getOneByUsername.mockRejectedValue(new Error('User not found'));
 
     await login(req, res);
@@ -116,7 +104,6 @@ describe('login', () => {
   });
 
   it('should handle incorrect credentials', async () => {
-    // Mock request and response objects
     const req = {
       body: {
         username: 'testuser',
@@ -128,14 +115,12 @@ describe('login', () => {
       json: jest.fn(),
     };
 
-    // Mock User.getOneByUsername function
     User.getOneByUsername.mockResolvedValue({
       id: 1,
       username: 'testuser',
       password: 'hashedPassword',
     });
 
-    // Mock bcrypt compare function
     bcrypt.compare.mockResolvedValue(false);
 
     await login(req, res);
