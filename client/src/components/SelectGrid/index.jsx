@@ -18,11 +18,11 @@ const index = () => {
   const cardVariants = {
     expanded: {
       width: '30vw',
-      height: '70vh'
+      height: '70vh',
     },
     collapsed: {
       width: '200px',
-      height: '70vh'
+      height: '70vh',
     },
   };
 
@@ -44,7 +44,7 @@ const index = () => {
             <p className="mt-4 text-xl text-gray-300">Check our latest works</p>
           </div> */}
         </div>
-        <div className="mt-12 h-full flex flex-col md:flex-row justify-center items-start gap-5">
+        <div className="mt-12 h-full flex flex-col md:flex-row justify-center items-center gap-5">
           {[0, 1].map((index) => {
             return (
               <motion.div

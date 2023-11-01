@@ -10,8 +10,6 @@ export default function index() {
 
 	return (
 		<>
-			<div>Sign Up</div>
-
 			<SignUpForm
 				userName={userName}
 				setUserName={setUserName}
