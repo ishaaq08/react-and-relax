@@ -65,7 +65,7 @@ const index = () => {
 
   return (
     <>
-      <header className="z-20 bg-[#023E8A] text-white p-12 w-screen">
+      <header className="absolute z-20  text-white p-12 w-screen">
         <nav className="flex items-center justify-between flex-row">
           <div
             role="nav-toggle"
