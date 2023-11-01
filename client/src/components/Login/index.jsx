@@ -1,8 +1,10 @@
 import { Header } from ".."
 import { useState } from "react"
 import { useData } from "../../contexts"
+import { useNavigate } from "react-router-dom"
 
 const index = () => {
+	const Navigate = useNavigate()
 	const [userName, setUserName] = useState("")
 	const [password, setPassword] = useState("")
 	const [errorMessage, setErrorMessage] = useState("")
@@ -34,6 +36,8 @@ const index = () => {
 				} else {
 					setToken(data.token)
 					setUsername(userName)
+
+					Navigate("/profile")
 				}
 			})
 			.catch((err) => {
