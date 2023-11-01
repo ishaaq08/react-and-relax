@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react'
 import { useData } from '../../contexts'
 
 export default function index() {
-    const [time, setTime] = useState(0.1*50) 
+    const [time, setTime] = useState(1000000*50) 
     const { breakLength } = useData()
     const {session, setSession} = useData()
 
@@ -28,7 +28,7 @@ export default function index() {
 
   return (
     <>
-      <p>{formatTime(time)}</p>
+      <p className='tracking-widest text-2xl'>{formatTime(time)}</p>
     </>
 
   )
