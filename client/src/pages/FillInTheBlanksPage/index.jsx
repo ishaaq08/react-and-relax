@@ -4,7 +4,9 @@ import { useData } from '../../contexts';
 
 const Index = () => {
   const { questions, setQuestions } = useData();
-  const { session } = useData();
+  const { session } = useData()
+  // language state
+  // difficulty state
 
   const [currentQ, setCurrentQ] = useState([]);
   const [currentQIndex, setCurrentQIndex] = useState(0);

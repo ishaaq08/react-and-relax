@@ -10,6 +10,8 @@ export const DataProvider = ({ children }) => {
   const [session, setSession] = useState(1)
   const [username, setUsername] = useState("")
 	const [token, setToken] = useState("")
+  const [language, setLanguage ] = useState("python")
+  const [difficulty, setDifficulty ] = useState("easy")
 
   return (
     <DataContext.Provider
@@ -27,7 +29,11 @@ export const DataProvider = ({ children }) => {
         username,
         setUsername,
         token,
-        setToken
+        setToken,
+        language,
+        setLanguage,
+        difficulty,
+        setDifficulty
       }}
     >
       {children}
