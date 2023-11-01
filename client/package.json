@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
+    "build": "vite build",
     "test": "vitest watch --reporter verbose ",
     "coverage": "vitest run --coverage"
   },
