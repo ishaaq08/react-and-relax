@@ -28,7 +28,7 @@ export default function index() {
 
   return (
     <>
-      <p>{formatTime(time)}</p>
+      <p className='tracking-widest text-2xl'>{formatTime(time)}</p>
     </>
 
   )
