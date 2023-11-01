@@ -1,7 +1,9 @@
-import React from 'react'
+import { Login } from '../../components';
 
 export default function index() {
   return (
-    <div>Log in</div>
-  )
+    <>
+      <Login />;
+    </>
+  );
 }

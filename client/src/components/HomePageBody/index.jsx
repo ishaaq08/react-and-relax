@@ -30,7 +30,7 @@ const index = () => {
         className="text-white font-semibold flex justify-start items-center"
         style={bgStyles}
       >
-        <div className="w-3/12 flex flex-col gap-3 items-center justify-center ml-6">
+        <div className="w-3/12 flex ml-32 flex-col gap-3 items-center justify-center ">
           <Reveal>
             <h1 className="text-5xl mr-auto">
               Experience a new era of AI-enhanced learning
@@ -65,17 +65,19 @@ const index = () => {
             <div className="ml-7">
               <Reveal>
                 <h4 className="font-extrabold py-2 text-5xl mb-2">
-                  Create Magic Notes
+                  Fill in the Blanks
                 </h4>
                 <Reveal>
                   <p className="text-md my-5 tracking-tight">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facilis, autem.
+                    Get ready for a fun, educational challenge with our
+                    Fill-in-the-Blanks Revision Game! Complete sentences, boost
+                    your knowledge, and have a blast. Suitable for all ages with
+                    various difficulty levels. Ready to fill in the blanks?
                   </p>
                 </Reveal>
                 <Reveal>
                   <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
-                    <Link to="/signup">Signup Now</Link>
+                    <Link to="/how-to-play/fill-in-the-blanks">Play Now</Link>
                   </button>
                 </Reveal>
               </Reveal>

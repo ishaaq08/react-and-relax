@@ -9,6 +9,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.6",
     "framer-motion": "^10.16.4",
     "intersection-observer": "^0.12.2",
     "react": "^18.2.0",
