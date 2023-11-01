@@ -32,9 +32,8 @@ const index = () => {
 				if (data.error) {
 					setErrorMessage(data.error)
 				} else {
-					console.log(data)
 					setToken(data.token)
-					setUsername(data.username)
+					setUsername(userName)
 				}
 			})
 			.catch((err) => {
