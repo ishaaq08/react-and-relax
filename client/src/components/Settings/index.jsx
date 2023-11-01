@@ -26,6 +26,9 @@ export default function index() {
     setDifficulty(e.target.value)
   }
 
+  const minutes = breakLength/60 
+console.log(breakLength);
+
   console.log(language);
   console.log(difficulty);
 
@@ -35,9 +38,9 @@ export default function index() {
       <div className="grid grid-cols-2 text-white bg-[#023E8A] grid-rows-2 h-[50vh]">
         
         <div className="row-span-2 h-full text-8xl flex justify-center items-center tracking-widest">
-          {breakLength.toString().length == 1
-            ? `0${breakLength}:00`
-            : `${breakLength}:00`}
+          {minutes.length == 1
+            ? `0${minutes}:00`
+            : `${minutes}:00`}
         </div>
 
         <div className="language">
