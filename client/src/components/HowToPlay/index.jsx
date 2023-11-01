@@ -41,6 +41,7 @@ const index = () => {
           <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
             Start game
           </button>
+          {/* Add BeginGame component here */}
         </div>
       </div>
     </>
