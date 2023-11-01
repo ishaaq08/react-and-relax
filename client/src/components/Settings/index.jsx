@@ -32,7 +32,7 @@ export default function index() {
     setDifficulty(e.target.value);
   }
 
-  const minutes = breakLength/60 // 5
+  const minutes = breakLength/60 
 
   return (
     <div className="max-w-[1500px] mx-auto">

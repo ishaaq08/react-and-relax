@@ -9,15 +9,23 @@ const Index = () => {
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [showIncorrectMessage, setShowIncorrectMessage] = useState(false);
 
-  async function loadQuestions() {
-    const response = await fetch(`https://react-and-relax.onrender.com/${language}/${difficulty}`);
-    const data = await response.json();
-    setQuestions(data);
-    setCurrentQ(data[currentQIndex]);
-  }
-
   useEffect(() => {
-    loadQuestions();
+    async function loadQuestions() {
+      try{
+      const response = await fetch(`https://react-and-relax.onrender.com/${language}/${difficulty}`);
+
+      if(!response.ok){
+        throw new Error(`Error: ${response.status}`)
+      }
+
+      const data = await response.json();
+      setQuestions(data);
+      setCurrentQ(data[currentQIndex]);
+      } catch(error){
+        console.error("Error fetching questions: ", error)
+      }
+    }
+    loadQuestions()
   }, []);
 
   useEffect(() => {
@@ -31,6 +39,10 @@ const Index = () => {
       setCurrentQ(questions[currentQIndex + 1]);
     } else {
       setShowIncorrectMessage(true);
+
+      setTimeout(() => {
+        setShowIncorrectMessage(false)
+      }, 2000)
     }
   }
 
@@ -82,9 +94,6 @@ const Index = () => {
           </div>
 
           <div className="incorrect-answer-message mt-5 text-2xl">
-            {/* Purpose of && > Renders the p tag only if the condition is true doesn't render anything if the condition is not met 
-            setTimeout(() => {})
-            */}
             {showIncorrectMessage && <p id="error-message">Incorrect answer. Please try again</p> }
           </div>
         </div>
