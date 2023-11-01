@@ -4,8 +4,8 @@ const index = () => {
   return (
     <>
       <HowToPlay />
-      {/* <BreakDurationForm /> */}
-      {/* <BeginGame /> */}
+      <BreakDurationForm />
+      <BeginGame /> 
     </>
   );
 };

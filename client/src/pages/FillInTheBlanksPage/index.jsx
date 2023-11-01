@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import { useData } from "../../contexts";
 
 const Index = () => {
-  const { questions, setQuestions } = useData([]);
+  const { questions, setQuestions } = useData();
   const [currentQ, setCurrentQ] = useState([]);
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [showIncorrectMessage, setShowIncorrectMessage] = useState(false);
 
   async function loadQuestions() {
-    const response = await fetch("https://react-and-relax.onrender.com/fill_in_blanks");
+    const response = await fetch("https://react-and-relax.onrender.com/pyhton/easy");
     const data = await response.json();
     setQuestions(data);
     setCurrentQ(data[currentQIndex]);
@@ -18,6 +18,10 @@ const Index = () => {
   useEffect(() => {
     loadQuestions();
   }, []);
+
+  useEffect(() => {
+    setShowIncorrectMessage(false)
+  }, [currentQ])
 
   function handleCorrectAnswer(e) {
     e.preventDefault();
