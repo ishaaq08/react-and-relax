@@ -5,12 +5,12 @@ export default function index() {
 
   function handleClickShort(e) {
     e.preventDefault();
-    setBreakLength(5);
+    setBreakLength(5*60);
   }
 
   function handleClickLong(e) {
     e.preventDefault();
-    setBreakLength(10);
+    setBreakLength(10*60);
   }
 
   return (

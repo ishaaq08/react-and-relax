@@ -5,7 +5,7 @@ const index = () => {
     <>
       <HowToPlay />
       <BreakDurationForm />
-      {/* <BeginGame /> */}
+      <BeginGame /> 
     </>
   );
 };

@@ -6,7 +6,6 @@ export const DataProvider = ({ children }) => {
     const [breakLength, setBreakLength] = useState(0);
     const [questions, setQuestions] = useState([])
     const [beginGameError, setBeginGameError] = useState(undefined);
-  // const [time, setTime] = useState(25*60)
 
   return (
     <DataContext.Provider
