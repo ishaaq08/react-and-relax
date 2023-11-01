@@ -6,7 +6,6 @@ async function getAll(req, res) {
 		res.status(200).json(fill_in_blank)
 	} catch (err) {
 		console.log(err)
-		
 	}
 }
 
