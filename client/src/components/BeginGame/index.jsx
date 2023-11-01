@@ -19,7 +19,7 @@ export default function index() {
 
   return (
     <div className="w-full text-center p-5 bg-[#023E8A]">
-      <div>
+      <div className="max-w-[500px] mx-auto">
         <button
           onClick={handleClick}
           className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg "
