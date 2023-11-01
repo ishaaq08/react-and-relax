@@ -5,9 +5,6 @@ import { useData } from '../../contexts';
 const Index = () => {
   const { questions, setQuestions, language, difficulty } = useData();
   const { session } = useData()
-  // language state
-  // difficulty state
-
   const [currentQ, setCurrentQ] = useState([]);
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [showIncorrectMessage, setShowIncorrectMessage] = useState(false);
@@ -85,7 +82,10 @@ const Index = () => {
           </div>
 
           <div className="incorrect-answer-message mt-5 text-2xl">
-            {showIncorrectMessage && <p>Incorrect answer. Please try again</p>}
+            {/* Purpose of && > Renders the p tag only if the condition is true doesn't render anything if the condition is not met 
+            setTimeout(() => {})
+            */}
+            {showIncorrectMessage && <p id="error-message">Incorrect answer. Please try again</p> }
           </div>
         </div>
       ) : (

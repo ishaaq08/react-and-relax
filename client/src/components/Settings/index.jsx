@@ -12,7 +12,7 @@ export default function index() {
 
   function handleClickShort(e) {
     e.preventDefault();
-    setBreakLength(5 * 60);
+    setBreakLength(5 * 60); 
   }
 
   function handleClickLong(e) {
@@ -32,11 +32,7 @@ export default function index() {
     setDifficulty(e.target.value);
   }
 
-  const minutes = breakLength/60 
-console.log(breakLength);
-
-  console.log(language);
-  console.log(difficulty);
+  const minutes = breakLength/60 // 5
 
   return (
     <div className="max-w-[1500px] mx-auto">
@@ -46,9 +42,9 @@ console.log(breakLength);
       <div className="grid mb-24 max-w-[1000px] mx-auto grid-cols-2 gap-2 text-white bg-[#023E8A] grid-rows-2 ">
         <div className="row-span-2 h-full text-5xl flex justify-center flex-col items-center tracking-widest">
           <h2 className="text-xl font-bold mb-2">Time</h2>
-          {breakLength.toString().length == 1
-            ? `0${breakLength}:00`
-            : `${breakLength}:00`}
+          {minutes.length == 1
+            ? `0${minutes}:00`
+            : `${minutes}:00`}
         </div>
 
         <div className="flex mb-2 justify-center  items-center text-xl">
