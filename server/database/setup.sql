@@ -11,6 +11,7 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,  -- usually you'd store a hashed version of the password
     email VARCHAR(255) UNIQUE,
     date_registered TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    points INT DEFAULT 0,
     PRIMARY KEY (id)
 );
 
@@ -37,6 +38,14 @@ CREATE TABLE fib_Answers(
     is_correct BOOLEAN NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (question_id) REFERENCES fill_in_blanks("id")
+);
+
+CREATE TABLE pseudocode(
+    id INT GENERATED ALWAYS AS IDENTITY,
+    difficulty VARCHAR(255) NOT NULL,
+    code text NOT NULL,
+    question VARCHAR(255) NOT NULL,  
+    PRIMARY KEY (id)
 );
 
 -- Question 1: Basic structure

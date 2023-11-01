@@ -30,7 +30,7 @@ class Fill_In_Blanks {
 				[this.id]
 			)
 
-			return rows.map((row) => this.answers.push(row))
+			this.answers = [...this.answers, ...rows] // This will correctly populate the answers array
 		} catch (err) {
 			console.log(err)
 			return [];
