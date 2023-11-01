@@ -7,4 +7,4 @@ const db = new Pool({
 
 console.log("DB connection established.")
 
-module.exports = db
+module.exports = db;

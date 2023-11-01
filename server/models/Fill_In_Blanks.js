@@ -19,6 +19,7 @@ class Fill_In_Blanks {
 			return results
 		} catch (err) {
 			console.log(err)
+			return [];
 		}
 	}
 
@@ -32,6 +33,7 @@ class Fill_In_Blanks {
 			this.answers = [...this.answers, ...rows] // This will correctly populate the answers array
 		} catch (err) {
 			console.log(err)
+			return [];
 		}
 	}
 
@@ -70,6 +72,7 @@ class Fill_In_Blanks {
 			return results
 		} catch (error) {
 			console.log(error)
+			return [];
 		}
 	}
 }

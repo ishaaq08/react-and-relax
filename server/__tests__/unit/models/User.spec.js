@@ -72,15 +72,12 @@ describe('User', () => {
     it('should handle cases when the user is not found', async () => {
       db.query.mockResolvedValue({ rows: [] });
 
-      // Make sure the function throws an error
       await expect(User.getOneByUsername('nonexistent-user')).rejects.toThrow('Unable to locate user.');
     });
 
     it('should handle database errors', async () => {
-      // Mock the database query function to simulate an error
       db.query.mockRejectedValue(new Error('Database error'));
 
-      // Make sure the function throws an error
       await expect(User.getOneByUsername('user1')).rejects.toThrow('Database error');
     });
   });
