@@ -88,11 +88,13 @@ const index = () => {
       </div> 
     )
     :
-    (
+    ( 
+    <div className='flex justify-center items-center text-3xl tracking-widest mt-12'>
       <h2>
           Well Done! Please have a rest and prepare yourself for the next set of
           questions!
       </h2>
+    </div>
     )}
     </>
   )

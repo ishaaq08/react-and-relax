@@ -64,7 +64,7 @@ export default function index() {
       {/* Select Difficulty */}
       <div className="bg-[#023E8A] flex gap-2 pt-20 flex-col  justify-center items-center">
         <h2 className="text-white text-2xl my-4 font-bold tracking-widest">
-          Select Difficulty
+          Select Programming Language & Difficulty
         </h2>
 
         {howTo === 1 && 
