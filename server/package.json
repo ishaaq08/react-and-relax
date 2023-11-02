@@ -1,22 +1,32 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon -L index.js",
-    "setup-db": "node ./database/setup.js"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "pg": "^8.8.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.20"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js",
+		"dev": "nodemon -L index.js",
+		"setup-db": "node ./database/setup.js",
+		"test": "jest --testPathPattern=/unit/ --watchAll --verbose",
+		"coverage": "jest --testPathPattern=/unit/ --coverage"
+	},
+	"dependencies": {
+		"bcrypt": "^5.1.1",
+		"cors": "^2.8.5",
+		"dotenv": "^16.3.1",
+		"express": "^4.18.2",
+		"fs": "^0.0.1-security",
+		"fs.promises": "^0.1.2",
+		"pg": "^8.11.3",
+		"supports-color": "^8.1.1",
+		"uuid": "^9.0.1"
+	},
+	"devDependencies": {
+		"jest": "^29.7.0",
+		"nodemon": "^2.0.22",
+		"supertest": "^6.3.3"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
 }
