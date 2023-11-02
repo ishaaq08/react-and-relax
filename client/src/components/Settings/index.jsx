@@ -1,4 +1,5 @@
-import { useData } from '../../contexts'
+import { Footer } from '..';
+import { useData } from '../../contexts';
 
 export default function index() {
   const {
@@ -8,13 +9,12 @@ export default function index() {
     setLanguage,
     difficulty,
     setDifficulty,
-    howTo
+    howTo,
   } = useData();
-
 
   function handleClickShort(e) {
     e.preventDefault();
-    setBreakLength(5 * 60); 
+    setBreakLength(5 * 60);
   }
 
   function handleClickLong(e) {
@@ -34,57 +34,75 @@ export default function index() {
     setDifficulty(e.target.value);
   }
 
-  const minutes = breakLength/60 
+  const minutes = breakLength / 60;
 
   return (
     <div className="max-w-[1500px] mx-auto">
-      <h2 className="text-white text-center mb-24 text-2xl my-4 font-bold tracking-widest">
+      {/* <h2 className="text-white text-center mb-24 text-2xl my-4 font-bold tracking-widest">
         Select Rest Period
-      </h2>
-      <div className="grid mb-24 max-w-[1000px] mx-auto grid-cols-2 gap-2 text-white bg-[#023E8A] grid-rows-2 ">
-        <div className="row-span-2 h-full text-5xl flex justify-center flex-col items-center tracking-widest">
-          <h2 className="text-xl font-bold mb-2">Time</h2>
-          {minutes.length == 1
-            ? `0${minutes}:00`
-            : `${minutes}:00`}
+      </h2> */}
+      <div className="flex justify-around items-center mt-36 mb-36">
+        {/* Grid One */}
+
+        <div className="grid  grid-cols-2 gap-2 text-white bg-[#023E8A] grid-rows-3 place-content-center content-center justify-items-center">
+          <h2 className="text-2xl font-bold col-span-2 text-center">
+            Select Rest Period
+          </h2>
+          <div className="row-span-2  h-full text-5xl flex justify-center flex-col items-center tracking-widest">
+            <h2 className="text-xl font-bold mb-2">Time</h2>
+            {minutes.length == 1 ? `0${minutes}:00` : `${minutes}:00`}
+          </div>
+
+          <div className="flex mb-2 justify-center  items-center text-xl">
+            <button className="tracking-widest" onClick={handleClickShort}>
+              Short Break - (5 minutes)
+            </button>
+          </div>
+
+          <div className=" flex  justify-center  items-center text-xl ">
+            <button className="tracking-widest" onClick={handleClickLong}>
+              Long Break - (10 minutes)
+            </button>
+          </div>
         </div>
 
-        <div className="flex mb-2 justify-center  items-center text-xl">
-          <button className="tracking-widest" onClick={handleClickShort}>
-            Short Break - (5 minutes)
-          </button>
-        </div>
+        {/* Grid Two */}
+        <div className="grid w-7/12 grid-cols-2 gap-2 text-white bg-[#023E8A] grid-rows-3 place-content-center content-center justify-items-center">
+          <h2 className="text-white text-2xl col-span-2 mb-2 font-bold tracking-widest">
+            Select {howTo === 1 ? 'Topic &' : ''} Difficulty
+          </h2>
 
-        <div className=" flex  justify-center  items-center text-xl ">
-          <button className="tracking-widest" onClick={handleClickLong}>
-            Long Break - (10 minutes)
-          </button>
-        </div>
-      </div>
-      {/* Select Difficulty */}
-      <div className="bg-[#023E8A] flex gap-2 pt-20 flex-col  justify-center items-center">
-        <h2 className="text-white text-2xl my-4 font-bold tracking-widest">
-          Select Programming Language & Difficulty
-        </h2>
-
-        {howTo === 1 && 
-        <div className="flex ">
-          <div className="language ">
-            <select onChange={handleChangeLanguage}>
-              <option value="python">python</option>
-              <option value="html">html</option>
-            </select>
+          {howTo === 1 && (
+            <div className="flex col-span-2 row-span-2 justify-items-center">
+              <div className="language ">
+                <select
+                  className="bg-indigo-600 text-xl"
+                  onChange={handleChangeLanguage}
+                >
+                  <option value="python">python</option>
+                  <option value="html">html</option>
+                </select>
+              </div>
             </div>
-          </div> 
-      }
-       
-          <div className="difficulty">
-            <select onChange={handleChangeDifficulty}>
-              <option value="easy">easy</option>
-              <option value="medium">medium</option>
+          )}
+
+          <div className="difficulty col-span-2 row-span-2 ">
+            <select
+              className="bg-[#023E8A] outline-[#023E8A] text-xl   px-4 py-2 text-white capitalize"
+              onChange={handleChangeDifficulty}
+            >
+              <option className="p-8" value="easy">
+                easy
+              </option>
+              <option className="p-8" value="medium">
+                medium
+              </option>
             </select>
           </div>
         </div>
       </div>
+
+      {/* Select Difficulty */}
+    </div>
   );
 }

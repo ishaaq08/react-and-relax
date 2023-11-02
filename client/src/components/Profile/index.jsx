@@ -1,4 +1,4 @@
-function Profile({ username, details, handleDeleteClick }) {
+function Profile({ username, details, handleDeleteClick, handleEditClick }) {
 	return (
 		<>
 			<div className="bg-white p-8 rounded shadow-lg w-96 relative">
@@ -24,7 +24,7 @@ function Profile({ username, details, handleDeleteClick }) {
 
 				<div className="mt-6 flex justify-between">
 					<button
-						onClick={() => {}}
+						onClick={handleEditClick}
 						className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200"
 					>
 						Update

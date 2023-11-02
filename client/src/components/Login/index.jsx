@@ -37,7 +37,7 @@ const index = () => {
 					setToken(data.token)
 					setUsername(userName)
 
-					// Navigate("/profile")
+					 Navigate("/profile")
 				}
 			})
 			.catch((err) => {

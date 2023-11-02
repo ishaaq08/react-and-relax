@@ -24,7 +24,7 @@ export default function index() {
       <div className="max-w-[500px] mx-auto">
         <button
           onClick={handleClick}
-          className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg"
+          className="w-6/12 mt-10 font-semibold text-white  bg-[#00B4D8] py-4 px-4 rounded-lg"
         >
           Begin Game
         </button>
