@@ -1,66 +1,62 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { useData } from '../../contexts';
 import { Timer, ExitButton } from '../../components';
 
-
 const index = () => {
-  const { difficulty, questions, setQuestions} = useData()
-  const { session } = useData()
+  const { difficulty, questions, setQuestions } = useData();
+  const { session } = useData();
   const [currentQ, setCurrentQ] = useState([]);
   const [currentQIndex, setCurrentQIndex] = useState(0);
-  const [answer, setAnswer] = useState("")
-  const [showMessage, setShowMessage] = useState(undefined)
+  const [answer, setAnswer] = useState('');
+  const [showMessage, setShowMessage] = useState(undefined);
+  function replaceNewlineWithBreak(inputString) {
+    return inputString.replace(/\\n/g, '<br>');
+  }
+  useEffect(() => {
+    const getData = async () => {
+      const res = await fetch(
+        `https://react-and-relax.onrender.com/pseudocode/${difficulty}`
+      );
+      const data = await res.json();
+      setQuestions(data);
+      setCurrentQ(data[currentQIndex]);
+    };
 
-	useEffect(() => {
-		const getData = async () => {
-			const res = await fetch(
-				`https://react-and-relax.onrender.com/pseudocode/${difficulty}`
-			)
-			const data = await res.json()
-			setQuestions(data)
-			setCurrentQ(data[currentQIndex])
-		}
+    getData();
+  }, []);
 
-		getData()
-	}, [])
+  useEffect(() => {
+    setShowMessage(undefined);
+  }, [currentQ]);
 
-	useEffect(() => {
-    setShowMessage(undefined)
-	}, [currentQ])
-
-  function handleSubmit(e){
-    e.preventDefault()
-    if (answer === currentQ["answer"]){
-
-      setShowMessage("correct")
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (answer === currentQ['answer']) {
+      setShowMessage('correct');
 
       setTimeout(() => {
-        setCurrentQIndex((prevIndex) => prevIndex + 1)
-        setCurrentQ(questions[currentQIndex + 1])
+        setCurrentQIndex((prevIndex) => prevIndex + 1);
+        setCurrentQ(questions[currentQIndex + 1]);
       }, 1500);
-      
     } else {
-      setShowMessage("incorrect")
+      setShowMessage('incorrect');
       setTimeout(() => {
-        setShowMessage(undefined)
-      }, 1500) 
-    } 
-    setAnswer("")
+        setShowMessage(undefined);
+      }, 1500);
+    }
+    setAnswer('');
   }
 
-  function handleChange(e){
-    setAnswer(e.target.value)
+  function handleChange(e) {
+    setAnswer(e.target.value);
   }
-
 
   return (
-
-    <div className="h-screen bg-[#023E8A]">
-
+    <div className="h-screen bg-[#023E8A] pt-60">
       {/* Header  */}
       <div className="header">
         <h1 className="capitalize text-white text-center text-5xl pt-10 font-semibold tracking-widest">
-              Pseudo Code Game
+          Pseudo Code Game
         </h1>
       </div>
 
@@ -70,40 +66,57 @@ const index = () => {
         <Timer />
       </div>
 
-    {/* Display the Task during Work Periods */}
-      { session % 2 != 0 ? 
-      (
+      {/* Display the Task during Work Periods */}
+      {session % 2 != 0 ? (
         <div className="session rounded-2xl flex flex-col justify-center items-center bg-[#023E8A] w-[90vw] mx-auto px-40 py-28 text-white">
-
           {/* Explanation of Task */}
           <div className="questions flex justify-center items-center flex-col mb-12">
-
             {currentQ ? (
-                <>
-                  <p className="text-xl mb-4">{currentQ['question']}</p>
-                  <p className="text-xl mb-4">{currentQ['code']}</p>
-                </>
-                )
-                :
-                (         
-                  <p>Loading Data</p>
-                )}
-          
+              <>
+                <p className="text-xl mb-4">{currentQ['question']}</p>
+                <p
+                  className="hello text-xl mb-4"
+                  dangerouslySetInnerHTML={{
+                    __html: currentQ['code']
+                      ? replaceNewlineWithBreak(currentQ['code'])
+                      : 'No code provided',
+                  }}
+                ></p>
+                git
+              </>
+            ) : (
+              <p>Loading Data</p>
+            )}
 
-                {/* Area to answer */}
-                <div className="flex flex-col items-center mt-4 mb-4">
-                  <input className="text-black border-2 border-black mb-10 rounded-full w-80 h-18" type="text" placeholder='Input answer here' onChange={handleChange} value={answer} required/>
-                  <button className="border-2 w-80 rounded-full h-20 p-4 border-white hover:text-[#023E8A] hover:bg-white text-xl transition-all" type='submit' onClick={handleSubmit}>
-                    Submit
-                  </button>
-                </div>
-          
-              {/* Incorrect Answer Message */}
-              <div className="incorrect-answer-message mt-5 text-2xl">
-                    {showMessage === "incorrect" && showMessage ? <p className='text-red-500 font-semibold'>Incorrect Answer</p> : (showMessage === "correct" && showMessage ? <p className='text-green-500 font-semibold'>Correct</p> : <></>)}
+            {/* Area to answer */}
+            <div className="flex flex-col items-center mt-4 mb-4">
+              <input
+                className="text-black border-2 border-black mb-10 rounded-full w-80 h-18"
+                type="text"
+                placeholder="Input answer here"
+                onChange={handleChange}
+                value={answer}
+                required
+              />
+              <button
+                className="border-2 w-80 rounded-full h-20 p-4 border-white hover:text-[#023E8A] hover:bg-white text-xl transition-all"
+                type="submit"
+                onClick={handleSubmit}
+              >
+                Submit
+              </button>
+            </div>
 
-              </div>
-
+            {/* Incorrect Answer Message */}
+            <div className="incorrect-answer-message mt-5 text-2xl">
+              {showMessage === 'incorrect' && showMessage ? (
+                <p className="text-red-500 font-semibold">Incorrect Answer</p>
+              ) : showMessage === 'correct' && showMessage ? (
+                <p className="text-green-500 font-semibold">Correct</p>
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
           </div>
       )
@@ -118,12 +131,11 @@ const index = () => {
       </div>
       )}
 
-    {/* Exit Button */}
-    <div className="exit-btn">
-      <ExitButton />
+      {/* Exit Button */}
+      <div className="exit-btn">
+        <ExitButton />
+      </div>
     </div>
-
-    </div>
-  )
+  );
 };
 export default index;

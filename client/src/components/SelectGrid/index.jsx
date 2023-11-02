@@ -1,9 +1,10 @@
 import { delay, motion } from 'framer-motion';
 import revision from '../../assets/childrevising2.jpg';
-import { useState } from 'react';
+import {useState } from 'react';
 import { Footer } from '..';
 import { Link } from 'react-router-dom';
 import { useData } from '../../contexts';
+
 
 import background from '../../assets/background.svg';
 const index = () => {
@@ -16,6 +17,7 @@ const index = () => {
   const handleCardClick = (index) => {
     setExpandedIndex(index === expandedIndex ? -1 : index);
   };
+
 
   const bgStyles = {
     backgroundImage: `url(${background})`, // Use the 'url' function to specify the image path // Adjust to your preference
