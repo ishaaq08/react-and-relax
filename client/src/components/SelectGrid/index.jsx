@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { delay, motion } from 'framer-motion';
 import revision from '../../assets/childrevising2.jpg';
 import { useState } from 'react';
 import { Footer } from '..';
@@ -27,11 +27,11 @@ const index = () => {
 
   const cardVariants = {
     expanded: {
-      width: '30vw',
+      width: '50vw',
       height: '70vh',
     },
     collapsed: {
-      width: '200px',
+      width: '40vw',
       height: '70vh',
     },
   };
@@ -70,25 +70,27 @@ const index = () => {
                 style={{ backgroundImage: `url(${cardImages[index]})` }}
               >
                 <div className="card-content h-full flex flex-col justify-end">
-                  <div className="card-footer rounded-b-[20px] bg-gray-800 bg-opacity-75 min-h-[100px] flex flex-col items-center justify-center">
-                    <h2 className="text-xl font-semibold text-white text-center">
+                  <motion.div className="card-footer p-5 rounded-b-[20px] bg-gray-800 bg-opacity-75 min-h-[100px] flex flex-col items-center justify-center">
+                    <h2 className="text-3xl font-semibold text-white text-center">
                       {gameNames[index]}
                     </h2>
                     {index === expandedIndex && (
-                      <>
-                        <p className="my-2 text-center text-white">
-                          {cardDescription[index]}
-                        </p>
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="mt-8 mb-4"
+                      >
                         <Link
                           onClick={() => handleGame(index + 1)}
-                          className="bg-[#48CAE4] py-2 px-4 mb-2 rounded-lg"
+                          className="bg-[#48CAE4] py-4 px-8 mb-4 rounded-lg"
                           to={links[index]}
                         >
                           Play Game
                         </Link>
-                      </>
+                      </motion.div>
                     )}
-                  </div>
+                  </motion.div>
                 </div>
               </motion.div>
             );
