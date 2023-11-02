@@ -4,44 +4,47 @@ import { useData } from '../../contexts';
 
 const Index = () => {
   const { questions, setQuestions, language, difficulty } = useData();
-  const { session } = useData();
+  const { session } = useData()
   const [currentQ, setCurrentQ] = useState([]);
   const [currentQIndex, setCurrentQIndex] = useState(0);
-  const [showIncorrectMessage, setShowIncorrectMessage] = useState(false);
+  const [showMessage, setShowMessage] = useState(undefined)
 
   useEffect(() => {
     async function loadQuestions() {
-      try {
-        const response = await fetch(`https://react-and-relax.onrender.com/${language}/${difficulty}`);
+      try{
+      const response = await fetch(`https://react-and-relax.onrender.com/${language}/${difficulty}`);
 
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
+      if(!response.ok){
+        throw new Error(`Error: ${response.status}`)
+      }
 
-        const data = await response.json();
-        setQuestions(data);
-        setCurrentQ(data[currentQIndex]);
-      } catch (error) {
-        console.error("Error fetching questions: ", error);
+      const data = await response.json();
+      setQuestions(data);
+      setCurrentQ(data[currentQIndex]);
+      } catch(error){
+        console.error("Error fetching questions: ", error)
       }
     }
-    loadQuestions();
+    loadQuestions()
   }, []);
 
   useEffect(() => {
-    setShowIncorrectMessage(false);
+    setShowMessage(undefined)
   }, [currentQ]);
 
   function handleCorrectAnswer(e) {
     e.preventDefault();
     if (e.target.classList.contains('true')) {
-      setCurrentQIndex((prevIndex) => prevIndex + 1);
-      setCurrentQ(questions[currentQIndex + 1]);
-    } else {
-      setShowIncorrectMessage(true);
+      setShowMessage("correct")
+      setTimeout(()=> {
+        setCurrentQIndex((prevIndex) => prevIndex + 1);
+        setCurrentQ(questions[currentQIndex + 1]);
+      },1500)
 
+    } else {
+      setShowMessage("incorrect");
       setTimeout(() => {
-        setShowIncorrectMessage(false)
+        setShowMessage(undefined)
       }, 1500)
     }
   }
@@ -52,20 +55,17 @@ const Index = () => {
      
     {/* Header */}
     <div className="header">
-<h1 className="capitalize text-white text-center text-5xl pt-36 font-semibold tracking-widest ">
-    Fill in the blanks
-  </h1>
+      <h1 className="capitalize text-white text-center text-5xl pt-10 font-semibold tracking-widest">
+        Fill in the blanks
+      </h1>
     </div>
 
 
     {/* Timer */}
-
-  {session % 2 !== 0 ? (
-    <div className="session rounded-lg flex flex-col justify-center items-center bg-white w-[50vw] mx-auto px-5 py-8 text-black border border-gray-200">
-      <div className="timer max-w-[800px] rounded-lg flex mt-5 mb-5 gap-5 justify-center items-center text-black bg-[#ECEFF1] w-[40vw] mx-auto px-4 py-7 text-lg font-roboto">
+      <div className="timer max-w-[1000px] rounded-full flex mt-12 gap-5 justify-center items-center text-black bg-white w-[70vw] mx-auto px-4 py-7 text-lg">
         <h2 className="text-2xl tracking-widest">Time Remaining: </h2>
         <Timer />
-      </div> 
+      </div>
 
     {/* Display the Task during Work Periods */}
       {session % 2 !== 0 ? 
@@ -82,32 +82,30 @@ const Index = () => {
             )}
           </div>
 
-      <div className="answers flex justify-center items-center flex-col">
-        <br />
-
-        {currentQ ? (
-          <div className="flex flex-col gap-2">
-            {Array.isArray(currentQ['answers']) ? (
-              currentQ['answers'].map((answer, index) => (
-                <button
-                  className={`border-2 w-80 rounded-full h-20 p-4 border-black bg-white text-gray-900 hover:bg-[#ECEFF1] hover:bg-opacity-70 hover:text-gray-500 text-xl transition-all ml-2 mr-2 ${answer['is_correct']}`}
-                  key={index}
-                  onClick={handleCorrectAnswer}
-                >
-                  {answer['answer']}
-                </button>
-              ))
+          <div className="answers flex justify-center  items-center flex-col">
+            {currentQ ? (
+              <div className="flex flex-col  gap-2">
+                {Array.isArray(currentQ['answers']) ? (
+                  currentQ['answers'].map((answer, index) => (
+                    <button
+                      className={`border-2 w-80 rounded-full h-20 p-4 border-white hover:text-[#023E8A] hover:bg-white text-xl transition-all ml-2 mr-2 ${answer['is_correct']}`}
+                      key={index}
+                      onClick={handleCorrectAnswer}
+                    >
+                      {answer['answer']}
+                    </button>
+                  ))
+                ) : (
+                  <p>Answers not available</p>
+                )}
+              </div>
             ) : (
-              <p>Answers not available</p>
+              <p>Loading answers</p>
             )}
           </div>
-        ) : (
-          <p>Loading answers</p>
-        )}
-      </div>
 
           <div className="incorrect-answer-message mt-5 text-2xl">
-            {showIncorrectMessage && <p id="error-message" className='text-red-500 font-semibold'>Incorrect answer. Please try again</p> }
+          {showMessage === "incorrect" && showMessage ? <p className='text-red-500 font-semibold'>Incorrect Answer</p> : (showMessage === "correct" && showMessage ? <p className='text-green-500 font-semibold'>Correct</p> : <></>)}
           </div>
         </div>
       ) 
@@ -129,3 +127,4 @@ const Index = () => {
 };
 
 export default Index;
+// ishaaq
