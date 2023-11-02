@@ -78,7 +78,7 @@ const index = () => {
 
   return (
     <>
-      <header className="absolute z-20 text-white p-12 w-screen">
+      <header className="absolute z-20 text-white py-12 pl-12 w-full">
         <nav className="flex items-center justify-between flex-row">
           <div
             role="nav-toggle"
@@ -87,7 +87,7 @@ const index = () => {
           >
             <Hamburger />
           </div>
-          <div className="flex w-1/5 justify-around items-center">
+          <div className="flex w-2/12 justify-around items-center">
             <h1 className="text-2xl">React + Relax</h1>
             <Logo />
           </div>

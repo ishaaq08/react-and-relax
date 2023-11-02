@@ -26,7 +26,7 @@ function Dashboard() {
   ];
 
   const handlePlayButtonClick = () => {
-    Navigate('/games/how-to-play/fill-in-the-blanks');
+    Navigate('/games/');
 
     console.log('Play button clicked');
   };
@@ -36,7 +36,7 @@ function Dashboard() {
       style={bgStyles}
       className="dashboard p-8 bg-gray-100 min-h-screen relative opacity-90"
     >
-      <div className="text-center mt-36 max-w-xl h-[50vh] flex justify-center bg-blue-900 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10  items-center flex-col mx-auto">
+      <div className="text-center mt-48 max-w-xl h-[50vh] flex justify-center bg-blue-900 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10  items-center flex-col mx-auto">
         <div className="absolute top-8 right-8 text-white flex items-center gap-2">
           Your Points:{' '}
           <span className="font-bold text-3xl text-white">{userPoints}</span>
