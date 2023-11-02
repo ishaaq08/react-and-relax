@@ -1,3 +1,13 @@
+import { describe, it } from 'vitest';
+
+describe('My Test Suite', () => {
+  it('Test 1', () => {
+    // Your test logic here
+  });
+
+ 
+});
+
 // import React from 'react';
 // import { render, screen, cleanup } from '@testing-library/react';
 // import HomePageBody from '.';
