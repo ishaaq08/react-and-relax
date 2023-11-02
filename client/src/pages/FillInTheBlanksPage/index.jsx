@@ -1,4 +1,4 @@
-import { Footer, Timer } from '../../components';
+import { Footer, Timer, ExitButton } from '../../components';
 import { useEffect, useState } from 'react';
 import { useData } from '../../contexts';
 
@@ -41,16 +41,24 @@ const Index = () => {
       setShowIncorrectMessage(true);
 
       setTimeout(() => {
-        setShowIncorrectMessage(false);
-      }, 2000);
+        setShowIncorrectMessage(false)
+      }, 1500)
     }
   }
 
   return (
-    <div className="h-screen bg-[#023E8A]">
+
+  <div className="h-screen bg-[#023E8A]">
+     
+    {/* Header */}
+    <div className="header">
 <h1 className="capitalize text-white text-center text-5xl pt-36 font-semibold tracking-widest ">
     Fill in the blanks
   </h1>
+    </div>
+
+
+    {/* Timer */}
 
   {session % 2 !== 0 ? (
     <div className="session rounded-lg flex flex-col justify-center items-center bg-white w-[50vw] mx-auto px-5 py-8 text-black border border-gray-200">
@@ -59,16 +67,20 @@ const Index = () => {
         <Timer />
       </div> 
 
-      <div className="questions flex justify-center items-center flex-col mb-12 ">
-        {currentQ ? (
-          <p className="text-xl">{currentQ['question']}</p>
-        ) : (
-          <>
-            <p>Loading Data</p>
-            <br />
-          </>
-        )}
-      </div>
+    {/* Display the Task during Work Periods */}
+      {session % 2 !== 0 ? 
+      (
+        <div className="session rounded-2xl flex flex-col justify-center items-center bg-[#023E8A] w-[90vw] mx-auto px-40 py-28 text-white">
+          <div className="questions flex justify-center items-center flex-col mb-12">
+            {currentQ ? (
+              <p className="text-xl">{currentQ['question']}</p>
+            ) : (
+              <>
+                <p>Loading Data</p>
+                <br />
+              </>
+            )}
+          </div>
 
       <div className="answers flex justify-center items-center flex-col">
         <br />
@@ -94,19 +106,25 @@ const Index = () => {
         )}
       </div>
 
-      <div className="incorrect-answer-message mt-5 text-2xl">
-        {showIncorrectMessage && <p id="error-message">Incorrect answer. Please try again</p>}
-      </div>
+          <div className="incorrect-answer-message mt-5 text-2xl">
+            {showIncorrectMessage && <p id="error-message" className='text-red-500 font-semibold'>Incorrect answer. Please try again</p> }
+          </div>
+        </div>
+      ) 
+      : 
+      (
+        <h2>
+          Well Done! Please have a rest and prepare yourself for the next set of
+          questions!
+        </h2>
+      )}
+
+    {/* Exit Button */}
+    <div className="exit-btn">
+      <ExitButton />
     </div>
-  ) : (
-    <h2>
-      Well Done! Please have a rest and prepare yourself for the next set of questions!
-    </h2>
-  )}
-</div>
 
-
-
+  </div>
   );
 };
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useData } from '../../contexts';
 
@@ -12,7 +11,7 @@ export default function index() {
 
     // Break length is mandatory. Difficulty is optional
     if (navigationCondition && howTo == 1) {
-      navigate('/games/game1');
+      navigate('/games/game1')
     } else if (navigationCondition && howTo == 2) {
       navigate('/games/game2');
     } else {
@@ -25,7 +24,7 @@ export default function index() {
       <div className="max-w-[500px] mx-auto">
         <button
           onClick={handleClick}
-          className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg "
+          className="w-6/12 mt-10 font-semibold text-white  bg-[#00B4D8] py-4 px-4 rounded-lg"
         >
           Begin Game
         </button>

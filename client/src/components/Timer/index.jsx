@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react'
 import { useData } from '../../contexts'
 
 export default function index() {
-    const [time, setTime] = useState(25*60) 
+    const [time, setTime] = useState(10000*60) 
     const { breakLength } = useData()
     const {session, setSession} = useData()
 
