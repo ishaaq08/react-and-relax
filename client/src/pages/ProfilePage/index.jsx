@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { useData } from "../../contexts"
 import { Profile, DeleteModal, EditModal } from "../../components"
+import { useNavigate } from "react-router-dom"
+
 // import from "../../components"
 
 function ProfilePage() {
@@ -16,12 +18,16 @@ function ProfilePage() {
 	const [password, setPassword] = useState("")
 	const [confirmPassword, setConfirmPassword] = useState("")
 	const [error, setError] = useState("")
+	const Navigate = useNavigate()
 	useEffect(() => {
 		getProfile(username, setDetails, token)
 	}, [])
 
 	const handleDeleteClick = () => {
 		setShowDeleteModal(true)
+	}
+	const navigateToDashboard = () => {
+		Navigate("/dashboard")
 	}
 
 	const handleEditClick = () => {
@@ -96,6 +102,12 @@ function ProfilePage() {
 
 	return (
 		<div className="bg-[#023E8A] min-h-screen flex items-center justify-center">
+			<button
+				onClick={navigateToDashboard}
+				className="px-4 py-2 bg-yellow-600 text-white rounded hover:bg-blue-700"
+			>
+				Go to Dashboard
+			</button>
 			<Profile
 				username={username}
 				details={details}

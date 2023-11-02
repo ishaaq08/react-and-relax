@@ -5,20 +5,20 @@ function Profile({ username, details, handleDeleteClick, handleEditClick }) {
 				<h1 className="text-2xl font-bold mb-6 text-center">Profile Page</h1>
 				<div className="space-y-4">
 					<p className="flex justify-between">
-						<span className="font-medium">Username:</span>
-						<span>{username}</span>
+						<span className=" font-bold">Username:</span>
+						<span className="font-medium">{username}</span>
 					</p>
 					<p className="flex justify-between">
-						<span className="font-medium">Email:</span>
-						<span>{details.email}</span>
+						<span className="font-bold">Email:</span>
+						<span className="font-medium">{details.email}</span>
 					</p>
 					<p className="flex justify-between">
-						<span className="font-medium">Created At:</span>
-						<span>{details.date_registered}</span>
+						<span className="font-bold">Created At:</span>
+						<span className="font-medium">{details.date_registered}</span>
 					</p>
 					<p className="flex justify-between">
-						<span className="font-medium">Total points:</span>
-						<span>{details.points}</span>
+						<span className="font-bold">Total points:</span>
+						<span className="font-medium">{details.points}</span>
 					</p>
 				</div>
 
