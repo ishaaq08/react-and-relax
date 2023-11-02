@@ -123,7 +123,6 @@ const index = () => {
       <ExitButton />
     </div>
 
-
     </div>
   )
 };
