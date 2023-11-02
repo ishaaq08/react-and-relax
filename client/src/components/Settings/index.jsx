@@ -14,12 +14,14 @@ export default function index() {
 
   function handleClickShort(e) {
     e.preventDefault();
-    setBreakLength(5 * 60);
+    setBreakLength(5);
+    // setBreakLength(5*60) > change back
   }
 
   function handleClickLong(e) {
     e.preventDefault();
-    setBreakLength(10 * 60);
+    setBreakLength(10);
+    // setBreakLength(10*60) > change back
   }
 
   // Set Language
@@ -50,18 +52,19 @@ export default function index() {
           </h2>
           <div className="row-span-2  h-full text-5xl flex justify-center flex-col items-center tracking-widest">
             <h2 className="text-xl font-bold mb-2">Time</h2>
-            {minutes.length == 1 ? `0${minutes}:00` : `${minutes}:00`}
+            {/* {minutes.length == 1 ? `0${minutes}:00` : `${minutes}:00`} < ! RESET TO THIS AFTER DEMO*/} /
+            {`${breakLength}s`}
           </div>
 
           <div className="flex mb-2 justify-center  items-center text-xl">
             <button className="tracking-widest" onClick={handleClickShort}>
-              Short Break - (5 minutes)
+              Short Break - (5 seconds)
             </button>
           </div>
 
           <div className=" flex  justify-center  items-center text-xl ">
             <button className="tracking-widest" onClick={handleClickLong}>
-              Long Break - (10 minutes)
+              Long Break - (10 seconds)
             </button>
           </div>
         </div>

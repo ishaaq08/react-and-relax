@@ -111,10 +111,12 @@ const Index = () => {
       ) 
       : 
       (
+        <div className='flex justify-center items-center text-3xl tracking-widest mt-12 mb-5 text-white'>
         <h2>
-          Well Done! Please have a rest and prepare yourself for the next set of
-          questions!
+            Well Done! Please have a rest and prepare yourself for the next set of
+            questions!
         </h2>
+      </div>
       )}
 
     {/* Exit Button */}
