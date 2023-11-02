@@ -47,7 +47,7 @@ const index = () => {
           </Reveal>
           <Reveal>
             <button className="w-6/12 bg-[#00B4D8] py-4 px-4 rounded-lg ">
-              <Link to="/signup">Signup Now</Link>
+              <Link to="/signup">Sign-up now</Link>
             </button>
           </Reveal>
         </div>

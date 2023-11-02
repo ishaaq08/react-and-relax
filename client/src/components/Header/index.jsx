@@ -76,7 +76,7 @@ const index = () => {
 					>
 						<Hamburger />
 					</div>
-					<div className="flex w-1/5 justify-around">
+					<div className="text-lg flex w-1/5 justify-around">
 						<h1>React + Relax</h1>
 						<Logo />
 					</div>
@@ -89,7 +89,7 @@ const index = () => {
 							initial="initial"
 							animate="animate"
 							exit="exit"
-							className="fixed z-20 left-0 top-0 h-screen w-full bg-[#00B4D8] origin-top text-black p-10"
+							className="fixed z-20 left-0 top-0 h-screen w-full bg-[#F2F4FD] origin-top text-black p-10"
 						>
 							<div className="flex h-full flex-col" role="nav-container">
 								<div className="flex justify-between">
@@ -107,7 +107,7 @@ const index = () => {
 									initial="initial"
 									animate="open"
 									exit="initial"
-									className="flex flex-col h-full justify-center font-serif items-center gap-4 bg-[#00B4D8] text-5xl uppercase text-black"
+									className="flex flex-col h-full justify-center font-roboto items-center gap-4 bg-[#F2F4FD] text-5xl uppercase text-black"
 								>
 									<div className="overflow-hidden">
 										<motion.div variants={navVariants}>
@@ -171,7 +171,7 @@ const index = () => {
 													className=" cursor-pointer"
 													to="/signup"
 												>
-													Signup
+													Sign-up
 												</Link>
 											)}
 										</motion.div>
