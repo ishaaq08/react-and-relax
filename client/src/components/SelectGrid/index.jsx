@@ -38,7 +38,7 @@ const index = () => {
 
   const cardImages = [revision, revision];
 
-  const cardDescription = [`Fill in the blanks`, `Psuedocode`];
+  const cardDescription = [`Fill in the blanks`, `Pseudocode`];
   const links = [
     '/games/how-to-play/fill-in-the-blanks',
     '/games/how-to-play/fill-in-the-blanks',
