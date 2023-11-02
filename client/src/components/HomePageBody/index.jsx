@@ -47,7 +47,7 @@ const index = () => {
           </Reveal>
           <Reveal>
             <button className="w-6/12 bg-[#00B4D8] py-4 px-4 rounded-lg ">
-              <Link to="/signup">Signup Now</Link>
+              <Link to="/signup">Sign up</Link>
             </button>
           </Reveal>
         </div>
@@ -68,19 +68,19 @@ const index = () => {
                 <h4 className="font-extrabold py-2 text-5xl mb-2">
                   Fill in the Blanks
                 </h4>
-                <Reveal>
-                  <p className="text-md my-5 tracking-tight">
-                    Get ready for a fun, educational challenge with our
-                    Fill-in-the-Blanks Revision Game! Complete sentences, boost
-                    your knowledge, and have a blast. Suitable for all ages with
-                    various difficulty levels. Ready to fill in the blanks?
-                  </p>
-                </Reveal>
-                <Reveal>
-                  <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
-                    <Link to="/games">Play Now</Link>
-                  </button>
-                </Reveal>
+              </Reveal>
+              <Reveal>
+                <p className="text-md my-5 tracking-tight">
+                  Get ready for a fun, educational challenge with our
+                  Fill-in-the-Blanks Revision Game! Complete sentences, boost
+                  your knowledge, and have a blast. Suitable for all ages with
+                  various difficulty levels. Ready to fill in the blanks?
+                </p>
+              </Reveal>
+              <Reveal>
+                <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
+                  <Link to="/games">Play Now</Link>
+                </button>
               </Reveal>
             </div>
             <Reveal>
@@ -98,20 +98,20 @@ const index = () => {
                 <h4 className="font-extrabold py-2 text-5xl mb-2">
                   PseudoCode
                 </h4>
-                <Reveal>
-                  <p className="text-md my-5 tracking-tight">
-                    A pseudocode game is an interactive learning activity that
-                    teaches programming logic through simplified, human-readable
-                    code representation. Players solve problems and express
-                    solutions using pseudocode, enhancing problem-solving and
-                    algorithm design skills without writing actual code.
-                  </p>
-                </Reveal>
-                <Reveal>
-                  <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
-                    <Link to="/games">Play Now</Link>
-                  </button>
-                </Reveal>
+              </Reveal>
+              <Reveal>
+                <p className="text-md my-5 tracking-tight">
+                  A pseudocode game is an interactive learning activity that
+                  teaches programming logic through simplified, human-readable
+                  code representation. Players solve problems and express
+                  solutions using pseudocode, enhancing problem-solving and
+                  algorithm design skills without writing actual code.
+                </p>
+              </Reveal>
+              <Reveal>
+                <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
+                  <Link to="/games">Play Now</Link>
+                </button>
               </Reveal>
             </div>
             <Reveal>
@@ -129,16 +129,16 @@ const index = () => {
                 <h4 className="font-extrabold py-2 text-5xl mb-2">
                   Create Magic Notes
                 </h4>
-                <Reveal>
-                  <p className="text-md my-5 tracking-tight">
-                    Get flashcards, practice tests and more in one click
-                  </p>
-                </Reveal>
-                <Reveal>
-                  <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
-                    <Link to="/games">Get Started</Link>
-                  </button>
-                </Reveal>
+              </Reveal>
+              <Reveal>
+                <p className="text-md my-5 tracking-tight">
+                  Get flashcards, practice tests and more in one click
+                </p>
+              </Reveal>
+              <Reveal>
+                <button className="w-6/12 font-semibold text-white mt-5 bg-[#00B4D8] py-4 px-4 rounded-lg ">
+                  <Link to="/games">Get Started</Link>
+                </button>
               </Reveal>
             </div>
             <Reveal>

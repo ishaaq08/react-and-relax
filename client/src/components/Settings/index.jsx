@@ -44,7 +44,7 @@ export default function index() {
       <div className="flex justify-around items-center mt-36 mb-36">
         {/* Grid One */}
 
-        <div className="grid  grid-cols-2 gap-2 text-white bg-[#023E8A] grid-rows-3 place-content-center content-center justify-items-center">
+        <div className="grid  grid-cols-2 gap-2 text-white grid-rows-3 place-content-center content-center justify-items-center">
           <h2 className="text-2xl font-bold col-span-2 text-center">
             Select Rest Period
           </h2>
@@ -67,7 +67,7 @@ export default function index() {
         </div>
 
         {/* Grid Two */}
-        <div className="grid w-7/12 grid-cols-2 gap-2 text-white bg-[#023E8A] grid-rows-3 place-content-center content-center justify-items-center">
+        <div className="grid w-7/12 grid-cols-2 gap-2 text-white  grid-rows-3 place-content-center content-center justify-items-center">
           <h2 className="text-white text-2xl col-span-2 mb-2 font-bold tracking-widest">
             Select {howTo === 1 ? 'Topic &' : ''} Difficulty
           </h2>
@@ -88,7 +88,7 @@ export default function index() {
 
           <div className="difficulty col-span-2 row-span-2 ">
             <select
-              className="bg-[#023E8A] outline-[#023E8A] text-xl   px-4 py-2 text-white capitalize"
+              className="bg-[#00B4D8] focus text-xl  px-4 py-2 text-white capitalize"
               onChange={handleChangeDifficulty}
             >
               <option className="p-8" value="easy">
