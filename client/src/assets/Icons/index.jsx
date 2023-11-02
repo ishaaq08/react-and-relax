@@ -6,7 +6,7 @@ export const Hamburger = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
+      className="w-12 h-12"
     >
       <path
         strokeLinecap="round"
@@ -44,7 +44,7 @@ export const Logo = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6 mx-auto"
+      className="w-12 h-12 mx-auto"
     >
       <path
         strokeLinecap="round"

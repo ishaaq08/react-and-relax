@@ -5,6 +5,17 @@ import { useNavigate } from "react-router-dom"
 
 // import from "../../components"
 
+import background5 from '../../assets/background5.svg';
+
+const bgStyles = {
+  backgroundImage: `url(${background5})`, // Use the 'url' function to specify the image path // Adjust to your preference
+  backgroundSize: 'cover',
+  backgroundPosition: 'center', // Adjust to your preference
+  // backgroundRepeat: 'no-repeat',
+  height: '100vh',
+  // Set the desired height of your hero section
+};
+
 function ProfilePage() {
 	const { username, token } = useData()
 	const [details, setDetails] = useState({})
@@ -18,16 +29,13 @@ function ProfilePage() {
 	const [password, setPassword] = useState("")
 	const [confirmPassword, setConfirmPassword] = useState("")
 	const [error, setError] = useState("")
-	const Navigate = useNavigate()
+	
 	useEffect(() => {
 		getProfile(username, setDetails, token)
 	}, [])
 
 	const handleDeleteClick = () => {
 		setShowDeleteModal(true)
-	}
-	const navigateToDashboard = () => {
-		Navigate("/dashboard")
 	}
 
 	const handleEditClick = () => {
@@ -101,13 +109,8 @@ function ProfilePage() {
 	}
 
 	return (
-		<div className="bg-[#023E8A] min-h-screen flex items-center justify-center">
-			<button
-				onClick={navigateToDashboard}
-				className="px-4 py-2 bg-yellow-600 text-white rounded hover:bg-blue-700"
-			>
-				Go to Dashboard
-			</button>
+		<div style={bgStyles} className="bg-[#023E8A] min-h-screen flex items-center flex-col justify-center">
+			
 			<Profile
 				username={username}
 				details={details}

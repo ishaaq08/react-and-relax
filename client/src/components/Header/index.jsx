@@ -13,7 +13,7 @@ const index = () => {
     backgroundPosition: 'center', // Adjust to your preference
     // backgroundRepeat: 'no-repeat',
     height: '100vh',
-		 // Set the desired height of your hero section
+    // Set the desired height of your hero section
   };
 
   const [open, setOpen] = useState(false);
@@ -78,7 +78,7 @@ const index = () => {
 
   return (
     <>
-      <header className="absolute z-20  text-white p-12 w-screen">
+      <header className="absolute z-20 text-white p-12 w-screen">
         <nav className="flex items-center justify-between flex-row">
           <div
             role="nav-toggle"
@@ -87,8 +87,8 @@ const index = () => {
           >
             <Hamburger />
           </div>
-          <div className="flex w-1/5 justify-around">
-            <h1>React + Relax</h1>
+          <div className="flex w-1/5 justify-around items-center">
+            <h1 className="text-2xl">React + Relax</h1>
             <Logo />
           </div>
         </nav>
@@ -102,11 +102,11 @@ const index = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="fixed bg-white z-20 left-0 top-0 h-screen w-full origin-top text-black p-10" 
+              className="fixed bg-white z-20 left-0 top-0 h-screen w-full origin-top text-black p-10"
             >
               <div className="flex h-full flex-col" role="nav-container">
                 <div className="flex justify-between">
-                  <h2 className="text-lg text-black">React + Relax</h2>
+                  <h2 className="text-2xl text-black">React + Relax</h2>
                   <p
                     className="cursor-pointer text-md text-black"
                     onClick={toggleMenu}
@@ -116,7 +116,7 @@ const index = () => {
                 </div>
 
                 <motion.div
-								style={bgStyles}
+                  style={bgStyles}
                   variants={containerVariants}
                   initial="initial"
                   animate="open"

@@ -79,10 +79,8 @@ const index = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
+                        className="mt-8 mb-4"
                       >
-                        <p className="my-2 text-center pb-4 text-white">
-                          {cardDescription[index]}
-                        </p>
                         <Link
                           onClick={() => handleGame(index + 1)}
                           className="bg-[#48CAE4] py-4 px-8 mb-4 rounded-lg"
