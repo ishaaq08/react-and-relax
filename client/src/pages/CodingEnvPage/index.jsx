@@ -11,20 +11,22 @@ const index = () => {
   const [answer, setAnswer] = useState()
   const [showIncorrectMessage, setShowIncorrectMessage] = useState(false);
 
-  useEffect(() => {
-    const getData = async () => {
-      const res = await fetch(`https://react-and-relax.onrender.com/pseudocode/${difficulty}`);
-      const data = await res.json();
-      setQuestions(data) 
-      setCurrentQ(data[currentQIndex])
-    }
+	useEffect(() => {
+		const getData = async () => {
+			const res = await fetch(
+				`https://react-and-relax.onrender.com/pseudocode/${difficulty}`
+			)
+			const data = await res.json()
+			setQuestions(data)
+			setCurrentQ(data[currentQIndex])
+		}
 
-    getData();
-  },[]);
-  
-  useEffect(() => {
-    setShowIncorrectMessage(false);
-  }, [currentQ]);
+		getData()
+	}, [])
+
+	useEffect(() => {
+		setShowIncorrectMessage(false)
+	}, [currentQ])
 
   function handleSubmit(e){
     e.preventDefault()
