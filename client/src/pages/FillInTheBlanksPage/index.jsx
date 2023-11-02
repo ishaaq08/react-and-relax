@@ -7,7 +7,7 @@ const Index = () => {
   const { session } = useData()
   const [currentQ, setCurrentQ] = useState([]);
   const [currentQIndex, setCurrentQIndex] = useState(0);
-  const [showIncorrectMessage, setShowIncorrectMessage] = useState(false);
+  const [showMessage, setShowMessage] = useState(undefined)
 
   useEffect(() => {
     async function loadQuestions() {
@@ -29,19 +29,22 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    setShowIncorrectMessage(false);
+    setShowMessage(undefined)
   }, [currentQ]);
 
   function handleCorrectAnswer(e) {
     e.preventDefault();
     if (e.target.classList.contains('true')) {
-      setCurrentQIndex((prevIndex) => prevIndex + 1);
-      setCurrentQ(questions[currentQIndex + 1]);
-    } else {
-      setShowIncorrectMessage(true);
+      setShowMessage("correct")
+      setTimeout(()=> {
+        setCurrentQIndex((prevIndex) => prevIndex + 1);
+        setCurrentQ(questions[currentQIndex + 1]);
+      },1500)
 
+    } else {
+      setShowMessage("incorrect");
       setTimeout(() => {
-        setShowIncorrectMessage(false)
+        setShowMessage(undefined)
       }, 1500)
     }
   }
@@ -102,7 +105,7 @@ const Index = () => {
           </div>
 
           <div className="incorrect-answer-message mt-5 text-2xl">
-            {showIncorrectMessage && <p id="error-message" className='text-red-500 font-semibold'>Incorrect answer. Please try again</p> }
+          {showMessage === "incorrect" && showMessage ? <p className='text-red-500 font-semibold'>Incorrect Answer</p> : (showMessage === "correct" && showMessage ? <p className='text-green-500 font-semibold'>Correct</p> : <></>)}
           </div>
         </div>
       ) 

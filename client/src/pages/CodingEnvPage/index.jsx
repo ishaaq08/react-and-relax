@@ -9,11 +9,7 @@ const index = () => {
   const [currentQ, setCurrentQ] = useState([]);
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [answer, setAnswer] = useState("")
-
-  // const [showIncorrectMessage, setShowIncorrectMessage] = useState(false);
   const [showMessage, setShowMessage] = useState(undefined)
-
-  console.log(showMessage);
 
 	useEffect(() => {
 		const getData = async () => {
@@ -29,7 +25,6 @@ const index = () => {
 	}, [])
 
 	useEffect(() => {
-		// setShowIncorrectMessage(false)
     setShowMessage(undefined)
 	}, [currentQ])
 
@@ -105,7 +100,6 @@ const index = () => {
           
               {/* Incorrect Answer Message */}
               <div className="incorrect-answer-message mt-5 text-2xl">
-                    {/* {showIncorrectMessage && <p className='text-red-500 font-semibold'>Incorrect answer. Please try again</p> } */}
                     {showMessage === "incorrect" && showMessage ? <p className='text-red-500 font-semibold'>Incorrect Answer</p> : (showMessage === "correct" && showMessage ? <p className='text-green-500 font-semibold'>Correct</p> : <></>)}
 
               </div>
