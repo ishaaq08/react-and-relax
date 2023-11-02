@@ -4,7 +4,6 @@ import {useState } from 'react';
 import { Footer } from '..';
 import { Link } from 'react-router-dom';
 import { useData } from '../../contexts';
-import lottie from 'lottie-web';
 
 
 import background from '../../assets/background.svg';
