@@ -42,7 +42,7 @@ const Index = () => {
 
       setTimeout(() => {
         setShowIncorrectMessage(false)
-      }, 2000)
+      }, 1500)
     }
   }
 

@@ -8,12 +8,12 @@ const index = () => {
   const { session } = useData()
   const [currentQ, setCurrentQ] = useState([]);
   const [currentQIndex, setCurrentQIndex] = useState(0);
-  const [answer, setAnswer] = useState()
+  const [answer, setAnswer] = useState("")
 
-  // correct showMessage = "correct" 
-  // incorrect showMessage = "incorrect"
-  // initialise it with nothing
-  const [showIncorrectMessage, setShowIncorrectMessage] = useState(false);
+  // const [showIncorrectMessage, setShowIncorrectMessage] = useState(false);
+  const [showMessage, setShowMessage] = useState(undefined)
+
+  console.log(showMessage);
 
 	useEffect(() => {
 		const getData = async () => {
@@ -29,22 +29,25 @@ const index = () => {
 	}, [])
 
 	useEffect(() => {
-
-    // Every time a new question loads re-initialise the state with nothing so it neither prints correct or incorrect
-		setShowIncorrectMessage(false)
+		// setShowIncorrectMessage(false)
+    setShowMessage(undefined)
 	}, [currentQ])
 
   function handleSubmit(e){
     e.preventDefault()
-    if (answer == currentQ["answer"]){
+    if (answer === currentQ["answer"]){
 
-      // Wrap the below functions in a timeout so that after 1500 seconds the currentQ state will change which will call the other
-      setCurrentQIndex((prevIndex) => prevIndex + 1)
-      setCurrentQ(questions[currentQIndex + 1])
-    } else {
-      setShowIncorrectMessage(true)
+      setShowMessage("correct")
+
       setTimeout(() => {
-        setShowIncorrectMessage(false)
+        setCurrentQIndex((prevIndex) => prevIndex + 1)
+        setCurrentQ(questions[currentQIndex + 1])
+      }, 1500);
+      
+    } else {
+      setShowMessage("incorrect")
+      setTimeout(() => {
+        setShowMessage(undefined)
       }, 1500) 
     } 
     setAnswer("")
@@ -102,7 +105,9 @@ const index = () => {
           
               {/* Incorrect Answer Message */}
               <div className="incorrect-answer-message mt-5 text-2xl">
-                    {showIncorrectMessage && <p className='text-red-500 font-semibold'>Incorrect answer. Please try again</p> }
+                    {/* {showIncorrectMessage && <p className='text-red-500 font-semibold'>Incorrect answer. Please try again</p> } */}
+                    {showMessage === "incorrect" && showMessage ? <p className='text-red-500 font-semibold'>Incorrect Answer</p> : (showMessage === "correct" && showMessage ? <p className='text-green-500 font-semibold'>Correct</p> : <></>)}
+
               </div>
 
           </div>
