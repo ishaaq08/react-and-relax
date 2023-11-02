@@ -17,6 +17,8 @@ const index = () => {
     setExpandedIndex(index === expandedIndex ? -1 : index);
   };
 
+  
+
   const bgStyles = {
     backgroundImage: `url(${background})`, // Use the 'url' function to specify the image path // Adjust to your preference
     backgroundSize: 'cover',
