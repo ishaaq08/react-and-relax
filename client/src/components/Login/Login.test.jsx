@@ -7,7 +7,7 @@ import { screen, render, cleanup } from "@testing-library/react"
 // screen is like virtual document so you can get something from the DOM i.e. button via classnames
 // Render allows you to render component on the screen
 
-// Code that allows us to test document specific behaviour i.e. presence within the document (is the component on the page or not)
+// Code that allows us to test document specific behavior i.e. presence within the document (is the component on the page or not)
 // matchers allow us to test presence within the document
 import * as matchers from "@testing-library/jest-dom/matchers"
 expect.extend(matchers)

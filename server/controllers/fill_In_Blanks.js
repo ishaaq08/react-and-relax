@@ -15,6 +15,7 @@ async function getAnswers(req, res) {
 		res.status(200).json(fill_in_blank)
 	} catch (err) {
 		console.log(err)
+		res.status(500).json({ error: err })
 	}
 }
 
@@ -25,6 +26,7 @@ async function getAllHtml(req, res) {
 		res.status(200).json(fill_in_blank)
 	} catch (err) {
 		console.log(err)
+		res.status(500).json({ error: err })
 	}
 }
 
@@ -35,6 +37,7 @@ async function getAllPython(req, res) {
 		res.status(200).json(fill_in_blank)
 	} catch (err) {
 		console.log(err)
+		res.status(500).json({ error: err })
 	}
 }
 

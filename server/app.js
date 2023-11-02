@@ -9,6 +9,8 @@ const fill_In_Blanks_Router = require("./routers/fill_In_Blanks")
 
 const html_Router = require("./routers/html")
 const python_Router = require("./routers/python")
+const pseudocode_Router = require("./routers/pseudocode")
+
 const api = express()
 
 api.use(cors())
@@ -27,5 +29,6 @@ api.use("/fill_in_blanks", fill_In_Blanks_Router)
 api.use("/users", userRouter)
 api.use("/html", html_Router)
 api.use("/python", python_Router)
+api.use("/pseudocode", pseudocode_Router)
 
-module.exports = api;
+module.exports = api

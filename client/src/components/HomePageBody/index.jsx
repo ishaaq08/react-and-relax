@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import background from '../../assets/annie-spratt-ITE_nXIDQ_A-unsplash.jpg';
+import background from '../../assets/background.svg';
 import revision1 from '../../assets/childrevising.jpg';
 import revision2 from '../../assets/childrevising2.jpg';
 import revision3 from '../../assets/childrevising3.jpg';
@@ -18,9 +18,10 @@ const index = () => {
   const x = useTransform(scrollYProgress, [0, 1], ['6%', '-430%']);
 
   const bgStyles = {
-    backgroundImage: `url(${background})`, // Use the 'url' function to specify the image path
-    backgroundSize: 'cover', // Adjust to your preference
+    backgroundImage: `url(${background})`, // Use the 'url' function to specify the image path // Adjust to your preference
+    backgroundSize: 'cover',
     backgroundPosition: 'center', // Adjust to your preference
+    backgroundRepeat: 'no-repeat',
     height: '100vh', // Set the desired height of your hero section
   };
   return (

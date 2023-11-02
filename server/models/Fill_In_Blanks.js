@@ -19,28 +19,28 @@ class Fill_In_Blanks {
 			return results
 		} catch (err) {
 			console.log(err)
-			return [];
+			return []
 		}
 	}
 
 	async getAnswers() {
 		try {
 			const { rows } = await db.query(
-				"SELECT question_id, answer, is_correct FROM fib_Answers WHERE question_id = $1",
+				"SELECT question_id, answer, is_correct FROM fib_Answers WHERE question_id = $1 ORDER BY RANDOM()",
 				[this.id]
 			)
 
-			return rows.map((row) => this.answers.push(row))
+			this.answers = [...this.answers, ...rows] // This will correctly populate the answers array
 		} catch (err) {
 			console.log(err)
-			return [];
+			return []
 		}
 	}
 
 	static async getAllHtml(difficulty) {
 		try {
 			const { rows } = await db.query(
-				"SELECT * FROM fill_in_blanks where lower(difficulty) = lower($1) ORDER BY RANDOM()",
+				"SELECT * FROM fill_in_blanks where language ='html' AND lower(difficulty) = lower($1) ORDER BY RANDOM()",
 				[difficulty]
 			)
 
@@ -56,10 +56,10 @@ class Fill_In_Blanks {
 		}
 	}
 
-	static async getAllPyhton(difficulty) {
+	static async getAllPython(difficulty) {
 		try {
 			const { rows } = await db.query(
-				"SELECT * FROM fill_in_blanks where language = 'python' and lower(difficulty) = lower($1) ORDER BY RANDOM()",
+				"SELECT * FROM fill_in_blanks where language ='python' AND difficulty = $1 ORDER BY RANDOM()",
 				[difficulty]
 			)
 
@@ -72,7 +72,7 @@ class Fill_In_Blanks {
 			return results
 		} catch (error) {
 			console.log(error)
-			return [];
+			return error
 		}
 	}
 }
