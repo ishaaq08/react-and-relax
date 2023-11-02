@@ -5,16 +5,16 @@ import { useNavigate } from "react-router-dom"
 
 // import from "../../components"
 
-import background5 from '../../assets/background5.svg';
+import background5 from "../../assets/background5.svg"
 
 const bgStyles = {
-  backgroundImage: `url(${background5})`, // Use the 'url' function to specify the image path // Adjust to your preference
-  backgroundSize: 'cover',
-  backgroundPosition: 'center', // Adjust to your preference
-  // backgroundRepeat: 'no-repeat',
-  height: '100vh',
-  // Set the desired height of your hero section
-};
+	backgroundImage: `url(${background5})`, // Use the 'url' function to specify the image path // Adjust to your preference
+	backgroundSize: "cover",
+	backgroundPosition: "center", // Adjust to your preference
+	// backgroundRepeat: 'no-repeat',
+	height: "100vh",
+	// Set the desired height of your hero section
+}
 
 function ProfilePage() {
 	const { username, token } = useData()
@@ -29,7 +29,7 @@ function ProfilePage() {
 	const [password, setPassword] = useState("")
 	const [confirmPassword, setConfirmPassword] = useState("")
 	const [error, setError] = useState("")
-	
+
 	useEffect(() => {
 		getProfile(username, setDetails, token)
 	}, [])
@@ -109,8 +109,10 @@ function ProfilePage() {
 	}
 
 	return (
-		<div style={bgStyles} className="bg-[#023E8A] min-h-screen flex items-center flex-col justify-center">
-			
+		<div
+			style={bgStyles}
+			className="bg-[#023E8A] min-h-screen flex items-center flex-col justify-center"
+		>
 			<Profile
 				username={username}
 				details={details}
@@ -158,3 +160,5 @@ const getProfile = async (username, setDetails, token) => {
 			console.log(error)
 		})
 }
+
+export { handleDeleteClick, handleEditClick, closeEditModal, editSubmit }
