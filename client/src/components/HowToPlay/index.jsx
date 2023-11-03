@@ -1,9 +1,8 @@
-import game from '../../assets/game1.png';
 import { useData } from '../../contexts';
 
 
 const index = () => {
-  const { howTo, setHowTo } = useData();
+  const { howTo } = useData();
 
   const bgStyles = {
     backgroundColor: `#023E8A`, // Use the 'url' function to specify the image path

@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { useData } from '../../contexts';
 import Lottie from 'lottie-react';
 import animation1 from '../../assets/animation1.json';
-import animation2 from '../../assets/animation2.json';
 import animation3 from '../../assets/animation3.json';
 
 import background from '../../assets/background.svg';

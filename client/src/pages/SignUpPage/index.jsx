@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { SignUpForm } from '../../components';
 import background from '../../assets/background5.svg';
 

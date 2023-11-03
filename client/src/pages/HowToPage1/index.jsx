@@ -4,12 +4,10 @@ import { useData } from '../../contexts';
 import background3 from '../../assets/background3.svg';
 
 const bgStyles = {
-  backgroundImage: `url(${background3})`, // Use the 'url' function to specify the image path // Adjust to your preference
+  backgroundImage: `url(${background3})`,
   backgroundSize: '',
-  backgroundPosition: 'center', // Adjust to your preference
-  // backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center', 
   height: '100vh',
-  // Set the desired height of your hero section
 };
 
 const overlayStyles = {

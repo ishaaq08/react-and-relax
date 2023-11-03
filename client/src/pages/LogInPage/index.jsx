@@ -3,11 +3,11 @@ import background from '../../assets/background5.svg';
 
 export default function index() {
   const bgStyles = {
-    backgroundImage: `url(${background})`, // Use the 'url' function to specify the image path // Adjust to your preference
+    backgroundImage: `url(${background})`, 
     backgroundSize: 'cover',
-    backgroundPosition: 'center', // Adjust to your preference
+    backgroundPosition: 'center', 
     backgroundRepeat: 'no-repeat',
-    height: '100vh', // Set the desired height of your hero section
+    height: '100vh', 
   };
   return (
     <div

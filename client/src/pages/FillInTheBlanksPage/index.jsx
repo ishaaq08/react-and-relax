@@ -1,4 +1,4 @@
-import { Footer, Timer, ExitButton } from '../../components';
+import { Timer, ExitButton } from '../../components';
 import { useEffect, useState } from 'react';
 import { useData } from '../../contexts';
 import Lottie from 'lottie-react';
@@ -53,7 +53,7 @@ const Index = () => {
   }
 
   return (
-    <div className="h-screen bg-[#023E8A]">
+    <div className="h-screen bg-[#023E8A] pt-52">
       {/* Header */}
       <div className="header">
         <h1 className="capitalize text-white text-center text-5xl pt-10 font-semibold tracking-widest">
