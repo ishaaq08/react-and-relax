@@ -54,8 +54,8 @@ export default function index() {
           </h2>
           <div className="row-span-2  h-full text-5xl flex justify-center flex-col items-center tracking-widest">
             <h2 className="text-xl font-bold mb-2">Time</h2>
-            {/* {minutes.length == 1 ? `0${minutes}:00` : `${minutes}:00`} < ! RESET TO THIS AFTER DEMO*/}{' '}
-            /{`${breakLength}s`}
+            {/* {minutes.length == 1 ? `0${minutes}:00` : `${minutes}:00`} < ! RESET TO THIS AFTER DEMO*/} 
+            {`${breakLength}s`}
           </div>
 
           <div className="flex mb-2 justify-center  items-center text-xl">
