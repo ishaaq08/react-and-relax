@@ -85,7 +85,7 @@ const index = () => {
                       >
                         <Link
                           onClick={() => handleGame(index + 1)}
-                          className="bg-[#48CAE4] font-semibold tracking-wide py-4 px-8 mb-4 rounded-lg"
+                          className="bg-[#48CAE4] text-white font-semibold tracking-wide py-4 px-8 mb-4 rounded-lg"
                           to={links[index]}
                         >
                           Play Game
