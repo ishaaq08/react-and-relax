@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useData } from '../../contexts';
 import { Profile, DeleteModal, EditModal } from '../../components';
-import { useNavigate } from 'react-router-dom';
 
 // import from "../../components"
 
