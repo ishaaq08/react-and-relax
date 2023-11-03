@@ -8,7 +8,7 @@ export default function index() {
 
   function handleClick(e) {
     e.preventDefault();
-
+  
     // Break length is mandatory. Difficulty is optional
     if (navigationCondition && howTo == 1) {
       navigate('/games/game1');

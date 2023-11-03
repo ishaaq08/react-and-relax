@@ -7,17 +7,20 @@ export default function index() {
     setLanguage,
     setDifficulty,
     howTo,
+    setBeginGameError,
   } = useData();
 
   function handleClickShort(e) {
     e.preventDefault();
     setBreakLength(5);
+    setBeginGameError('');
     // setBreakLength(5*60) > change back
   }
 
   function handleClickLong(e) {
     e.preventDefault();
     setBreakLength(10);
+    setBeginGameError('');
     // setBreakLength(10*60) > change back
   }
 
@@ -37,7 +40,6 @@ export default function index() {
 
   return (
     <div className="max-w-[1500px] mx-auto">
-
       <div className="flex justify-around items-center h-[15vh] mt-36 mb-36">
         {/* Grid One */}
 
@@ -50,7 +52,7 @@ export default function index() {
           </h2>
           <div className="row-span-2  h-full text-5xl flex justify-center flex-col items-center tracking-widest">
             <h2 className="text-xl font-bold mb-2">Time</h2>
-            {/* {minutes.length == 1 ? `0${minutes}:00` : `${minutes}:00`} < ! RESET TO THIS AFTER DEMO*/} 
+            {/* {minutes.length == 1 ? `0${minutes}:00` : `${minutes}:00`} < ! RESET TO THIS AFTER DEMO*/}
             {`${breakLength}s`}
           </div>
 
@@ -68,9 +70,7 @@ export default function index() {
         </div>
 
         {/* Grid Two */}
-        <div
-          className="grid grid-cols-2 gap-2 text-white ml-4 grid-rows-3 justify-items-center h-full w-full bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10"
-        >
+        <div className="grid grid-cols-2 gap-2 text-white ml-4 grid-rows-3 justify-items-center h-full w-full bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10">
           <h2 className="text-white text-2xl col-span-2 mb-2 font-bold mt-2">
             Select {howTo === 1 ? 'Topic &' : ''} Difficulty
           </h2>

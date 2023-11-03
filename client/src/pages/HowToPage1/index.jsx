@@ -2,11 +2,12 @@ import { useEffect } from 'react';
 import { BeginGame, BreakDurationForm, HowToPlay } from '../../components';
 import { useData } from '../../contexts';
 import background3 from '../../assets/background3.svg';
+import { useLocation } from 'react-router-dom';
 
 const bgStyles = {
   backgroundImage: `url(${background3})`,
   backgroundSize: '',
-  backgroundPosition: 'center', 
+  backgroundPosition: 'center',
   height: '100vh',
 };
 
@@ -21,7 +22,17 @@ const overlayStyles = {
 };
 
 const index = () => {
-  const { setSession } = useData();
+  const { setSession, setBeginGameError, howTo, setHowTo } = useData();
+  const location = useLocation();
+
+  if (howTo == undefined) {
+    if (location.pathname == '/games/how-to-play/fill-in-the-blanks') {
+      setHowTo(1);
+    } else {
+      setHowTo(2);
+    }
+  }
+
   useEffect(() => {
     setSession(1);
   }, []);
