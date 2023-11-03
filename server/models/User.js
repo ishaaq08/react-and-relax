@@ -142,14 +142,9 @@ class User {
 				return newUser
 			}
 		} catch (error) {
-			// Handle or log the error as appropriate
 			console.error("Error updating user:", error)
 
-			// Optionally, rethrow the error if you want calling code to be aware of it
-			// throw error;
-
-			// Or return a specific error result or message if needed
-			return { success: false, error: "Failed to update user" }
+			return { error: "Failed to update user" }
 		}
 	}
 }
