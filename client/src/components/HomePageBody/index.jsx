@@ -3,7 +3,7 @@ import background from '../../assets/background.svg';
 import revision1 from '../../assets/childrevising.jpg';
 import revision3 from '../../assets/childrevising3.jpg';
 import revision4 from '../../assets/revision4.jpg';
-import {useScroll, useTransform } from 'framer-motion';
+import { useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Reveal } from '../Reveal';
 
@@ -37,10 +37,13 @@ const index = () => {
           </Reveal>
           <Reveal>
             <p className="text-md">
-              Quizlet is more than flashcards: it’s the #1 global learning
-              platform. Join our community of 300 million learners using
-              Quizlet’s practice tests, Expert Solutions and AI-powered tools to
-              improve their grades and reach their goals.
+              Welcome to the future of computer science revision! Our
+              cutting-edge app is designed to help you master computer science
+              concepts with ease. Whether you're a student or a coding
+              enthusiast, our interactive tools, practice tests, and AI-powered
+              solutions are here to elevate your learning experience. Join our
+              community of over 300 million learners, and take your computer
+              science skills to new heights. Start your journey with us today!
             </p>
           </Reveal>
           <Reveal>
