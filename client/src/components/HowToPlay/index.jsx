@@ -1,10 +1,8 @@
-import bg from '../../assets/howtoplaybg.jpg';
-import game from '../../assets/game1.png';
 import { useData } from '../../contexts';
-import { Link, NavLink } from 'react-router-dom';
+
 
 const index = () => {
-  const { howTo, setHowTo } = useData();
+  const { howTo } = useData();
 
   const bgStyles = {
     backgroundColor: `#023E8A`, // Use the 'url' function to specify the image path
@@ -28,11 +26,10 @@ const index = () => {
   return (
     <>
       <div
-        style={bgStyles}
+        // style={bgStyles}
         className="flex overflow-hidden justify-center items-center"
       >
         <div className="flex flex-col justify-center w-[20%] items-center mt-64  mb-12">
-          <img className="w-4/12" src={game} alt={game} />
           <h4 className="text-4xl font-bold text-white mb-5">Ready to Play?</h4>
           <p className="text-white text-xl text-center w-10/12">
             {howTo === 1

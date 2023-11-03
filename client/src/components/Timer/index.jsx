@@ -1,35 +1,39 @@
-import React, { useEffect, useState} from 'react'
-import { useData } from '../../contexts'
+import React, { useEffect, useState } from 'react';
+import { useData } from '../../contexts';
 
 export default function index() {
-    const [time, setTime] = useState(10000*60) 
-    const { breakLength } = useData()
-    const {session, setSession} = useData()
+  const [time, setTime] = useState(45); // SET BACK TO 25 * 60 (25 MINS) AFTER DEMO
+  const { breakLength } = useData();
+  const { session, setSession } = useData();
 
-    useEffect(() => {
-      let timer ;
+  useEffect(() => {
+    let timer;
+    if (time > 0) {
+      timer = setInterval(() => {
+        setTime((prevTime) => prevTime - 1);
+      }, 1000);
+    } else {
+      setSession((prevSession) => prevSession + 1);
 
-        if (time >= 0){
-          timer = setInterval(()=> { setTime((prevTime) => prevTime -1)}, 1000)
-        } else {
-          setTime(breakLength) // 5 mins
-          setSession((prevSession) => prevSession + 1)
-        }
-   
-        return () => 
-        clearInterval(timer)
-        }, [time])
-
-      const formatTime = seconds => {
-        const minutes = Math.floor(seconds/60)
-        const remainingSeconds = seconds % 60
-        return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`
+      if ((session + 1) % 2 !== 0) {
+        setTime(45);
+      } else {
+        setTime(breakLength);
       }
+    }
+
+    return () => clearInterval(timer);
+  }, [time, session, setSession, breakLength]);
+
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  };
 
   return (
     <>
-      <p className='tracking-widest text-2xl'>{formatTime(time)}</p>
+      <p className="tracking-widest text-2xl">{formatTime(time)}</p>
     </>
-
-  )
+  );
 }

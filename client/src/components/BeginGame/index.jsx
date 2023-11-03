@@ -8,10 +8,10 @@ export default function index() {
 
   function handleClick(e) {
     e.preventDefault();
-
+  
     // Break length is mandatory. Difficulty is optional
     if (navigationCondition && howTo == 1) {
-      navigate('/games/game1')
+      navigate('/games/game1');
     } else if (navigationCondition && howTo == 2) {
       navigate('/games/game2');
     } else {
@@ -20,7 +20,7 @@ export default function index() {
   }
 
   return (
-    <div className="w-full text-center p-5 bg-[#023E8A]">
+    <div className="w-full text-center p-5 bg-transparent">
       <div className="max-w-[500px] mx-auto">
         <button
           onClick={handleClick}
@@ -28,7 +28,9 @@ export default function index() {
         >
           Begin Game
         </button>
-        <p>{beginGameError}</p>
+        <p className="text-red-600 mt-12 text-2xl font-semibold">
+          {beginGameError}
+        </p>
       </div>
     </div>
   );

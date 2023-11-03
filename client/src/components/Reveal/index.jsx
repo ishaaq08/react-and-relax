@@ -14,6 +14,7 @@ export const Reveal = ({ children, width = '100%' || 'fit-content' }) => {
       slideControls.start('visible');
     }
   }, [isInView]);
+  
   return (
     <div
       ref={refContainer}

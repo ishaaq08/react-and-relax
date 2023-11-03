@@ -1,9 +1,10 @@
-import React from "react"
 import { BrowserRouter } from "react-router-dom"
 import userEvent from "@testing-library/user-event"
 
-import { describe, it, expect, beforeEach, afterEach } from "vitest"
+import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
 import { screen, render, cleanup } from "@testing-library/react"
+import { useData } from "../../contexts"
+import { useNavigate } from "react-router-dom"
 // screen is like virtual document so you can get something from the DOM i.e. button via classname
 // Render allows you to render component on the sceen
 
@@ -12,17 +13,15 @@ import { screen, render, cleanup } from "@testing-library/react"
 import * as matchers from "@testing-library/jest-dom/matchers"
 expect.extend(matchers)
 
-import BeginGame from "."
-import { DataProvider } from "../../contexts"
+import Exitbutton from "."
+import { m } from "framer-motion"
 
-describe("BeginGame", () => {
+describe("Exitbutton", () => {
 	beforeEach(() => {
 		render(
-			<DataProvider>
-				<BrowserRouter>
-					<BeginGame />
-				</BrowserRouter>
-			</DataProvider>
+			<BrowserRouter>
+				<Exitbutton />
+			</BrowserRouter>
 		)
 	})
 
@@ -30,12 +29,9 @@ describe("BeginGame", () => {
 		cleanup()
 	})
 
-	it("renders a button with a event handler that takes us to the game", async () => {
+	it("displays the button with the correct text content", () => {
 		const button = screen.getByRole("button")
 		expect(button).toBeInTheDocument()
-		expect(button.textContent).toBe("Begin Game")
-
-		// await userEvent.click(button);
-		// expect(window.location.href).toBe('http://localhost:3000/games/game1/');
+		expect(button.textContent).toBe("Exit Game")
 	})
 })

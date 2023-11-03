@@ -1,9 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { NavLink, Outlet, Link } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import { Hamburger, Logo } from '../../assets/Icons';
 import { useState } from 'react';
 import { useData } from '../../contexts';
-import background3 from '../../assets/background3.svg';
 import background4 from '../../assets/background4.svg';
 
 const index = () => {
@@ -78,7 +77,7 @@ const index = () => {
 
   return (
     <>
-      <header className="absolute z-20 text-white p-12 w-screen">
+      <header className="absolute z-20 text-white py-12 pl-12 w-full">
         <nav className="flex items-center justify-between flex-row">
           <div
             role="nav-toggle"
@@ -87,7 +86,7 @@ const index = () => {
           >
             <Hamburger />
           </div>
-          <div className="flex w-1/5 justify-around items-center">
+          <div className="flex w-2/12 justify-around items-center">
             <h1 className="text-2xl">React + Relax</h1>
             <Logo />
           </div>
@@ -124,7 +123,10 @@ const index = () => {
                   className="flex flex-col h-full justify-center font-serif items-center gap-4 bg-[#00B4D8] text-5xl uppercase text-black"
                 >
                   <div className="overflow-hidden">
-                    <motion.div variants={navVariants}>
+                    <motion.div
+                      variants={navVariants}
+                      className="hover:text-[#48CAE4] active:text-[#023E8A] transition-colors"
+                    >
                       {/* added a conditional to change the nav if username isnt empty if username not empty dashboard */}
                       <Link
                         onClick={toggleMenu}
@@ -136,7 +138,10 @@ const index = () => {
                     </motion.div>
                   </div>
                   <div className="overflow-hidden">
-                    <motion.div variants={navVariants}>
+                    <motion.div
+                      className="hover:text-[#48CAE4] active:text-[#023E8A] transition-colors"
+                      variants={navVariants}
+                    >
                       <Link
                         onClick={toggleMenu}
                         className=" cursor-pointer"
@@ -147,7 +152,10 @@ const index = () => {
                     </motion.div>
                   </div>
                   <div className="overflow-hidden">
-                    <motion.div variants={navVariants}>
+                    <motion.div
+                      className="hover:text-[#48CAE4] active:text-[#023E8A] transition-colors"
+                      variants={navVariants}
+                    >
                       {/* added a conditional to change the nav if username isnt empty */}
                       {username ? (
                         <Link
@@ -169,7 +177,10 @@ const index = () => {
                     </motion.div>
                   </div>
                   <div className="overflow-hidden">
-                    <motion.div variants={navVariants}>
+                    <motion.div
+                      className="hover:text-[#48CAE4] active:text-[#023E8A] transition-colors"
+                      variants={navVariants}
+                    >
                       {/* added a conditional to change the nav if username isnt empty */}
                       {username ? (
                         <Link

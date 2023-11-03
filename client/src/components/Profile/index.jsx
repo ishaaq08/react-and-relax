@@ -41,7 +41,7 @@ function Profile({ username, details, handleDeleteClick, handleEditClick }) {
           </p>
         </div>
 
-        <div className="mt-6 flex justify-between absolute bottom-[15%] gap-2 mb-2 right-[35%] ">
+        <div className="mt-6 flex justify-between absolute bottom-[15%] gap-2 mb-2 right-[38%] ">
           <button
             onClick={handleEditClick}
             className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200"
