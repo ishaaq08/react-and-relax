@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
-import { useData } from "../../contexts"
-import { Profile, DeleteModal, EditModal } from "../../components"
-import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from 'react';
+import { useData } from '../../contexts';
+import { Profile, DeleteModal, EditModal } from '../../components';
+import { useNavigate } from 'react-router-dom';
 
 // import from "../../components"
 
@@ -17,144 +17,148 @@ const bgStyles = {
 };
 
 function ProfilePage() {
-	const { username, token } = useData()
-	const [details, setDetails] = useState({})
-	const [showDeleteModal, setShowDeleteModal] = useState(false)
-	const [showEditModal, setShowEditModal] = useState(false)
-	const [checkboxState, setCheckboxState] = useState({
-		email: false,
-		password: false,
-	})
-	const [email, setEmail] = useState("")
-	const [password, setPassword] = useState("")
-	const [confirmPassword, setConfirmPassword] = useState("")
-	const [error, setError] = useState("")
-	
-	useEffect(() => {
-		getProfile(username, setDetails, token)
-	}, [])
+  const { username, token } = useData();
+  const [details, setDetails] = useState({});
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [checkboxState, setCheckboxState] = useState({
+    email: false,
+    password: false,
+  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
 
-	const handleDeleteClick = () => {
-		setShowDeleteModal(true)
-	}
+  useEffect(() => {
+    getProfile(username, setDetails, token);
+  }, []);
 
-	const handleEditClick = () => {
-		setShowEditModal(true)
-	}
+  const handleDeleteClick = () => {
+    setShowDeleteModal(true);
+  };
 
-	const closeEditModal = () => {
-		setShowEditModal(false)
-	}
-	const editSubmit = (e) => {
-		e.preventDefault()
-		console.log("editSubmit")
-		const payload = {}
+  const handleEditClick = () => {
+    setShowEditModal(true);
+  };
 
-		if (checkboxState.email) payload.email = email
-		if (checkboxState.password) payload.password = password
+  const closeEditModal = () => {
+    setShowEditModal(false);
+  };
+  const editSubmit = (e) => {
+    e.preventDefault();
+    console.log('editSubmit');
+    const payload = {};
 
-		// Send PATCH request with selected fields
-		fetch(`https://react-and-relax.onrender.com/users/${username}`, {
-			// Adjust the endpoint as needed
-			method: "PATCH",
-			headers: {
-				"Content-Type": "application/json",
-				"Authorization": token,
-			},
-			body: JSON.stringify(payload),
-		}).then((response) => {
-			if (response.status === 200) {
-				// If successful, hide the edit modal and maybe navigate away or show a success message
-				setShowEditModal(false)
-				getProfile(username, setDetails, token)
-				setEmail("")
-				setPassword("")
-				setConfirmPassword("")
-				setCheckboxState({
-					email: false,
-					password: false,
-				})
-			} else {
-				// Handle errors, for instance show an error message
-				console.error("Error editing the profile:", response)
-			}
-		})
-	}
-	const confirmDelete = async () => {
-		try {
-			const response = await fetch(
-				`https://react-and-relax.onrender.com/users/${username}`,
-				{
-					method: "DELETE",
-					headers: {
-						"Content-Type": "application/json",
-						"Authorization": token,
-					},
-				}
-			)
+    if (checkboxState.email) payload.email = email;
+    if (checkboxState.password) payload.password = password;
 
-			const data = await response.json()
-			console.log(data)
+    // Send PATCH request with selected fields
+    fetch(`https://react-and-relax.onrender.com/users/${username}`, {
+      // Adjust the endpoint as needed
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+      body: JSON.stringify(payload),
+    }).then((response) => {
+      if (response.status === 200) {
+        // If successful, hide the edit modal and maybe navigate away or show a success message
+        setShowEditModal(false);
+        getProfile(username, setDetails, token);
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+        setCheckboxState({
+          email: false,
+          password: false,
+        });
+      } else {
+        // Handle errors, for instance show an error message
+        console.error('Error editing the profile:', response);
+      }
+    });
+  };
+  const confirmDelete = async () => {
+    try {
+      const response = await fetch(
+        `https://react-and-relax.onrender.com/users/${username}`,
+        {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: token,
+          },
+        }
+      );
 
-			// If successful, hide the delete modal and maybe navigate away or show a success message
-			setShowDeleteModal(false)
-		} catch (error) {
-			// Handle errors, for instance show an error message
-			console.error("Error deleting the profile:", error)
-		}
-	}
+      const data = await response.json();
+      console.log(data);
 
-	const closeModal = () => {
-		setShowDeleteModal(false)
-	}
+      // If successful, hide the delete modal and maybe navigate away or show a success message
+      setShowDeleteModal(false);
+    } catch (error) {
+      // Handle errors, for instance show an error message
+      console.error('Error deleting the profile:', error);
+    }
+  };
 
-	return (
-		<div style={bgStyles} className="bg-[#023E8A] min-h-screen flex items-center flex-col justify-center">
-			
-			<Profile
-				username={username}
-				details={details}
-				handleDeleteClick={handleDeleteClick}
-				handleEditClick={handleEditClick}
-			/>
-			{showDeleteModal && (
-				<DeleteModal closeModal={closeModal} confirmDelete={confirmDelete} />
-			)}
+  const closeModal = () => {
+    setShowDeleteModal(false);
+  };
 
-			{showEditModal && (
-				<EditModal
-					closeEditModal={closeEditModal}
-					setEmail={setEmail}
-					setPassword={setPassword}
-					setConfirmPassword={setConfirmPassword}
-					setCheckboxState={setCheckboxState}
-					checkboxState={checkboxState}
-					email={email}
-					password={password}
-					confirmPassword={confirmPassword}
-					editSubmit={editSubmit}
-				/>
-			)}
-		</div>
-	)
+  return (
+    <div
+      style={bgStyles}
+      className="bg-[#023E8A] min-h-screen flex items-center flex-col justify-center"
+    >
+      <Profile
+        username={username}
+        details={details}
+        handleDeleteClick={handleDeleteClick}
+        handleEditClick={handleEditClick}
+      />
+      {showDeleteModal && (
+        <DeleteModal closeModal={closeModal} confirmDelete={confirmDelete} />
+      )}
+
+      {showEditModal && (
+        <EditModal
+          closeEditModal={closeEditModal}
+          setEmail={setEmail}
+          setPassword={setPassword}
+          setConfirmPassword={setConfirmPassword}
+          setCheckboxState={setCheckboxState}
+          checkboxState={checkboxState}
+          email={email}
+          password={password}
+          confirmPassword={confirmPassword}
+          editSubmit={editSubmit}
+        />
+      )}
+    </div>
+  );
 }
 
-export default ProfilePage
+export default ProfilePage;
 
 const getProfile = async (username, setDetails, token) => {
-	fetch(`https://react-and-relax.onrender.com/users/${username}`, {
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json",
-			"Authorization": token,
-		},
-	})
-		.then((res) => res.json())
-		.then((data) => {
-			console.log(data)
-			setDetails(data)
-		})
-		.catch((error) => {
-			console.log(error)
-		})
-}
+  fetch(`https://react-and-relax.onrender.com/users/${username}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token,
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      setDetails(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+// export {  handleEditClick, closeEditModal, editSubmit };
