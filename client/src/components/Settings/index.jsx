@@ -1,4 +1,3 @@
-import { Footer } from '..';
 import { useData } from '../../contexts';
 
 export default function index() {
