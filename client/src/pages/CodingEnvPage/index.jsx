@@ -82,7 +82,6 @@ const index = () => {
                       : 'No code provided',
                   }}
                 ></p>
-                git
               </>
             ) : (
               <p>Loading Data</p>

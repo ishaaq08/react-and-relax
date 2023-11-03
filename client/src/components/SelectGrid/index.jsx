@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { useData } from '../../contexts';
 import Lottie from 'lottie-react';
 import animation1 from '../../assets/animation1.json';
-import animation2 from '../../assets/animation2.json';
 import animation3 from '../../assets/animation3.json';
 
 import background from '../../assets/background.svg';
@@ -85,7 +84,7 @@ const index = () => {
                       >
                         <Link
                           onClick={() => handleGame(index + 1)}
-                          className="bg-[#48CAE4] font-semibold tracking-wide py-4 px-8 mb-4 rounded-lg"
+                          className="bg-[#48CAE4] text-white font-semibold tracking-wide py-4 px-8 mb-4 rounded-lg"
                           to={links[index]}
                         >
                           Play Game

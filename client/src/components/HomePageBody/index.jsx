@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
 import background from '../../assets/background.svg';
 import revision1 from '../../assets/childrevising.jpg';
-import revision2 from '../../assets/childrevising2.jpg';
 import revision3 from '../../assets/childrevising3.jpg';
 import revision4 from '../../assets/revision4.jpg';
-import { Button1 } from '../Interface';
+import {useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Reveal } from '../Reveal';
 
 const index = () => {

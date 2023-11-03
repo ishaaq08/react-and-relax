@@ -1,75 +1,74 @@
-import { Footer, Timer, ExitButton } from '../../components';
+import { Timer, ExitButton } from '../../components';
 import { useEffect, useState } from 'react';
 import { useData } from '../../contexts';
+import Lottie from 'lottie-react';
+import animationData from '../../assets/animation4.json';
 
 const Index = () => {
   const { questions, setQuestions, language, difficulty } = useData();
-  const { session, breakLength } = useData()
+  const { session } = useData();
   const [currentQ, setCurrentQ] = useState([]);
   const [currentQIndex, setCurrentQIndex] = useState(0);
-  const [showMessage, setShowMessage] = useState(undefined)
+  const [showMessage, setShowMessage] = useState(undefined);
 
   useEffect(() => {
     async function loadQuestions() {
-      try{
-      const response = await fetch(`https://react-and-relax.onrender.com/${language}/${difficulty}`);
+      try {
+        const response = await fetch(
+          `https://react-and-relax.onrender.com/${language}/${difficulty}`
+        );
 
-      if(!response.ok){
-        throw new Error(`Error: ${response.status}`)
-      }
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status}`);
+        }
 
-      const data = await response.json();
-      setQuestions(data);
-      setCurrentQ(data[currentQIndex]);
-      } catch(error){
-        console.error("Error fetching questions: ", error)
+        const data = await response.json();
+        setQuestions(data);
+        setCurrentQ(data[currentQIndex]);
+      } catch (error) {
+        console.error('Error fetching questions: ', error);
       }
     }
-    loadQuestions()
+    loadQuestions();
   }, []);
 
   useEffect(() => {
-    setShowMessage(undefined)
+    setShowMessage(undefined);
   }, [currentQ]);
 
   function handleCorrectAnswer(e) {
     e.preventDefault();
     if (e.target.classList.contains('true')) {
-      setShowMessage("correct")
-      setTimeout(()=> {
+      setShowMessage('correct');
+      setTimeout(() => {
         setCurrentQIndex((prevIndex) => prevIndex + 1);
         setCurrentQ(questions[currentQIndex + 1]);
-      },1500)
-
+      }, 1500);
     } else {
-      setShowMessage("incorrect");
+      setShowMessage('incorrect');
       setTimeout(() => {
-        setShowMessage(undefined)
-      }, 1500)
+        setShowMessage(undefined);
+      }, 1500);
     }
   }
 
   return (
+    <div className="h-screen bg-[#023E8A] pt-52">
+      {/* Header */}
+      <div className="header">
+        <h1 className="capitalize text-white text-center text-5xl pt-10 font-semibold tracking-widest">
+          Fill in the blanks
+        </h1>
+      </div>
 
-  <div className="h-screen bg-[#023E8A]">
-     
-    {/* Header */}
-    <div className="header">
-      <h1 className="capitalize text-white text-center text-5xl pt-10 font-semibold tracking-widest">
-        Fill in the blanks
-      </h1>
-    </div>
-
-
-    {/* Timer */}
+      {/* Timer */}
       <div className="timer max-w-[1000px] rounded-full flex mt-12 gap-5 justify-center items-center text-black bg-white w-[70vw] mx-auto px-4 py-7 text-lg">
         <h2 className="text-2xl tracking-widest">Time Remaining: </h2>
         <Timer />
       </div>
 
-    {/* Display the Task during Work Periods */}
-      {session % 2 !== 0 ? 
-      (
+      {/* Display the Task during Work Periods */}
+      {session % 2 !== 0 ? (
         <div className="session rounded-2xl flex flex-col justify-center items-center bg-[#023E8A] w-[90vw] mx-auto px-40 py-28 text-white">
           <div className="questions flex justify-center items-center flex-col mb-12">
             {currentQ ? (
@@ -105,26 +104,32 @@ const Index = () => {
           </div>
 
           <div className="incorrect-answer-message mt-5 text-2xl">
-          {showMessage === "incorrect" && showMessage ? <p className='text-red-500 font-semibold'>Incorrect Answer</p> : (showMessage === "correct" && showMessage ? <p className='text-green-500 font-semibold'>Correct</p> : <></>)}
+            {showMessage === 'incorrect' && showMessage ? (
+              <p className="text-red-500 font-semibold">Incorrect Answer</p>
+            ) : showMessage === 'correct' && showMessage ? (
+              <p className="text-green-500 font-semibold">Correct</p>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
-      ) 
-      : 
-      (
-        <div className='flex justify-center items-center text-3xl tracking-widest mt-12 mb-5 text-white'>
-        <h2>
-            Well Done! Please have a rest and prepare yourself for the next set of
-            questions!
-        </h2>
-      </div>
+      ) : (
+        <div className="flex flex-col justify-center items-center text-3xl tracking-widest mt-12 mb-5 text-white">
+          <h2>
+            Well Done! Please have a rest and prepare yourself for the next set
+            of questions!
+          </h2>
+          <div className="w-2/12">
+            <Lottie animationData={animationData} />
+          </div>
+        </div>
       )}
 
-    {/* Exit Button */}
-    <div className="exit-btn">
-      <ExitButton />
+      {/* Exit Button */}
+      <div className="exit-btn">
+        <ExitButton />
+      </div>
     </div>
-
-  </div>
   );
 };
 

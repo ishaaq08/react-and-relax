@@ -5,7 +5,6 @@ import {
   FillInTheBlanksPage,
   HomePage,
   HowToPage1,
-  HowToPage2,
   LogInPage,
   SelectPage,
   SignUpPage,
@@ -34,7 +33,6 @@ const App = () => {
                 path="how-to-play/fill-in-the-blanks"
                 element={<HowToPage1 />}
               />
-              <Route path="how-to-play/coding-env" element={<HowToPage2 />} />
               <Route path="game1" element={<FillInTheBlanksPage />} />
               <Route path="game2" element={<CodingEnvPage />} />
             </Route>

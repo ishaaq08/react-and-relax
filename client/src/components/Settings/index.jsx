@@ -1,13 +1,10 @@
-import { Footer } from '..';
 import { useData } from '../../contexts';
 
 export default function index() {
   const {
     breakLength,
     setBreakLength,
-    language,
     setLanguage,
-    difficulty,
     setDifficulty,
     howTo,
   } = useData();
@@ -36,13 +33,11 @@ export default function index() {
     setDifficulty(e.target.value);
   }
 
-  const minutes = breakLength / 60;
+  // const minutes = breakLength / 60;
 
   return (
     <div className="max-w-[1500px] mx-auto">
-      {/* <h2 className="text-white text-center mb-24 text-2xl my-4 font-bold tracking-widest">
-        Select Rest Period
-      </h2> */}
+
       <div className="flex justify-around items-center h-[15vh] mt-36 mb-36">
         {/* Grid One */}
 

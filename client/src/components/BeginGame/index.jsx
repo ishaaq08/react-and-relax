@@ -28,7 +28,9 @@ export default function index() {
         >
           Begin Game
         </button>
-        <p>{beginGameError}</p>
+        <p className="text-red-600 mt-12 text-2xl font-semibold">
+          {beginGameError}
+        </p>
       </div>
     </div>
   );
