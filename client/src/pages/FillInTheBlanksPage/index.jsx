@@ -44,6 +44,7 @@ const Index = () => {
         setCurrentQIndex((prevIndex) => prevIndex + 1);
         setCurrentQ(questions[currentQIndex + 1]);
       }, 1500);
+
     } else {
       setShowMessage('incorrect');
       setTimeout(() => {
@@ -51,7 +52,6 @@ const Index = () => {
       }, 1500);
     }
   }
-
   return (
     <div className="h-screen bg-[#023E8A]">
       <h1 className="capitalize text-white text-center text-5xl pt-60 font-semibold tracking-widest ">
