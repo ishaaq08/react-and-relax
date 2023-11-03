@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react'
 import { useData } from '../../contexts'
 
 export default function index() {
-    const [time, setTime] = useState(0.1*60) // SET BACK TO 25 * 60 (25 MINS) AFTER DEMO
+    const [time, setTime] = useState(1*60) // SET BACK TO 25 * 60 (25 MINS) AFTER DEMO
     const { breakLength } = useData()
     const {session, setSession} = useData()
 
