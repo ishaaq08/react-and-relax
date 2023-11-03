@@ -2,17 +2,13 @@ import { useEffect, useState } from 'react';
 import { useData } from '../../contexts';
 import { Profile, DeleteModal, EditModal } from '../../components';
 
-// import from "../../components"
-
 import background5 from '../../assets/background5.svg';
 
 const bgStyles = {
-  backgroundImage: `url(${background5})`, // Use the 'url' function to specify the image path // Adjust to your preference
+  backgroundImage: `url(${background5})`, 
   backgroundSize: 'cover',
-  backgroundPosition: 'center', // Adjust to your preference
-  // backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
   height: '100vh',
-  // Set the desired height of your hero section
 };
 
 function ProfilePage() {

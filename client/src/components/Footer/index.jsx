@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import {
   Facebook,
-  Hamburger,
   TikTok,
   Twitter,
   Youtube,
 } from '../../assets/Icons';
+
 import { Reveal } from '../Reveal';
 import { motion } from 'framer-motion';
 

@@ -1,9 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { NavLink, Outlet, Link } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import { Hamburger, Logo } from '../../assets/Icons';
 import { useState } from 'react';
 import { useData } from '../../contexts';
-import background3 from '../../assets/background3.svg';
 import background4 from '../../assets/background4.svg';
 
 const index = () => {

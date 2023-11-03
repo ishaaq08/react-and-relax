@@ -84,7 +84,7 @@ function SignUpForm({
         ```
       */}
       <div className="flex min-h-screen text-white flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm p-4 mt-12 h-full w-full bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-xlg bg-opacity-10">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm py-4 px-8 mt-12 h-full w-full bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-xlg bg-opacity-10">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">
             Sign-Up
           </h2>
